@@ -21,13 +21,16 @@
   justify-content: space-evenly;
   align-items: center;
 }
+.Header-login a {
+  text-decoration: none;
+}
 
 .Header-login button {
   /* font-weight: bold; */
   border: none;
   /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
   /* border-radius: 10rem; */
-  padding: 5px 10px;
+  padding: 10px 15px;
 }
 
 .Header-navigation {
@@ -56,3 +59,10 @@
 /* .Top-Header {
   display: flex;
 } */
+.divbutton {
+  border: none;
+}
+.p-button-rounded {
+  border: none;
+  border-radius: 1rem;
+}

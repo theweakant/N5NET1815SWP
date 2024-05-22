@@ -17,6 +17,8 @@
 }
 .Footer {
   background-color: #f5f5f5;
+  margin-top: 50px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .Footer-middle {
@@ -60,8 +62,8 @@ hr.solid {
   transition: 0.3s linear;
   text-decoration: none;
   position: absolute;
-  top: -13px;
-  right: 720px;
+  top: -15px;
+  right: 44%;
 }
 
 h3 {

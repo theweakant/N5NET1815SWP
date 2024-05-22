@@ -3,7 +3,9 @@ import "./Header.css";
 import { Col, Container, Row } from "react-bootstrap";
 
 import "primeicons/primeicons.css";
-import BasicInput from "../../components/searchBar";
+import BasicInput from "../searchBar";
+import BasicButton from "../Button/myButton";
+import { routes } from "../../routes";
 
 export default function Header() {
   return (
@@ -20,11 +22,13 @@ export default function Header() {
           ></BasicInput>
         </Col>
         <Col xs={2} className="Header-login">
-          <a href="">
-            <button>Đăng nhập</button>
+          <a href={routes.login}>
+            {/* <button>Đăng nhập</button> */}
+            <BasicButton text={"Đăng nhập"} icon={"pi pi-user"}></BasicButton>
           </a>
-          <a href="">
-            <button>Đăng ký</button>
+          <a href={routes.register}>
+            {/* <button>Đăng ký</button> */}
+            <BasicButton text={"Đăng ký"} icon={"pi pi-sign-in"}></BasicButton>
           </a>
         </Col>
       </Row>

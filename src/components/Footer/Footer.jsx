@@ -1,7 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap";
 import logo from "/assets/images/Logo/logo.png";
 import "./Footer.css";
-import BasicInput from "../../components/searchBar";
+import BasicInput from "../searchBar";
 
 export default function Footer() {
   return (

@@ -1,20 +1,21 @@
-import React from "react";
-import Header from "../layouts/Header/Header";
 import { Col, Container, Row } from "react-bootstrap";
-import Footer from "../layouts/Footer/Footer";
-import ProductCard from "../components/productCard";
 import banner1 from "../../public/assets/images/Banner/banner1.jpg";
 import banner2 from "../../public/assets/images/Banner/banner2.jpg";
 import banner3 from "../../public/assets/images/Banner/banner3.jpg";
 import banner4 from "../../public/assets/images/Banner/banner4.jpg";
 import product1 from "../../public/assets/images/product/product1.png";
-import Banner from "../components/banner";
+import Header from "../components/Header/Header";
+import ProductCard from "../components/productCard/productCard";
+import Footer from "../components/Footer/Footer";
+import Banner from "../components/Banner/banner";
+import RowProduct from "../components/RowProduct/rowProduct";
+
+import rowbanner1 from "../../public/assets/images/rowBanner/rowbanner1.jpg";
 
 export default function GuestPage() {
   return (
     <div>
       <Header></Header>
-
       <Container>
         <Banner
           pic1={banner1}
@@ -60,6 +61,14 @@ export default function GuestPage() {
             ></ProductCard>
           </Col>
         </Row>
+        <Row className="Top-title">
+          <Col>
+            <h4>SẢN PHẨM NỔI BẬT</h4>
+          </Col>
+        </Row>
+        <RowProduct banner={rowbanner1}></RowProduct>
+        <RowProduct banner={rowbanner1}></RowProduct>
+        <RowProduct banner={rowbanner1}></RowProduct>
       </Container>
 
       <Footer></Footer>
