@@ -8,13 +8,15 @@ import {
   MDBCol,
   MDBIcon,
   MDBInput,
+  MDBRadio,
 } from "mdb-react-ui-kit";
-import "./LoginPageCard.css";
+import "./ForgotPassword.css";
 import logobanner from "../../../public/assets/images/LoginBanner/loginbanner.jpg";
 import logo from "../../../public/assets/images/Logo/logo.png";
 import { routes } from "../../routes";
+import { Col, Row } from "react-bootstrap";
 
-function LoginPageCard() {
+function ForgotPasswordPage() {
   return (
     <MDBContainer className="my-5">
       <MDBCard className="form-card">
@@ -42,39 +44,33 @@ function LoginPageCard() {
               </div>
 
               <h5
-                className="fw-normal my-4 pb-3"
+                className="fw-normal my-1 pb-3"
                 style={{ letterSpacing: "1px" }}
               >
-                Đăng Nhập
+                Quên mật khẩu
               </h5>
 
               <MDBInput
-                wrapperClass="mb-4"
-                label="Tài Khoản"
-                id="formControlLg"
-                size="lg"
-              />
-              <MDBInput
-                wrapperClass="mb-4"
-                label="Mật Khẩu"
-                id="formControlLg"
-                type="password"
+                wrapperClass="mb-3"
+                label="Email"
+                placeholder="Nhập email..."
+                id="typeEmail"
+                type="email"
                 size="lg"
               />
 
-              <MDBBtn className="mb-4 px-5 form-button" color="dark" size="lg">
-                Đăng Nhập
+              <MDBBtn className="mb-3 px-5 form-button" color="dark" size="lg">
+                Gửi Đi
               </MDBBtn>
-              <a className="small text-muted" href={routes.forgot}>
-                Quên Mật Khẩu ?
-              </a>
-              <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
-                Bạn chưa có tài khoản ?{" "}
-                <a href={routes.register} style={{ color: "#393f81" }}>
-                  Đăng Ký
+              <div className="form-end">
+                <a href={routes.login} style={{ color: "#393f81" }}>
+                  Quay lại đăng nhập
                 </a>
-              </p>
 
+                <a href={routes.register} style={{ color: "#393f81" }}>
+                  Đăng ký tài khoản mới
+                </a>
+              </div>
               <div className="d-flex flex-row justify-content-start">
                 <a href="#!" className="small text-muted me-1">
                   {/* Terms of use. */}
@@ -91,4 +87,4 @@ function LoginPageCard() {
   );
 }
 
-export default LoginPageCard;
+export default ForgotPasswordPage;

@@ -1,16 +1,16 @@
 import { Col, Container, Row } from "react-bootstrap";
-import banner1 from "../../public/assets/images/Banner/banner1.jpg";
-import banner2 from "../../public/assets/images/Banner/banner2.jpg";
-import banner3 from "../../public/assets/images/Banner/banner3.jpg";
-import banner4 from "../../public/assets/images/Banner/banner4.jpg";
-import product1 from "../../public/assets/images/product/product1.png";
-import Header from "../components/Header/Header";
-import ProductCard from "../components/productCard/productCard";
-import Footer from "../components/Footer/Footer";
-import Banner from "../components/Banner/banner";
-import RowProduct from "../components/RowProduct/rowProduct";
-
-import rowbanner1 from "../../public/assets/images/rowBanner/rowbanner1.jpg";
+import banner1 from "../../../public/assets/images/Banner/banner1.jpg";
+import banner2 from "../../../public/assets/images/Banner/banner2.jpg";
+import banner3 from "../../../public/assets/images/Banner/banner3.jpg";
+import banner4 from "../../../public/assets/images/Banner/banner4.jpg";
+import product1 from "../../../public/assets/images/product/product1.png";
+import Header from "../../components/Header/Header";
+import ProductCard from "../../components/productCard/productCard";
+import Footer from "../../components/Footer/Footer";
+import Banner from "../../components/Banner/banner";
+import RowProduct from "../../components/RowProduct/rowProduct";
+import "./GuestPage.css";
+import rowbanner1 from "../../../public/assets/images/rowBanner/rowbanner1.jpg";
 
 export default function GuestPage() {
   return (
@@ -61,9 +61,9 @@ export default function GuestPage() {
             ></ProductCard>
           </Col>
         </Row>
-        <Row className="Top-title">
+        <Row>
           <Col>
-            <h4>SẢN PHẨM NỔI BẬT</h4>
+            <h4 className="Top-title">SẢN PHẨM NỔI BẬT</h4>
           </Col>
         </Row>
         <RowProduct banner={rowbanner1}></RowProduct>

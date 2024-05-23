@@ -140,9 +140,7 @@ function RegisterPageCard() {
               <MDBBtn className="mb-3 px-5 form-button" color="dark" size="lg">
                 Đăng Ký
               </MDBBtn>
-              <a className="small text-muted" href="#!">
-                Quên Mật Khẩu ?
-              </a>
+
               <p className="mb-1 pb-lg-2" style={{ color: "#393f81" }}>
                 Bạn đã có tài khoản ?{" "}
                 <a href={routes.login} style={{ color: "#393f81" }}>

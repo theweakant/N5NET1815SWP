@@ -13,7 +13,9 @@ export default function Header() {
       <Row className="Top-header">
         <Col xs={4}></Col>
         <Col xs={4} className="Header-logo">
-          <img src={logo} alt="" />
+          <a href="/">
+            <img src={logo} alt="" />
+          </a>
         </Col>
         <Col xs={2} className="Header-search">
           <BasicInput
@@ -44,7 +46,7 @@ export default function Header() {
           <a href="">Sản Phẩm Về Kim Cương</a>
         </Col>
         <Col className="Header-navigation">
-          <a href="">Hướng Dẫn Đo Ni</a>
+          <a href={routes.size}>Hướng Dẫn Đo Ni</a>
         </Col>
         <Col className="Header-navigation">
           <a href="">Kiến Thức Trang Sức</a>
@@ -53,7 +55,7 @@ export default function Header() {
           <a href="">Bảng Giá Kim Cương</a>
         </Col>
         <Col className="Header-navigation">
-          <a href="">Câu Hỏi Thường Gặp</a>
+          <a href={routes.faq}>Câu Hỏi Thường Gặp</a>
         </Col>
       </Row>
     </Container>
