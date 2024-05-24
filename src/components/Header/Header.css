@@ -30,7 +30,7 @@
   /* border: none; */
   /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
   /* border-radius: 10rem; */
-  padding: 10px 10px;
+  padding: 10px 5px;
 }
 
 .Header-navigation {
@@ -52,6 +52,11 @@
   padding-bottom: 2%;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
+
+.Bottom-header {
+  padding-top: 1%;
+}
+
 .p-inputtext {
   padding: 0.5rem 2rem;
   border-radius: 10rem;
@@ -65,4 +70,17 @@
 .p-button-rounded {
   border: none;
   border-radius: 1rem;
+}
+
+.Header-left {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 10px;
+}
+
+.Header-left-component {
+  display: flex;
+  justify-content: space-between;
+  gap: 0 10px;
 }

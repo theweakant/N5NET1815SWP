@@ -11,7 +11,20 @@ export default function Header() {
   return (
     <Container fluid className="Header" id="header">
       <Row className="Top-header">
-        <Col xs={4}></Col>
+        <Col xs={4} className="Header-left">
+          <div className="Header-left-component">
+            <i className="pi pi-phone"></i>
+            <p>1800 1168</p>
+          </div>
+          <div className="Header-left-component">
+            <i className="pi pi-building"></i>
+            <p>HỆ THỐNG SHOWROOM</p>
+          </div>
+          <div className="Header-left-component">
+            <i className="pi pi-map"></i>
+            <p>HỆ THỐNG PHÂN PHỐI</p>
+          </div>
+        </Col>
         <Col xs={4} className="Header-logo">
           <a href="/">
             <img src={logo} alt="" />
