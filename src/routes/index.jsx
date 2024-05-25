@@ -5,5 +5,10 @@ export const routes = {
   forgot: "/forgotpassword",
   faq: "/faq",
   size: "/size",
+<<<<<<< Updated upstream
   profile: "/profile",
+=======
+  bst: "/bo-suu-tap",
+  ktkc: "/kien-thuc-kim-cuong",
+>>>>>>> Stashed changes
 };

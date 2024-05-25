@@ -1,0 +1,23 @@
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: rgb(37,131,137);
+}
+.type{
+    margin-left: 8%;    
+    font-weight: bold;
+}
+.content{
+    margin-left: 8%;
+    margin-right: 8%;
+}
+.dk{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}  
+.dk>img{
+    width: 50%;
+}

@@ -7,7 +7,12 @@ import RegisterPageCard from "../pages/RegisterPage/RegisterPage";
 import ForgotPasswordPage from "../pages/ForgotPasswordPage.jsx/ForgotPasswordPage";
 import FAQPage from "../pages/FAQPage/FAQPage";
 import SizePage from "../pages/SizePage/SizePage";
+<<<<<<< Updated upstream
 import ProfilePage from "../pages/ProfilePage/ProfilePage";
+=======
+import CollectionPage from "../pages/CollectionPage/CollectionPage";
+import DiamondKnowledgePage from "../pages/DiamondKnowledgePage/DiamondKnowledgePage";
+>>>>>>> Stashed changes
 
 export default function AppRoute() {
   return (
@@ -18,7 +23,12 @@ export default function AppRoute() {
       <Route path={routes.forgot} element={<ForgotPasswordPage />} />
       <Route path={routes.faq} element={<FAQPage />} />
       <Route path={routes.size} element={<SizePage />} />
+<<<<<<< Updated upstream
       <Route path={routes.profile} element={<ProfilePage />} />
+=======
+      <Route path={routes.bst} element={<CollectionPage />} />
+      <Route path={routes.ktkc} element={<DiamondKnowledgePage />} />
+>>>>>>> Stashed changes
     </Routes>
   );
 }
