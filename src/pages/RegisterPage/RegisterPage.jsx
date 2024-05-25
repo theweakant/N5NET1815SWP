@@ -12,18 +12,20 @@ import {
 } from "mdb-react-ui-kit";
 import "./RegisterPage.css";
 import logobanner from "../../../public/assets/images/LoginBanner/loginbanner.jpg";
+import registerbanner from "../../../public/assets/images/LoginBanner/registerbanner.jpg";
 import logo from "../../../public/assets/images/Logo/logo.png";
 import { routes } from "../../routes";
 import { Col, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function RegisterPageCard() {
   return (
     <MDBContainer className="my-5">
-      <MDBCard className="form-card">
+      <MDBCard>
         <MDBRow className="g-0">
           <MDBCol md="6">
             <MDBCardImage
-              src={logobanner}
+              src={registerbanner}
               alt="login form"
               className="rounded-start w-100"
             />
@@ -31,20 +33,20 @@ function RegisterPageCard() {
 
           <MDBCol md="6">
             <MDBCardBody className="d-flex flex-column">
-              <a href={routes.home} className="form-comeback">
+              <Link to={routes.home} className="form-comeback">
                 <i
                   className="pi pi-arrow-circle-left"
                   style={{ fontSize: "2rem" }}
                 ></i>
                 <span className="">Quay Lại Trang Chủ</span>
-              </a>
+              </Link>
               <div className="d-flex flex-row mt-2 form-header">
                 <img src={logo} alt="" className="form-logo" />
                 <span className="h1 fw-bold mb-0">Five Diamond</span>
               </div>
 
               <h5
-                className="fw-normal my-1 pb-3"
+                className="fw-normal my-0 pb-3"
                 style={{ letterSpacing: "1px" }}
               >
                 Đăng Ký
@@ -137,25 +139,25 @@ function RegisterPageCard() {
                 size="lg"
               />
 
-              <MDBBtn className="mb-3 px-5 form-button" color="dark" size="lg">
+              <MDBBtn className="mb-1 px-5 form-button" color="dark" size="lg">
                 Đăng Ký
               </MDBBtn>
 
               <p className="mb-1 pb-lg-2" style={{ color: "#393f81" }}>
                 Bạn đã có tài khoản ?{" "}
-                <a href={routes.login} style={{ color: "#393f81" }}>
+                <Link to={routes.login} style={{ color: "#393f81" }}>
                   Đăng Nhập Ngay
-                </a>
+                </Link>
               </p>
 
-              <div className="d-flex flex-row justify-content-start">
+              {/* <div className="d-flex flex-row justify-content-start">
                 <a href="#!" className="small text-muted me-1">
-                  {/* Terms of use. */}
+                  Terms of use.
                 </a>
                 <a href="#!" className="small text-muted">
-                  {/* Privacy policy */}
+                  Privacy policy
                 </a>
-              </div>
+              </div> */}
             </MDBCardBody>
           </MDBCol>
         </MDBRow>

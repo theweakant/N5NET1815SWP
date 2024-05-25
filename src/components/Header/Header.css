@@ -26,11 +26,8 @@
 }
 
 .Header-login button {
-  /* font-weight: bold; */
-  /* border: none; */
-  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
-  /* border-radius: 10rem; */
-  padding: 10px 5px;
+  padding: 8px 7px;
+  border-radius: 1rem;
 }
 
 .Header-navigation {
@@ -44,8 +41,8 @@
   text-decoration: none;
 }
 .Header-navigation a:hover {
+  color: black;
   text-decoration: underline;
-  /* transition: 2s; */
 }
 
 .Header {
@@ -61,15 +58,14 @@
   padding: 0.5rem 2rem;
   border-radius: 10rem;
 }
-/* .Top-Header {
-  display: flex;
-} */
+
 .divbutton {
-  border: none;
+  border: 3px solid black;
+  background-color: #ffffff;
 }
 .p-button-rounded {
   border: none;
-  border-radius: 1rem;
+  border-radius: 100rem;
 }
 
 .Header-left {

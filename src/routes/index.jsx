@@ -5,4 +5,5 @@ export const routes = {
   forgot: "/forgotpassword",
   faq: "/faq",
   size: "/size",
+  bst: "/bo-suu-tap",
 };

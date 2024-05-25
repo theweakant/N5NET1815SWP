@@ -7,6 +7,7 @@ import RegisterPageCard from "../pages/RegisterPage/RegisterPage";
 import ForgotPasswordPage from "../pages/ForgotPasswordPage.jsx/ForgotPasswordPage";
 import FAQPage from "../pages/FAQPage/FAQPage";
 import SizePage from "../pages/SizePage/SizePage";
+import CollectionPage from "../pages/CollectionPage/CollectionPage";
 
 export default function AppRoute() {
   return (
@@ -17,6 +18,7 @@ export default function AppRoute() {
       <Route path={routes.forgot} element={<ForgotPasswordPage />} />
       <Route path={routes.faq} element={<FAQPage />} />
       <Route path={routes.size} element={<SizePage />} />
+      <Route path={routes.bst} element={<CollectionPage />} />
     </Routes>
   );
 }

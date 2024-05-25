@@ -1,0 +1,33 @@
+.Collection {
+  border: 1px solid grey;
+  padding: 5% 1%;
+}
+
+.row-Collection {
+  margin-top: 5%;
+}
+
+.row-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.row-center img {
+  width: 95%;
+}
+.Collection-title {
+  color: #38a9b8;
+}
+
+.Collection-desc {
+  color: black;
+}
+
+.collectionLink {
+  margin-top: 20%;
+}
+.collectionButton {
+  border-radius: 10rem;
+}

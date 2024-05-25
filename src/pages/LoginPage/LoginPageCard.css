@@ -1,7 +1,9 @@
 body {
   /* background-color: #e8e8e8 !important; */
 }
-
+.background-login {
+  /* background-color: #e8e8e8 !important;   */
+}
 .form-logo {
   width: 20%;
 }
@@ -31,4 +33,11 @@ body {
   background-color: #06b6d4 !important ;
   color: white !important;
   font-weight: bold !important;
+}
+
+.google-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }

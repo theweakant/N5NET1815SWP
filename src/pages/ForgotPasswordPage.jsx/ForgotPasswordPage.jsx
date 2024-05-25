@@ -12,9 +12,12 @@ import {
 } from "mdb-react-ui-kit";
 import "./ForgotPassword.css";
 import logobanner from "../../../public/assets/images/LoginBanner/loginbanner.jpg";
+import forgotbanner from "../../../public/assets/images/LoginBanner/forgotbanner.jpg";
+
 import logo from "../../../public/assets/images/Logo/logo.png";
 import { routes } from "../../routes";
 import { Col, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function ForgotPasswordPage() {
   return (
@@ -23,7 +26,7 @@ function ForgotPasswordPage() {
         <MDBRow className="g-0">
           <MDBCol md="6">
             <MDBCardImage
-              src={logobanner}
+              src={forgotbanner}
               alt="login form"
               className="rounded-start w-100"
             />
@@ -31,13 +34,13 @@ function ForgotPasswordPage() {
 
           <MDBCol md="6">
             <MDBCardBody className="d-flex flex-column">
-              <a href={routes.home} className="form-comeback">
+              <Link to={routes.home} className="form-comeback">
                 <i
                   className="pi pi-arrow-circle-left"
                   style={{ fontSize: "2rem" }}
                 ></i>
                 <span className="">Quay Lại Trang Chủ</span>
-              </a>
+              </Link>
               <div className="d-flex flex-row mt-2 form-header">
                 <img src={logo} alt="" className="form-logo" />
                 <span className="h1 fw-bold mb-0">Five Diamond</span>
@@ -63,13 +66,13 @@ function ForgotPasswordPage() {
                 Gửi Đi
               </MDBBtn>
               <div className="form-end">
-                <a href={routes.login} style={{ color: "#393f81" }}>
+                <Link to={routes.login} style={{ color: "#393f81" }}>
                   Quay lại đăng nhập
-                </a>
+                </Link>
 
-                <a href={routes.register} style={{ color: "#393f81" }}>
+                <Link to={routes.register} style={{ color: "#393f81" }}>
                   Đăng ký tài khoản mới
-                </a>
+                </Link>
               </div>
               <div className="d-flex flex-row justify-content-start">
                 <a href="#!" className="small text-muted me-1">

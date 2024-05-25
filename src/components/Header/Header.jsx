@@ -6,6 +6,7 @@ import "primeicons/primeicons.css";
 import BasicInput from "../searchBar";
 import BasicButton from "../Button/myButton";
 import { routes } from "../../routes";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -26,9 +27,9 @@ export default function Header() {
           </div>
         </Col>
         <Col xs={4} className="Header-logo">
-          <a href="/">
+          <Link to={routes.home}>
             <img src={logo} alt="" />
-          </a>
+          </Link>
         </Col>
         <Col xs={2} className="Header-search">
           <BasicInput
@@ -37,14 +38,14 @@ export default function Header() {
           ></BasicInput>
         </Col>
         <Col xs={2} className="Header-login">
-          <a href={routes.login}>
+          <Link to={routes.login}>
             {/* <button>Đăng nhập</button> */}
             <BasicButton text={"Đăng nhập"} icon={"pi pi-user"}></BasicButton>
-          </a>
-          <a href={routes.register}>
+          </Link>
+          <Link to={routes.register}>
             {/* <button>Đăng ký</button> */}
             <BasicButton text={"Đăng ký"} icon={"pi pi-sign-in"}></BasicButton>
-          </a>
+          </Link>
         </Col>
       </Row>
 
@@ -53,22 +54,22 @@ export default function Header() {
           <a href="">Giới Thiệu</a>
         </Col>
         <Col className="Header-navigation">
-          <a href="">Bộ Sưu Tập</a>
+          <Link to={routes.bst}>Bộ Sưu Tập</Link>
         </Col>
         <Col className="Header-navigation">
-          <a href="">Sản Phẩm Về Kim Cương</a>
+          <Link to="">Sản Phẩm Về Kim Cương</Link>
         </Col>
         <Col className="Header-navigation">
-          <a href={routes.size}>Hướng Dẫn Đo Ni</a>
+          <Link to="">Hướng Dẫn Đo Ni</Link>
         </Col>
         <Col className="Header-navigation">
-          <a href="">Kiến Thức Trang Sức</a>
+          <Link to="">Kiến Thức Trang Sức</Link>
         </Col>
         <Col className="Header-navigation">
-          <a href="">Bảng Giá Kim Cương</a>
+          <Link to="">Bảng Giá Kim Cương</Link>
         </Col>
         <Col className="Header-navigation">
-          <a href={routes.faq}>Câu Hỏi Thường Gặp</a>
+          <Link to={routes.faq}>Câu Hỏi Thường Gặp</Link>
         </Col>
       </Row>
     </Container>
