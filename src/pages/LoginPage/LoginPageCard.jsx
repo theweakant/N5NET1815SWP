@@ -56,28 +56,31 @@ function LoginPageCard() {
                 >
                   Đăng Nhập
                 </h5>
+                <form action="">
+                  <MDBInput
+                    wrapperClass="mb-4"
+                    label="Tài Khoản"
+                    id="formControlLg"
+                    size="lg"
+                    name="username"
+                  />
+                  <MDBInput
+                    wrapperClass="mb-4"
+                    label="Mật Khẩu"
+                    id="formControlLg"
+                    type="password"
+                    size="lg"
+                    name="password"
+                  />
 
-                <MDBInput
-                  wrapperClass="mb-4"
-                  label="Tài Khoản"
-                  id="formControlLg"
-                  size="lg"
-                />
-                <MDBInput
-                  wrapperClass="mb-4"
-                  label="Mật Khẩu"
-                  id="formControlLg"
-                  type="password"
-                  size="lg"
-                />
-
-                <MDBBtn
-                  className="mb-1 px-5 form-button"
-                  color="dark"
-                  size="lg"
-                >
-                  Đăng Nhập
-                </MDBBtn>
+                  <MDBBtn
+                    className="mb-1 px-5 form-button"
+                    color="dark"
+                    size="lg"
+                  >
+                    Đăng Nhập
+                  </MDBBtn>
+                </form>
                 <p className="mb-1" style={{ textAlign: "center" }}>
                   Hoặc
                 </p>

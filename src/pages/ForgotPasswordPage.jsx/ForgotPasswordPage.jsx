@@ -52,19 +52,25 @@ function ForgotPasswordPage() {
               >
                 Quên mật khẩu
               </h5>
+              <form action="">
+                <MDBInput
+                  wrapperClass="mb-3"
+                  label="Email"
+                  placeholder="Nhập email..."
+                  id="typeEmail"
+                  type="email"
+                  size="lg"
+                  name="email"
+                />
 
-              <MDBInput
-                wrapperClass="mb-3"
-                label="Email"
-                placeholder="Nhập email..."
-                id="typeEmail"
-                type="email"
-                size="lg"
-              />
-
-              <MDBBtn className="mb-3 px-5 form-button" color="dark" size="lg">
-                Gửi Đi
-              </MDBBtn>
+                <MDBBtn
+                  className="mb-3 px-5 form-button"
+                  color="dark"
+                  size="lg"
+                >
+                  Gửi Đi
+                </MDBBtn>
+              </form>
               <div className="form-end">
                 <Link to={routes.login} style={{ color: "#393f81" }}>
                   Quay lại đăng nhập
