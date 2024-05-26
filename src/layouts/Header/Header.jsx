@@ -31,7 +31,7 @@ export default function Header() {
 
       <Row className="Bottom-header">
         <Col className="Header-navigation">
-          <a href="">Giới Thiệu</a>
+          <a href="aboutus">Giới Thiệu</a>
         </Col>
         <Col className="Header-navigation">
           <a href="">Bộ Sưu Tập</a>
