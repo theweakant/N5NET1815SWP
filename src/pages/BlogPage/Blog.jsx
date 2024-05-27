@@ -17,6 +17,7 @@ export default function Blog() {
           link2={routes.bst}
           title2="CHÍNH SÁCH BẢO HÀNH"
           title3="THÔNG TIN KHUYẾN MÃI"
+          link3={routes.sale}
         ></MyBreadcrumb>
         <RowCollection
           collectionImage={rowbanner1}

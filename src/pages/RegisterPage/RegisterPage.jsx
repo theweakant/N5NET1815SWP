@@ -91,18 +91,7 @@ function RegisterPageCard() {
                   >
                     <Input />
                   </Form.Item>
-                  <Form.Item
-                    label="Email"
-                    name="email"
-                    rules={[
-                      {
-                        required: true,
-                        message: "Hãy nhập Email của bạn",
-                      },
-                    ]}
-                  >
-                    <Input type="email" required />
-                  </Form.Item>
+
                   <Form.Item
                     label="Số Điện Thoại"
                     name="phone"
@@ -141,16 +130,16 @@ function RegisterPageCard() {
                     </Select>
                   </Form.Item>
                   <Form.Item
-                    label="Tên Đăng Nhập"
-                    name="username"
+                    label="Email"
+                    name="email"
                     rules={[
                       {
                         required: true,
-                        message: "Hãy nhập Tên tài khoản của bạn",
+                        message: "Hãy nhập Email của bạn",
                       },
                     ]}
                   >
-                    <Input />
+                    <Input type="email" required />
                   </Form.Item>
                   <Form.Item
                     label="Mật Khẩu"

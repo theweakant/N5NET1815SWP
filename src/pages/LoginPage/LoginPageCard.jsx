@@ -74,16 +74,16 @@ function LoginPageCard() {
                     className="form-main"
                   >
                     <Form.Item
-                      label="Tên Đăng Nhập"
-                      name="username"
+                      label="Email"
+                      name="email"
                       rules={[
                         {
                           required: true,
-                          message: "Nhập Tài Khoản của bạn",
+                          message: "Hãy nhập Email của bạn",
                         },
                       ]}
                     >
-                      <Input />
+                      <Input type="email" required />
                     </Form.Item>
                     <Form.Item
                       label="Mật Khẩu"

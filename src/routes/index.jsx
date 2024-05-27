@@ -8,4 +8,5 @@ export const routes = {
   bst: "/bo-suu-tap",
   admin: "/admin",
   blog: "/blog",
+  sale: "/sale",
 };
