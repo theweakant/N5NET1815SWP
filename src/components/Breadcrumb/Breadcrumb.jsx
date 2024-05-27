@@ -26,27 +26,21 @@ export default function MyBreadcrumb({
         <BreadcrumbItem isCurrentPage={isChoice1}>
           <Link to={link1}>
             {" "}
-            <BreadcrumbLink className="my-breadcrump-link">
-              {title1}
-            </BreadcrumbLink>
+            <BreadcrumbLink>{title1}</BreadcrumbLink>
           </Link>
         </BreadcrumbItem>
 
         <BreadcrumbItem isCurrentPage={isChoice2}>
           <Link to={link2}>
             {" "}
-            <BreadcrumbLink className="my-breadcrump-link">
-              {title2}
-            </BreadcrumbLink>
+            <BreadcrumbLink>{title2}</BreadcrumbLink>
           </Link>{" "}
         </BreadcrumbItem>
 
         <BreadcrumbItem isCurrentPage={isChoice3}>
           <Link to={link3}>
             {" "}
-            <BreadcrumbLink className="my-breadcrump-link">
-              {title3}
-            </BreadcrumbLink>
+            <BreadcrumbLink>{title3}</BreadcrumbLink>
           </Link>{" "}
         </BreadcrumbItem>
       </Breadcrumb>

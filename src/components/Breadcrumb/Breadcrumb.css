@@ -1,9 +1,6 @@
 .my-breadcrump {
   margin-top: 5%;
+  /* color: #06b6d4; */
   font-size: larger;
   font-weight: bold;
-}
-
-.my-breadcrump-link {
-  color: #06b6d4 !important;
 }
