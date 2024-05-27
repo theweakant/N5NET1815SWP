@@ -9,6 +9,10 @@ export const routes = {
   profile: "/profile",
 =======
   bst: "/bo-suu-tap",
+<<<<<<< Updated upstream
   ktkc: "/kien-thuc-kim-cuong",
+>>>>>>> Stashed changes
+=======
+  sale:"chuong-trinh-khuyen-mai",
 >>>>>>> Stashed changes
 };

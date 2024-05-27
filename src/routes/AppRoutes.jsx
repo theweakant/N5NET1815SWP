@@ -11,7 +11,11 @@ import SizePage from "../pages/SizePage/SizePage";
 import ProfilePage from "../pages/ProfilePage/ProfilePage";
 =======
 import CollectionPage from "../pages/CollectionPage/CollectionPage";
+<<<<<<< Updated upstream
 import DiamondKnowledgePage from "../pages/DiamondKnowledgePage/DiamondKnowledgePage";
+>>>>>>> Stashed changes
+=======
+import SaleEventPage from "../pages/SaleEventPage/SaleEventPage";
 >>>>>>> Stashed changes
 
 export default function AppRoute() {
@@ -27,7 +31,11 @@ export default function AppRoute() {
       <Route path={routes.profile} element={<ProfilePage />} />
 =======
       <Route path={routes.bst} element={<CollectionPage />} />
+<<<<<<< Updated upstream
       <Route path={routes.ktkc} element={<DiamondKnowledgePage />} />
+>>>>>>> Stashed changes
+=======
+      <Route path={routes.sale} element={<SaleEventPage />} />
 >>>>>>> Stashed changes
     </Routes>
   );
