@@ -1,0 +1,55 @@
+.container {
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.blog-img-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.banner-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+h1,
+h2,
+h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.checkbox-container {
+    overflow-y: auto;
+    max-height: 200px;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.checkbox-stack {
+    display: flex;
+    flex-direction: column;
+}
+
+.result-box {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    overflow-y: auto;
+    max-height: 200px;
+}
+
+.result-item {
+    margin-bottom: 10px;
+}
+
+.button-calculate {
+    margin-top: 10px;
+    width: 100%;
+}
