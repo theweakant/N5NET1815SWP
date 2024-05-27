@@ -18,6 +18,7 @@ export default function GuestPage() {
       <Header></Header>
       <Container>
         <Banner
+          className="banner"
           pic1={banner1}
           pic2={banner2}
           pic3={banner3}
