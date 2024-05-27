@@ -1,13 +1,10 @@
 import {
-  MDBBtn,
   MDBContainer,
   MDBCard,
   MDBCardBody,
   MDBCardImage,
   MDBRow,
   MDBCol,
-  MDBIcon,
-  MDBInput,
 } from "mdb-react-ui-kit";
 import "./LoginPageCard.css";
 import logobanner from "../../../public/assets/images/LoginBanner/loginbanner.jpg";
@@ -15,8 +12,21 @@ import logo from "../../../public/assets/images/Logo/logo.png";
 import { routes } from "../../routes";
 import { Link } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
+import { Button, Form, Input } from "antd";
+import axios from "axios";
+import { useForm } from "antd/es/form/Form";
 
 function LoginPageCard() {
+  const [form] = useForm();
+  function hanldeClickSubmit() {
+    form.submit();
+  }
+
+  async function handleSubmit(value) {
+    console.log(value);
+    await axios.post("http://157.245.145.162:8080/api/register", value);
+  }
+
   const responseMessage = (response) => {
     console.log(response);
   };
@@ -56,31 +66,42 @@ function LoginPageCard() {
                 >
                   Đăng Nhập
                 </h5>
-                <form action="">
-                  <MDBInput
-                    wrapperClass="mb-4"
-                    label="Tài Khoản"
-                    id="formControlLg"
-                    size="lg"
-                    name="username"
-                  />
-                  <MDBInput
-                    wrapperClass="mb-4"
-                    label="Mật Khẩu"
-                    id="formControlLg"
-                    type="password"
-                    size="lg"
-                    name="password"
-                  />
-
-                  <MDBBtn
-                    className="mb-1 px-5 form-button"
-                    color="dark"
-                    size="lg"
+                <div className="form">
+                  <Form
+                    form={form}
+                    onFinish={handleSubmit}
+                    id="form"
+                    className="form-main"
                   >
-                    Đăng Nhập
-                  </MDBBtn>
-                </form>
+                    <Form.Item
+                      label="Tên Đăng Nhập"
+                      name="username"
+                      rules={[
+                        {
+                          required: true,
+                          message: "Nhập Tài Khoản của bạn",
+                        },
+                      ]}
+                    >
+                      <Input />
+                    </Form.Item>
+                    <Form.Item
+                      label="Mật Khẩu"
+                      name="password"
+                      rules={[
+                        {
+                          required: true,
+                          message: "Hãy nhập Mật Khẩu của bạn",
+                        },
+                      ]}
+                    >
+                      <Input type="password" />
+                    </Form.Item>
+                    <Button onClick={hanldeClickSubmit} className="form-button">
+                      Đăng Nhập
+                    </Button>
+                  </Form>
+                </div>
                 <p className="mb-1" style={{ textAlign: "center" }}>
                   Hoặc
                 </p>

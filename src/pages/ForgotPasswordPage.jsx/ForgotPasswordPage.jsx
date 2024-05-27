@@ -1,25 +1,31 @@
 import {
-  MDBBtn,
   MDBContainer,
   MDBCard,
   MDBCardBody,
   MDBCardImage,
   MDBRow,
   MDBCol,
-  MDBIcon,
-  MDBInput,
-  MDBRadio,
 } from "mdb-react-ui-kit";
 import "./ForgotPassword.css";
-import logobanner from "../../../public/assets/images/LoginBanner/loginbanner.jpg";
 import forgotbanner from "../../../public/assets/images/LoginBanner/forgotbanner.jpg";
 
 import logo from "../../../public/assets/images/Logo/logo.png";
 import { routes } from "../../routes";
-import { Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { Button, Form, Input } from "antd";
+import { useForm } from "antd/es/form/Form";
+import axios from "axios";
 
 function ForgotPasswordPage() {
+  const [form] = useForm();
+  function hanldeClickSubmit() {
+    form.submit();
+  }
+
+  async function handleSubmit(value) {
+    console.log(value);
+    await axios.post("http://157.245.145.162:8080/api/register", value);
+  }
   return (
     <MDBContainer className="my-5">
       <MDBCard className="form-card">
@@ -52,25 +58,30 @@ function ForgotPasswordPage() {
               >
                 Quên mật khẩu
               </h5>
-              <form action="">
-                <MDBInput
-                  wrapperClass="mb-3"
-                  label="Email"
-                  placeholder="Nhập email..."
-                  id="typeEmail"
-                  type="email"
-                  size="lg"
-                  name="email"
-                />
-
-                <MDBBtn
-                  className="mb-3 px-5 form-button"
-                  color="dark"
-                  size="lg"
+              <div className="form">
+                <Form
+                  form={form}
+                  onFinish={handleSubmit}
+                  id="form"
+                  className="form-main"
                 >
-                  Gửi Đi
-                </MDBBtn>
-              </form>
+                  <Form.Item
+                    label="Email"
+                    name="email"
+                    rules={[
+                      {
+                        required: true,
+                        message: "Hãy nhập email của bạn",
+                      },
+                    ]}
+                  >
+                    <Input type="email" required />
+                  </Form.Item>
+                  <Button onClick={hanldeClickSubmit} className="form-button">
+                    Gửi Đi
+                  </Button>
+                </Form>
+              </div>
               <div className="form-end">
                 <Link to={routes.login} style={{ color: "#393f81" }}>
                   Quay lại đăng nhập

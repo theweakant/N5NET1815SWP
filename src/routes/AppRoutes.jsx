@@ -8,6 +8,9 @@ import ForgotPasswordPage from "../pages/ForgotPasswordPage.jsx/ForgotPasswordPa
 import FAQPage from "../pages/FAQPage/FAQPage";
 import SizePage from "../pages/SizePage/SizePage";
 import CollectionPage from "../pages/CollectionPage/CollectionPage";
+import AdminPage from "../pages/AdminDashboard/AdminPage";
+import RegisterPageBackup from "../pages/RegisterPage/RegisterPageBackup";
+import Blog from "../pages/BlogPage/Blog";
 
 export default function AppRoute() {
   return (
@@ -19,6 +22,8 @@ export default function AppRoute() {
       <Route path={routes.faq} element={<FAQPage />} />
       <Route path={routes.size} element={<SizePage />} />
       <Route path={routes.bst} element={<CollectionPage />} />
+      <Route path={routes.admin} element={<AdminPage />} />
+      <Route path={routes.blog} element={<Blog />} />
     </Routes>
   );
 }

@@ -6,4 +6,6 @@ export const routes = {
   faq: "/faq",
   size: "/size",
   bst: "/bo-suu-tap",
+  admin: "/admin",
+  blog: "/blog",
 };

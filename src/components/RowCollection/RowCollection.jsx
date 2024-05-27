@@ -1,6 +1,4 @@
-import React from "react";
 import { Col, Row } from "react-bootstrap";
-import rowbanner1 from "../../../public/assets/images/rowBanner/rowbanner1.jpg";
 import "./RowCollection.css";
 import { Button } from "primereact/button";
 import { Link } from "react-router-dom";

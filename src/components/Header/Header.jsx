@@ -14,6 +14,12 @@ export default function Header() {
       <Row className="Top-header">
         <Col xs={4} className="Header-left">
           <div className="Header-left-component">
+            <Link to={routes.admin}>
+              {" "}
+              <p>Vào Trang admin</p>
+            </Link>
+          </div>
+          <div className="Header-left-component">
             <i className="pi pi-phone"></i>
             <p>1800 1168</p>
           </div>
@@ -63,7 +69,7 @@ export default function Header() {
           <Link to="">Hướng Dẫn Đo Ni</Link>
         </Col>
         <Col className="Header-navigation">
-          <Link to="">Kiến Thức Trang Sức</Link>
+          <Link to={routes.blog}>Kiến Thức Trang Sức</Link>
         </Col>
         <Col className="Header-navigation">
           <Link to="">Bảng Giá Kim Cương</Link>
