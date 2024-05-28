@@ -1,72 +1,75 @@
 .accessory-infor-container {
-    margin: 0 auto;
-    margin-bottom: 100px;
-    width: 70%;
-    font-family: 'Arial', sans-serif;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  width: 70%;
+  font-family: "Arial", sans-serif;
 }
 
 .accessory-infor-container h1 {
-    color: #258389;
-    text-align: center;
-    font-weight: bold;
-    font-size: 40px;
-    margin-top: 30px;
+  color: #258389;
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+  margin-top: 30px;
 }
 
 .accessory-infor-container h2 {
-    text-align: left;
-    margin-left: 0;
-    font-weight: bold;
-    font-size: 30px;
-    color: #258389;
+  text-align: left;
+  margin-left: 0;
+  font-weight: bold;
+  font-size: 30px;
+  color: #258389;
 }
 
 .accessory-infor p {
-    line-height: 1.6;
-    color: #555;
-    margin: 10px 0;
-
+  line-height: 1.6;
+  color: #555;
+  margin: 10px 0;
 }
 
 .accessory-infor {
-    padding-bottom: 50px;
-    border-bottom: 1px solid #e0e0e0;
-    margin: 10px 0 20px 0;
+  padding-bottom: 50px;
+  border-bottom: 1px solid #e0e0e0;
+  margin: 10px 0 20px 0;
+}
+
+.accessory-infor h1 {
+  margin-top: 10%;
 }
 
 .accessory-infor-img {
-    width: 100%;
-    height: auto;
-    margin: 20px 0;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: auto;
+  margin: 20px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .accessory-infor p strong {
-    font-weight: bold;
-    color: #258389;
-    font-size: 18px;
+  font-weight: bold;
+  color: #258389;
+  font-size: 18px;
 }
 
 .accessory-infor-container h6 {
-    color: #258389;
-    text-align: center;
-    margin-top: 50px;
-    font-size: 16px;
-    line-height: 1.6;
-    font-weight: normal;
+  color: #258389;
+  text-align: center;
+  margin-top: 50px;
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: normal;
 }
 
 @media (max-width: 768px) {
-    .accessory-infor-container {
-        width: 90%;
-    }
+  .accessory-infor-container {
+    width: 90%;
+  }
 
-    .accessory-infor-container h1 {
-        font-size: 32px;
-    }
+  .accessory-infor-container h1 {
+    font-size: 32px;
+  }
 
-    .accessory-infor-container h2 {
-        font-size: 20px;
-    }
+  .accessory-infor-container h2 {
+    font-size: 20px;
+  }
 }

@@ -13,9 +13,10 @@ export default function Blog() {
       <Container>
         <MyBreadcrumb
           title1="KIẾN THỨC"
-          isChoice3={true}
-          link2={routes.bst}
+          link1={routes.blog}
+          isChoice1={true}
           title2="CHÍNH SÁCH BẢO HÀNH"
+          link2={routes.warrantyPolicy}
           title3="THÔNG TIN KHUYẾN MÃI"
           link3={routes.sale}
         ></MyBreadcrumb>
@@ -41,7 +42,7 @@ nghĩa là “kim loại cứng”."
           collectionDesc="Ngay từ buổi đầu, trang sức đã là một phần không thể thiếu trong văn minh
 nhân loại. Trải qua nhiều thời kì khác nhau cho đến ngày nay, trang sức đã
 phát triển vượt bậc"
-          collectionLink={routes.size}
+          collectionLink={routes.accessoryInfor}
         ></RowCollection>
       </Container>
       <Footer></Footer>

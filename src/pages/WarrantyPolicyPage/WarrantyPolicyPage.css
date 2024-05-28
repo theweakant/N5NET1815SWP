@@ -1,97 +1,95 @@
 .warranty-infor-container {
-    width: 70%;
-    margin-bottom: 80px;
-
+  width: 70%;
+  margin-bottom: 80px;
 }
 
 .table-head-cell {
-    text-align: center !important;
-    /* Add !important to override other styles */
+  text-align: center !important;
+  /* Add !important to override other styles */
 }
 
 .table-container {
-    margin: 20px;
+  margin: 20px;
 }
 
 .table-head-cell {
-    text-align: center;
+  text-align: center;
 }
 
 .list {
-    padding-left: 20px;
-    padding-right: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .typography-subtitle {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .vertical-line {
-    border-right: 1px solid #ccc;
-
+  border-right: 1px solid #ccc;
 }
 
 .no-border {
-    border-bottom: none !important;
+  border-bottom: none !important;
 }
 
 .combined-cell {
-    border-right: 1px solid #ddd;
+  border-right: 1px solid #ddd;
 }
 
-
-
-
-
 .list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 .list li {
-    position: relative;
-    margin-bottom: 8px;
-    padding-left: 20px;
+  position: relative;
+  margin-bottom: 8px;
+  padding-left: 20px;
 }
 
 .list li::before {
-    content: "-";
-    position: absolute;
-    left: 0;
-    color: #000;
+  content: "-";
+  position: absolute;
+  left: 0;
+  color: #000;
 }
 
 .list ul {
-    list-style-type: none;
-    padding-left: 20px;
+  list-style-type: none;
+  padding-left: 20px;
 }
 
 .list ul li::before {
-    content: "+";
-    position: absolute;
-    left: 0;
-    color: #000;
+  content: "+";
+  position: absolute;
+  left: 0;
+  color: #000;
 }
 
 .list ul::before {
-    content: "";
-    /* Remove the hyphen */
+  content: "";
+  /* Remove the hyphen */
 }
 
 .list ul li strong::before {
-    content: none;
-    /* Remove the hyphen */
+  content: none;
+  /* Remove the hyphen */
 }
 
 .list h5 {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .list li strong {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .notes-cell {
-    border-left: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+}
+
+.MuiTable-root {
+  background-color: #ffff !important;
 }
