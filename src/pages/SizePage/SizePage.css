@@ -1,149 +1,154 @@
 .page-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .center-title {
-    margin: 5% 0 3%;
-    text-align: center;
-  }
-  
-  .size-title {
-    font-size: 2.5em;
-    font-weight: bold;
-    text-align: center;
-    position: relative;
-  }
-  
-  .size-title::after {
-    content: "";
-    display: block;
-    width: 50px;
-    height: 3px;
-    background-color: black;
-    margin: 10px auto 0;
-  }
-  
-  .guide-container {
-    text-align: center;
-    margin: 0 15%;
-  }
-  
-  .guide-title {
-    font-size: 1.2em;
-    margin-bottom: 3%;
-  }
-  
-  .split-columns {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 20px;
-    flex-wrap: wrap;
-  }
-  
-  .column {
-    flex: 1;
-    padding: 20px;
-    box-sizing: border-box;
-    min-width: 300px;
-  }
-  
-  .method-image {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  .size-tutorial {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-  }
-  
-  .tips {
-    /* text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.center-title {
+  margin: 5% 0 3%;
+  text-align: center;
+}
+
+.size-title {
+  font-size: 2.5em;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+}
+
+.size-title::after {
+  content: "";
+  display: block;
+  width: 5%;
+  height: 3px;
+  background-color: black;
+  margin: 10px auto 0;
+}
+
+.guide-container {
+  text-align: center;
+  margin: 0 15%;
+}
+
+.guide-title {
+  font-size: 1.2em;
+  margin-bottom: 3%;
+}
+
+.split-columns {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.column {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+  min-width: 300px;
+}
+
+.method-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.size-tutorial {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.tips {
+  /* text-align: center;
     font-size: 1.8em;
     margin-top: 50px; */
-    margin: 20px;
-    text-align: center;
-    font-size: 1.8em;
-    margin-top: 50px;
-  }
-  
-  .tips-columns {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .tips h2 {
-    text-align: center;
-  }
-  
-  .tips p {
-    margin-bottom: 10px;
-    margin: 20px 10%;
-  }
-  
-  .tips-column {
-    flex: 1;
-    margin: 10px;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  
-  .size-chart-section {
-    text-align: center;
-    margin-top: 30px;
-  }
-  
-  .size-chart-img {
-    display: inline-block;
-    width: 80%;
-    margin: 0 auto;
-  }
-  
-  .link {
-    text-decoration: underline;
-    cursor: pointer;
-  }
+  margin: 20px;
+  text-align: center;
+  font-size: 1.8em;
+  margin-top: 50px;
+}
 
-  .Size-Guide {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .Size-Guide a, .Size-Guide .link {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #000; /* Default link color */
-    font-size: 18px;
-    position: relative;
-  }
-  
-  .Size-Guide a::after, .Size-Guide .link::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background: #000; /* Color for the underline effect */
-    transition: width 0.3s;
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-  }
-  
-  .Size-Guide a:hover::after, .Size-Guide .link:hover::after {
-    width: 100%;
-  }
-  
-  .Size-Guide a:hover, .Size-Guide .link:hover {
-    color: #1f3c2b;
-    transition: color 0.3s;
-  }
-  .link {
-    text-decoration: underline;
-    cursor: pointer;
-  }
+.tips-columns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tips h2 {
+  text-align: center;
+}
+
+.tips p {
+  margin-bottom: 10px;
+  margin: 20px 10%;
+}
+
+.tips-column {
+  flex: 1;
+  margin: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.size-chart-section {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.size-chart-img {
+  display: inline-block;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.Size-Guide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.Size-Guide a,
+.Size-Guide .link {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #000; /* Default link color */
+  font-size: 18px;
+  position: relative;
+}
+
+.Size-Guide a::after,
+.Size-Guide .link::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #000; /* Color for the underline effect */
+  transition: width 0.3s;
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+}
+
+.Size-Guide a:hover::after,
+.Size-Guide .link:hover::after {
+  width: 100%;
+}
+
+.Size-Guide a:hover,
+.Size-Guide .link:hover {
+  color: #1f3c2b;
+  transition: color 0.3s;
+}
+.link {
+  text-decoration: underline;
+  cursor: pointer;
+}

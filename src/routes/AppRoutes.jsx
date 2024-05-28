@@ -11,10 +11,12 @@ import AdminPage from "../pages/AdminDashboard/AdminPage";
 import RegisterPageBackup from "../pages/RegisterPage/RegisterPageBackup";
 import Blog from "../pages/BlogPage/Blog";
 import SaleEventPage from "../pages/SaleEventPage/SaleEventPage";
-import SizingTutor from "../pages/SizingTutorialPage/SizingTutor";
+// import SizingTutor from "../pages/SizingTutorialPage/SizingTutor";
 import ProfilePage from "../pages/ProfilePage/ProfilePage";
 import AboutPage from "../pages/AboutPage/AboutPage";
 import ChainSizePage from "../pages/ChainSizePage/ChainSizePage";
+import SizePage from "../pages/SizePage/SizePage";
+import DiamondKnowledgePage from "../pages/DiamondKnowledgePage/DiamondKnowledgePage";
 
 export default function AppRoute() {
   return (
@@ -24,13 +26,15 @@ export default function AppRoute() {
       <Route path={routes.register} element={<RegisterPageCard />} />
       <Route path={routes.forgot} element={<ForgotPasswordPage />} />
       <Route path={routes.faq} element={<FAQPage />} />
-      <Route path={routes.size} element={<SizingTutor />} />
+      <Route path={routes.size} element={<SizePage />} />
       <Route path={routes.bst} element={<CollectionPage />} />
       <Route path={routes.admin} element={<AdminPage />} />
       <Route path={routes.blog} element={<Blog />} />
       <Route path={routes.sale} element={<SaleEventPage />} />
       <Route path={routes.profile} element={<ProfilePage />} />
       <Route path={routes.about} element={<AboutPage />} />
+      <Route path={routes.chain} element={<ChainSizePage />} />
+      <Route path={routes.kienthuc} element={<DiamondKnowledgePage />} />
     </Routes>
   );
 }

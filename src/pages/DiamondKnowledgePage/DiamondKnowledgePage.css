@@ -1,23 +1,24 @@
-.title{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    color: rgb(37,131,137);
+.title {
+  margin-top: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: rgb(37, 131, 137);
 }
-.type{
-    margin-left: 8%;    
-    font-weight: bold;
+.type {
+  margin-left: 8%;
+  font-weight: bold;
 }
-.content{
-    margin-left: 8%;
-    margin-right: 8%;
+.content {
+  margin-left: 8%;
+  margin-right: 8%;
 }
-.dk{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}  
-.dk>img{
-    width: 50%;
+.dk {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.dk > img {
+  width: 50%;
 }

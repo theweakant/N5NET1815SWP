@@ -12,4 +12,5 @@ export const routes = {
   profile: "/profile",
   about: "/about",
   chain: "/chain",
+  kienthuc: "/kien-suc-trang-suc",
 };

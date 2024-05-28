@@ -33,7 +33,7 @@ tự tin thoải mái khi đeo"
           collectionDesc="Tên gọi “kim cương” trong tiếng Hy Lạp là “adamas” có nghĩa là “không
 thể phá huỷ”. Còn trong ngôn ngữ tiếng Việt, chữ “kim cương” có gốc Hán Việt
 nghĩa là “kim loại cứng”."
-          collectionLink={routes.size}
+          collectionLink={routes.kienthuc}
         ></RowCollection>
         <RowCollection
           collectionImage={rowbanner1}
