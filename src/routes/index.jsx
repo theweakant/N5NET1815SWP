@@ -9,4 +9,6 @@ export const routes = {
   admin: "/admin",
   blog: "/blog",
   sale: "/sale",
+  profile: "/profile",
+  about: "/about",
 };

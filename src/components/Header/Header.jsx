@@ -57,7 +57,7 @@ export default function Header() {
 
       <Row className="Bottom-header">
         <Col className="Header-navigation">
-          <a href="">Giới Thiệu</a>
+          <Link to={routes.about}>Giới Thiệu</Link>
         </Col>
         <Col className="Header-navigation">
           <Link to={routes.bst}>Bộ Sưu Tập</Link>
@@ -66,7 +66,7 @@ export default function Header() {
           <Link to="">Sản Phẩm Về Kim Cương</Link>
         </Col>
         <Col className="Header-navigation">
-          <Link to="">Hướng Dẫn Đo Ni</Link>
+          <Link to={routes.size}>Hướng Dẫn Đo Ni</Link>
         </Col>
         <Col className="Header-navigation">
           <Link to={routes.blog}>Kiến Thức</Link>
