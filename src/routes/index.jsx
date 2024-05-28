@@ -13,4 +13,6 @@ export const routes = {
   about: "/about",
   chain: "/chain",
   kienthuc: "/kien-suc-trang-suc",
+  accessoryInfor: "/accessoryinfor",
+  warrantyPolicy: "/warrantypolicy"
 };

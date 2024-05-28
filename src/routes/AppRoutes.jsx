@@ -17,6 +17,8 @@ import AboutPage from "../pages/AboutPage/AboutPage";
 import ChainSizePage from "../pages/ChainSizePage/ChainSizePage";
 import SizePage from "../pages/SizePage/SizePage";
 import DiamondKnowledgePage from "../pages/DiamondKnowledgePage/DiamondKnowledgePage";
+import AccessoryInfor from "../pages/AccessoryInforPage/AccessoryInforPage";
+import WarrantyPolicyPage from "../pages/WarrantyPolicyPage/WarrantyPolicyPage";
 
 export default function AppRoute() {
   return (
@@ -35,6 +37,13 @@ export default function AppRoute() {
       <Route path={routes.about} element={<AboutPage />} />
       <Route path={routes.chain} element={<ChainSizePage />} />
       <Route path={routes.kienthuc} element={<DiamondKnowledgePage />} />
+      <Route path={routes.accessoryInfor} element={<AccessoryInfor />} />
+      <Route path={routes.warrantyPolicy} element={<WarrantyPolicyPage />} />
+
+
+
+
     </Routes>
+
   );
 }
