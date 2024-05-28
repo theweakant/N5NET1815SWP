@@ -11,4 +11,5 @@ export const routes = {
   sale: "/sale",
   profile: "/profile",
   about: "/about",
+  chain: "/chain",
 };

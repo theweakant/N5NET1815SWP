@@ -14,6 +14,7 @@ import SaleEventPage from "../pages/SaleEventPage/SaleEventPage";
 import SizingTutor from "../pages/SizingTutorialPage/SizingTutor";
 import ProfilePage from "../pages/ProfilePage/ProfilePage";
 import AboutPage from "../pages/AboutPage/AboutPage";
+import ChainSizePage from "../pages/ChainSizePage/ChainSizePage";
 
 export default function AppRoute() {
   return (
