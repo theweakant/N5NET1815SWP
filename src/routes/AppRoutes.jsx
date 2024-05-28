@@ -11,6 +11,7 @@ import CollectionPage from "../pages/CollectionPage/CollectionPage";
 import AdminPage from "../pages/AdminDashboard/AdminPage";
 import RegisterPageBackup from "../pages/RegisterPage/RegisterPageBackup";
 import Blog from "../pages/BlogPage/Blog";
+import ChainSizePage from "../pages/ChainSizePage/ChainSizePage";
 
 export default function AppRoute() {
   return (
@@ -24,6 +25,8 @@ export default function AppRoute() {
       <Route path={routes.bst} element={<CollectionPage />} />
       <Route path={routes.admin} element={<AdminPage />} />
       <Route path={routes.blog} element={<Blog />} />
+      <Route path={routes.size} element={<SizePage />} />
+      <Route path={routes.chain} element={<ChainSizePage/>} />
     </Routes>
   );
 }

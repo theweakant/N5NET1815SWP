@@ -8,6 +8,7 @@ import BasicButton from "../Button/myButton";
 import { routes } from "../../routes";
 import { Link } from "react-router-dom";
 
+
 export default function Header() {
   return (
     <Container fluid className="Header" id="header">
@@ -66,7 +67,7 @@ export default function Header() {
           <Link to="">Sản Phẩm Về Kim Cương</Link>
         </Col>
         <Col className="Header-navigation">
-          <Link to="">Hướng Dẫn Đo Ni</Link>
+          <Link to={routes.size}>Hướng Dẫn Đo Ni</Link>
         </Col>
         <Col className="Header-navigation">
           <Link to={routes.blog}>Kiến Thức Trang Sức</Link>
