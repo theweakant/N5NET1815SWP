@@ -3,11 +3,11 @@ import "./Header.css";
 import { Col, Container, Row } from "react-bootstrap";
 
 import "primeicons/primeicons.css";
-import BasicInput from "../searchBar";
 import BasicButton from "../Button/myButton";
 import { routes } from "../../routes";
 import { Link } from "react-router-dom";
-
+import OtherSearch from "../searchBar/searchBar";
+import SearchBar from "../searchBar/searchBar";
 
 export default function Header() {
   return (
@@ -39,10 +39,10 @@ export default function Header() {
           </Link>
         </Col>
         <Col xs={2} className="Header-search">
-          <BasicInput
-            placeholder={"Tìm kiếm sản phẩm"}
+          <SearchBar
+            placeholder={"Tìm Kiếm Sản Phẩm"}
             icon={"pi pi-search"}
-          ></BasicInput>
+          ></SearchBar>
         </Col>
         <Col xs={2} className="Header-login">
           <Link to={routes.login}>

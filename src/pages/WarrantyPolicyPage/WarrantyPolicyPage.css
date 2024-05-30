@@ -3,13 +3,17 @@
   margin-bottom: 80px;
 }
 
-.table-head-cell {
+.table-head-cell h1 {
   text-align: center !important;
   /* Add !important to override other styles */
+  font-weight: bold;
+  font-size: 2.5em;
+  color: #4f4f4f;
 }
 
 .table-container {
   margin: 20px;
+  margin-top: 5%;
 }
 
 .table-head-cell {

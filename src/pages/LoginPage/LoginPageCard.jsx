@@ -10,21 +10,28 @@ import "./LoginPageCard.css";
 import logobanner from "../../../public/assets/images/LoginBanner/loginbanner.jpg";
 import logo from "../../../public/assets/images/Logo/logo.png";
 import { routes } from "../../routes";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
 import { Button, Form, Input } from "antd";
 import axios from "axios";
 import { useForm } from "antd/es/form/Form";
+import { useState } from "react";
 
 function LoginPageCard() {
   const [form] = useForm();
+  const navigate = useNavigate();
   function hanldeClickSubmit() {
     form.submit();
   }
 
   async function handleSubmit(value) {
     console.log(value);
-    await axios.post("http://157.245.145.162:8080/api/register", value);
+    try {
+      await axios.post("http://157.245.145.162:8080/api/login", value);
+      navigate(routes.home);
+    } catch (error) {
+      console.log(error.response.data);
+    }
   }
 
   const responseMessage = (response) => {
@@ -79,7 +86,11 @@ function LoginPageCard() {
                       rules={[
                         {
                           required: true,
-                          message: "Hãy nhập Email của bạn",
+                          message: "Hãy Nhập Email của bạn",
+                        },
+                        {
+                          type: "email",
+                          message: "Hãy Nhập Email đúng",
                         },
                       ]}
                     >

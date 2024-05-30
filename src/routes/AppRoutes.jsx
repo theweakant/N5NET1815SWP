@@ -7,7 +7,6 @@ import RegisterPageCard from "../pages/RegisterPage/RegisterPage";
 import ForgotPasswordPage from "../pages/ForgotPasswordPage.jsx/ForgotPasswordPage";
 import FAQPage from "../pages/FAQPage/FAQPage";
 import CollectionPage from "../pages/CollectionPage/CollectionPage";
-import AdminPage from "../pages/AdminDashboard/AdminPage";
 import RegisterPageBackup from "../pages/RegisterPage/RegisterPageBackup";
 import Blog from "../pages/BlogPage/Blog";
 import SaleEventPage from "../pages/SaleEventPage/SaleEventPage";
@@ -19,6 +18,7 @@ import SizePage from "../pages/SizePage/SizePage";
 import DiamondKnowledgePage from "../pages/DiamondKnowledgePage/DiamondKnowledgePage";
 import AccessoryInfor from "../pages/AccessoryInforPage/AccessoryInforPage";
 import WarrantyPolicyPage from "../pages/WarrantyPolicyPage/WarrantyPolicyPage";
+import AdminPage from "../pages/AdminDashboard/AdminPage/AdminPageDashBoard";
 
 export default function AppRoute() {
   return (

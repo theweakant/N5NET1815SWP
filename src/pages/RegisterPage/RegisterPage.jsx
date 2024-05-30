@@ -16,12 +16,40 @@ import { Button, Form, Input, Select } from "antd";
 import { useForm } from "antd/es/form/Form";
 import axios from "axios";
 import { Option } from "antd/es/mentions";
+import { useState } from "react";
 
 function RegisterPageCard() {
   const [form] = useForm();
+
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+    checkPasswordMatch(e.target.value, confirmPassword);
+  };
+
+  const handleConfirmPasswordChange = (e) => {
+    setConfirmPassword(e.target.value);
+    checkPasswordMatch(password, e.target.value);
+  };
+
+  const checkPasswordMatch = (password, confirmPassword) => {
+    if (password && confirmPassword && password !== confirmPassword) {
+      setMessage("Passwords do not match");
+    } else {
+      setMessage("");
+    }
+  };
+
   async function handleSubmit(value) {
     console.log(value);
-    await axios.post("http://157.245.145.162:8080/api/register", value);
+    const response = await axios.post(
+      "http://157.245.145.162:8080/api/register",
+      value
+    );
+    console.log(response);
   }
 
   function hanldeClickSubmit() {
@@ -68,6 +96,7 @@ function RegisterPageCard() {
                   className="form-main"
                 >
                   <Form.Item
+                    required
                     label="Họ"
                     name="firstname"
                     rules={[
@@ -77,9 +106,10 @@ function RegisterPageCard() {
                       },
                     ]}
                   >
-                    <Input />
+                    <Input required />
                   </Form.Item>
                   <Form.Item
+                    required
                     label="Tên"
                     name="lastname"
                     rules={[
@@ -89,10 +119,11 @@ function RegisterPageCard() {
                       },
                     ]}
                   >
-                    <Input />
+                    <Input required />
                   </Form.Item>
 
                   <Form.Item
+                    required
                     label="Số Điện Thoại"
                     name="phone"
                     rules={[
@@ -102,9 +133,10 @@ function RegisterPageCard() {
                       },
                     ]}
                   >
-                    <Input />
+                    <Input required />
                   </Form.Item>
                   <Form.Item
+                    required
                     label="Địa Chỉ"
                     name="address"
                     rules={[
@@ -114,11 +146,12 @@ function RegisterPageCard() {
                       },
                     ]}
                   >
-                    <Input />
+                    <Input required />
                   </Form.Item>
                   <Form.Item
+                    required
                     label="Giới Tính"
-                    name="sex"
+                    name="gender"
                     rules={[
                       { required: true, message: "Chọn Giới Tính của bạn" },
                     ]}
@@ -130,18 +163,24 @@ function RegisterPageCard() {
                     </Select>
                   </Form.Item>
                   <Form.Item
+                    required
                     label="Email"
                     name="email"
                     rules={[
                       {
                         required: true,
-                        message: "Hãy nhập Email của bạn",
+                        message: "Hãy Nhập Email của bạn",
+                      },
+                      {
+                        type: "email",
+                        message: "Hãy Nhập đúng Email",
                       },
                     ]}
                   >
-                    <Input type="email" required />
+                    <Input required />
                   </Form.Item>
                   <Form.Item
+                    required
                     label="Mật Khẩu"
                     name="password"
                     rules={[
@@ -154,16 +193,29 @@ function RegisterPageCard() {
                     <Input type="password" />
                   </Form.Item>
                   <Form.Item
+                    dependencies={["password"]}
+                    required
                     label="Xác nhận mật khẩu"
-                    name="confirmPassword"
+                    name="confirm"
+                    hasFeedback
                     rules={[
                       {
                         required: true,
                         message: "Hãy Xác Nhận lại mật khẩu của bạn",
                       },
+                      ({ getFieldValue }) => ({
+                        validator(_, value) {
+                          if (!value || getFieldValue("password") === value) {
+                            return Promise.resolve();
+                          }
+                          return Promise.reject(
+                            new Error("Mật Khẩu xác nhận bạn nhập sai")
+                          );
+                        },
+                      }),
                     ]}
                   >
-                    <Input type="password" />
+                    <Input type="password" required />
                   </Form.Item>
                   <Button onClick={hanldeClickSubmit} className="form-button">
                     Đăng Ký

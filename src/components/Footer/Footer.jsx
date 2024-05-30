@@ -1,7 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap";
 import logo from "/assets/images/Logo/logo.png";
 import "./Footer.css";
-import BasicInput from "../searchBar";
+import SearchBar from "../searchBar/searchBar";
 
 export default function Footer() {
   return (
@@ -79,10 +79,10 @@ export default function Footer() {
         </Col>
         <Col className="Footer-middle">
           <h5>ĐĂNG KÝ NHẬN THÔNG BÁO</h5>
-          <BasicInput
-            placeholder={" Nhập Email"}
+          <SearchBar
+            placeholder={"Nhập Email"}
             icon={"pi pi-envelope"}
-          ></BasicInput>
+          ></SearchBar>
           <p id="text-center">
             Nhận ngay thông tin ưu đãi mới nhất từ FiveDiamond
           </p>

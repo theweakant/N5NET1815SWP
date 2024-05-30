@@ -1,10 +1,10 @@
 .title {
-  margin-top: 10%;
+  margin-top: 5%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  color: rgb(37, 131, 137);
+  color: #4f4f4f;
 }
 .type {
   margin-left: 8%;
@@ -21,4 +21,8 @@
 }
 .dk > img {
   width: 50%;
+}
+
+.info-content {
+  margin-top: 5%;
 }

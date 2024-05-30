@@ -11,12 +11,23 @@ import "./SaleEventPage.css";
 import OutlinedButtons from "../../components/Button/OutlineButton";
 import BasicButton from "../../components/Button/myButton";
 import { Container } from "react-bootstrap";
+import MyBreadcrumb from "../../components/Breadcrumb/Breadcrumb";
+import { routes } from "../../routes";
 
 function SaleEventPage() {
   return (
     <div>
       <Header />
       <Container>
+        <MyBreadcrumb
+          title1="KIẾN THỨC"
+          link1={routes.blog}
+          isChoice1={true}
+          title2="CHÍNH SÁCH BẢO HÀNH"
+          link2={routes.warrantyPolicy}
+          title3="THÔNG TIN KHUYẾN MÃI"
+          link3={routes.sale}
+        ></MyBreadcrumb>
         <div className="sale-banner">
           <img className="top-banner" src={Banner4} />
         </div>

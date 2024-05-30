@@ -1,5 +1,4 @@
-import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import "./WarrantyPolicyPage.css";
 import {
   Table,
@@ -13,19 +12,30 @@ import {
 } from "@mui/material";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import MyBreadcrumb from "../../components/Breadcrumb/Breadcrumb";
+import { routes } from "../../routes";
 
 export default function WarrantyPolicyPage() {
   return (
     <div>
       <Header />
       <Container className="warranty-infor-container">
+        <MyBreadcrumb
+          title1="KIẾN THỨC"
+          link1={routes.blog}
+          isChoice1={true}
+          title2="CHÍNH SÁCH BẢO HÀNH"
+          link2={routes.warrantyPolicy}
+          title3="THÔNG TIN KHUYẾN MÃI"
+          link3={routes.sale}
+        ></MyBreadcrumb>
         <div>
           <TableContainer component={Paper} className="table-container">
             <Table aria-label="warranty policy table">
               <TableHead>
                 <TableRow>
                   <TableCell colSpan={3} className="table-head-cell">
-                    <Typography variant="h6">CHÍNH SÁCH BẢO HÀNH</Typography>
+                    <h1>CHÍNH SÁCH BẢO HÀNH</h1>
                   </TableCell>
                 </TableRow>
                 <TableRow>

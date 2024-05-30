@@ -1,5 +1,4 @@
-import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import "./AccessoryInforPage.css";
 import anhqc1 from "/assets/images/AccessoryInfor/anhqc1.jpg";
 import bracelet from "/assets/images/AccessoryInfor/bracelet.jpg";
@@ -7,6 +6,8 @@ import earring from "/assets/images/AccessoryInfor/earring.jpg";
 import necklace from "/assets/images/AccessoryInfor/necklace.jpg";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import MyBreadcrumb from "../../components/Breadcrumb/Breadcrumb";
+import { routes } from "../../routes";
 const AccessoryInforImage = () => <div className="AccessoryInforImage"></div>;
 
 export default function AccessoryInfor() {
@@ -14,6 +15,15 @@ export default function AccessoryInfor() {
     <div>
       <Header />
       <Container className="accessory-infor-container">
+        <MyBreadcrumb
+          title1="KIẾN THỨC"
+          link1={routes.blog}
+          isChoice1={true}
+          title2="CHÍNH SÁCH BẢO HÀNH"
+          link2={routes.warrantyPolicy}
+          title3="THÔNG TIN KHUYẾN MÃI"
+          link3={routes.sale}
+        ></MyBreadcrumb>
         <AccessoryInforImage
           pic5={anhqc1}
           pic6={bracelet}
@@ -37,7 +47,7 @@ export default function AccessoryInfor() {
             <div>
               <img src={anhqc1} alt="nhan" className="accessory-infor-img" />
             </div>
-            <h2>Nhẫn:</h2>
+            <h2 className="title-center">Nhẫn</h2>
             <p>
               Khi chọn nhẫn, quan trọng nhất là phải xem xét chiều dài và kích
               cỡ của ngón tay. Cân nhắc mẫu nhẫn phù hợp với hình dáng ngón tay
@@ -80,7 +90,7 @@ export default function AccessoryInfor() {
                 className="accessory-infor-img"
               />
             </div>
-            <h2>Vòng cổ:</h2>
+            <h2 className="title-center">Vòng cổ</h2>
             <p>
               Chọn vòng cổ vừa hoặc ôm sát cho cổ gầy, vòng vừa phải hoặc dài
               cho cổ ngắn. Bạn gái mập nên chọn vòng thanh mảnh và màu sắc trầm.
@@ -98,7 +108,7 @@ export default function AccessoryInfor() {
                 className="accessory-infor-img"
               />
             </div>
-            <h2>Lắc tay:</h2>
+            <h2 className="title-center">Lắc tay</h2>
 
             <p>
               Khi chọn lắc tay, quan trọng là xem xét bản mặt và đường kính của
@@ -118,7 +128,7 @@ export default function AccessoryInfor() {
                 className="accessory-infor-img"
               />
             </div>
-            <h2>Bông tai:</h2>
+            <h2 className="title-center">Bông tai</h2>
             <p>
               <strong>Đối với khuôn mặt tròn:</strong>
             </p>

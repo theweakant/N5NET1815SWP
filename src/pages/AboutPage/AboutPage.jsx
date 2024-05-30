@@ -1,4 +1,3 @@
-import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import banner5 from "/assets/images/Banner/banner5.jpg";
 import banner6 from "/assets/images/Banner/banner6.jpg";
@@ -29,7 +28,7 @@ export default function AboutPage() {
             <div className="about-banner-info-big">
               <h2>VỀ CÔNG TY CỔ PHẦN FIVE DIAMOND</h2>
               <p>
-                Với triết lý kinh doanh "Uy tín quý hơn kim cương," Five Diamond
+                Với triết lý kinh doanh "Uy tín quý hơn kim cương" Five Diamond
                 luôn tự hào khi đem lại vẻ đẹp tinh tế, sang trọng cho khách
                 hàng. Với đội ngũ nghệ nhân kim hoàn tài ba, chúng tôi cam kết
                 mang đến những sản phẩm kim cương và trang sức chất lượng nhất.
