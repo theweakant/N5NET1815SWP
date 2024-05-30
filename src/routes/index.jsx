@@ -12,7 +12,7 @@ export const routes = {
   profile: "/profile",
   about: "/about",
   chain: "/chain",
-  kienthuc: "/kien-suc-trang-suc",
+  kienthuc: "/kien-thuc-kim-cuong",
   accessoryInfor: "/accessoryinfor",
   warrantyPolicy: "/warrantypolicy"
 };

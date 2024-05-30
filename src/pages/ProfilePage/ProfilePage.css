@@ -1,4 +1,4 @@
-.avatar{
+.profile-avatar{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -18,13 +18,13 @@
     margin-left: 1%;
     margin-bottom: 1%;
 }
-.info-text{
-    /* display: flex;
+/* .info-text{
+    display: flex;
     justify-content: center;
     flex-direction: column;
-    align-items: center; */
-}
-.info h3{
+    align-items: center;
+} */
+.info-header{
     font-weight: 700;   
     text-transform: uppercase;
 }
