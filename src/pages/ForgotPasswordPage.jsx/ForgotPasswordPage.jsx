@@ -40,7 +40,7 @@ function ForgotPasswordPage() {
 
           <MDBCol md="6">
             <MDBCardBody className="d-flex flex-column">
-              <Link to={routes.home} className="form-comeback">
+              <Link to={routes.home} className="form-comeback ">
                 <i
                   className="pi pi-arrow-circle-left"
                   style={{ fontSize: "2rem" }}
@@ -83,11 +83,19 @@ function ForgotPasswordPage() {
                 </Form>
               </div>
               <div className="form-end">
-                <Link to={routes.login} style={{ color: "#393f81" }}>
+                <Link
+                  to={routes.login}
+                  style={{ color: "#393f81" }}
+                  className="link-to"
+                >
                   Quay lại đăng nhập
                 </Link>
 
-                <Link to={routes.register} style={{ color: "#393f81" }}>
+                <Link
+                  to={routes.register}
+                  style={{ color: "#393f81" }}
+                  className="link-to"
+                >
                   Đăng ký tài khoản mới
                 </Link>
               </div>

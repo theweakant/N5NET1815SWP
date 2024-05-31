@@ -42,3 +42,7 @@ body {
   align-items: center;
   width: 100%;
 }
+
+.link-to {
+  text-decoration: none;
+}

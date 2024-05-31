@@ -12,44 +12,30 @@ import registerbanner from "../../../public/assets/images/LoginBanner/registerba
 import logo from "../../../public/assets/images/Logo/logo.png";
 import { routes } from "../../routes";
 import { Link } from "react-router-dom";
-import { Button, Form, Input, Select } from "antd";
+import { Button, DatePicker, Form, Input, Select } from "antd";
 import { useForm } from "antd/es/form/Form";
 import axios from "axios";
 import { Option } from "antd/es/mentions";
 import { useState } from "react";
 
 function RegisterPageCard() {
-  const [form] = useForm();
-
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-    checkPasswordMatch(e.target.value, confirmPassword);
-  };
-
-  const handleConfirmPasswordChange = (e) => {
-    setConfirmPassword(e.target.value);
-    checkPasswordMatch(password, e.target.value);
-  };
-
-  const checkPasswordMatch = (password, confirmPassword) => {
-    if (password && confirmPassword && password !== confirmPassword) {
-      setMessage("Passwords do not match");
-    } else {
-      setMessage("");
-    }
-  };
-
+  const [form] = useForm();
+  const dateFormat = "DD/MM/YYYY";
   async function handleSubmit(value) {
     console.log(value);
-    const response = await axios.post(
-      "http://157.245.145.162:8080/api/register",
-      value
-    );
-    console.log(response);
+    try {
+      const response = await axios.post(
+        "http://157.245.145.162:8080/api/register",
+        value
+      );
+      console.log(response);
+      setMessage("Tài Khoản của bạn đã được tạo thành công");
+    } catch (error) {
+      setMessage("Đã có lỗi trong việc tạo tài khoản của bạn");
+      console.log(error.response.data);
+    }
   }
 
   function hanldeClickSubmit() {
@@ -121,6 +107,19 @@ function RegisterPageCard() {
                   >
                     <Input required />
                   </Form.Item>
+                  <Form.Item
+                    name="dob"
+                    label="Ngày Sinh"
+                    rules={[
+                      { required: true, message: "Chọn ngày sinh của bạn" },
+                    ]}
+                  >
+                    <DatePicker
+                      placeholder="Ngày Sinh"
+                      style={{ width: "100%" }}
+                      format={dateFormat}
+                    />
+                  </Form.Item>
 
                   <Form.Item
                     required
@@ -185,6 +184,16 @@ function RegisterPageCard() {
                     name="password"
                     rules={[
                       {
+                        min: 6,
+                        message: "Mật khẩu của bạn phải chứa ít nhất 6 ký tự",
+                      },
+                      {
+                        pattern: /^([a-z]|[A-Z]|[0-9])*$/,
+
+                        message:
+                          "Mật khẩu của bạn phải không có ký tự đặc biệt",
+                      },
+                      {
                         required: true,
                         message: "Hãy nhập Mật Khẩu của bạn!",
                       },
@@ -217,14 +226,20 @@ function RegisterPageCard() {
                   >
                     <Input type="password" required />
                   </Form.Item>
-                  <Button onClick={hanldeClickSubmit} className="form-button">
+                  {message && <div>{message}</div>}
+
+                  <Button onClick={hanldeClickSubmit} className="form-button ">
                     Đăng Ký
                   </Button>
                 </Form>
               </div>
-              <p className="mb-1 pb-lg-2" style={{ color: "#393f81" }}>
+              <p className="mb-1 pb-lg-2 " style={{ color: "#393f81" }}>
                 Bạn đã có tài khoản ?{" "}
-                <Link to={routes.login} style={{ color: "#393f81" }}>
+                <Link
+                  to={routes.login}
+                  style={{ color: "#393f81" }}
+                  className="link-to"
+                >
                   Đăng Nhập Ngay
                 </Link>
               </p>

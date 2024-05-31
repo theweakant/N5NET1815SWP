@@ -1,45 +1,44 @@
-.profile-avatar{
-    display: flex;
-    flex-direction: column;
+.avatar-user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: lightgray;
+  padding: 5%;
+}
+#avt-img {
+  width: 12%;
+  border: 1px solid black;
+  border-radius: 100rem;
+}
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 1%;
+  margin-bottom: 1%;
+}
+.info-text {
+  /* display: flex;
     justify-content: center;
-    align-items: center;
-    background-color: lightgray;
-    padding:5%;
-}
-#avt-img{
-    width: 12%;
-    border:  1px solid  black;
-    border-radius: 100rem;
-}
-.info{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-left: 1%;
-    margin-bottom: 1%;
-}
-/* .info-text{
-    display: flex;
-    justify-content: center;
     flex-direction: column;
-    align-items: center;
-} */
-.info-header{
-    font-weight: 700;   
-    text-transform: uppercase;
+    align-items: center; */
+}
+.info h3 {
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-.input{
-    display: flex;
-    margin: 1%;
+.input {
+  display: flex;
+  margin: 1%;
 }
 
-label{
-    display: inline-block;
-    width: 32%;
+label {
+  display: inline-block;
+  width: 32%;
 }
-#filled-hidden-label-small{
-    border: 1px solid black;
-    background-color: white;
+#filled-hidden-label-small {
+  border: 1px solid black;
+  background-color: white;
 }
-
