@@ -1,13 +1,11 @@
 import { Route, Routes } from "react-router-dom";
 import { routes } from ".";
 import GuestPage from "../pages/GuestPage/GuestPage";
-import LoginPage from "../pages/LoginPage/LoginPage";
 import LoginPageCard from "../pages/LoginPage/LoginPageCard";
 import RegisterPageCard from "../pages/RegisterPage/RegisterPage";
 import ForgotPasswordPage from "../pages/ForgotPasswordPage.jsx/ForgotPasswordPage";
 import FAQPage from "../pages/FAQPage/FAQPage";
 import CollectionPage from "../pages/CollectionPage/CollectionPage";
-import RegisterPageBackup from "../pages/RegisterPage/RegisterPageBackup";
 import Blog from "../pages/BlogPage/Blog";
 import SaleEventPage from "../pages/SaleEventPage/SaleEventPage";
 // import SizingTutor from "../pages/SizingTutorialPage/SizingTutor";
@@ -18,7 +16,8 @@ import SizePage from "../pages/SizePage/SizePage";
 import DiamondKnowledgePage from "../pages/DiamondKnowledgePage/DiamondKnowledgePage";
 import AccessoryInfor from "../pages/AccessoryInforPage/AccessoryInforPage";
 import WarrantyPolicyPage from "../pages/WarrantyPolicyPage/WarrantyPolicyPage";
-import AdminPage from "../pages/AdminDashboard/AdminPage/AdminPageDashBoard";
+import AdminProduct from "../pages/AdminDashboard/AdminProduct/AdminProduct";
+import AdminDiamond from "../pages/AdminDashboard/AdminPage/AdminPageDiamond";
 
 export default function AppRoute() {
   return (
@@ -30,7 +29,6 @@ export default function AppRoute() {
       <Route path={routes.faq} element={<FAQPage />} />
       <Route path={routes.size} element={<SizePage />} />
       <Route path={routes.bst} element={<CollectionPage />} />
-      <Route path={routes.admin} element={<AdminPage />} />
       <Route path={routes.blog} element={<Blog />} />
       <Route path={routes.sale} element={<SaleEventPage />} />
       <Route path={routes.profile} element={<ProfilePage />} />
@@ -39,6 +37,9 @@ export default function AppRoute() {
       <Route path={routes.kienthuc} element={<DiamondKnowledgePage />} />
       <Route path={routes.accessoryInfor} element={<AccessoryInfor />} />
       <Route path={routes.warrantyPolicy} element={<WarrantyPolicyPage />} />
+      <Route path={routes.adminProduct} element={<AdminProduct />} />
+      <Route path={routes.adminDiamond} element={<AdminDiamond />} />
+      <Route path={routes.adminDiamond} element={<AdminDiamond />} />
     </Routes>
   );
 }

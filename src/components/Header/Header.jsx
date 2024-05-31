@@ -8,14 +8,22 @@ import { routes } from "../../routes";
 import { Link } from "react-router-dom";
 import OtherSearch from "../searchBar/searchBar";
 import SearchBar from "../searchBar/searchBar";
+import { logout, selectUser } from "../../redux/features/counterSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Header() {
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
+  const handleLogout = () => {
+    dispatch(logout());
+  };
+
   return (
     <Container fluid className="Header" id="header">
       <Row className="Top-header">
         <Col xs={4} className="Header-left">
           <div className="Header-left-component">
-            <Link to={routes.admin}>
+            <Link to={routes.adminDiamond}>
               {" "}
               <p>Vào Trang admin</p>
             </Link>
@@ -44,16 +52,36 @@ export default function Header() {
             icon={"pi pi-search"}
           ></SearchBar>
         </Col>
-        <Col xs={2} className="Header-login">
-          <Link to={routes.login}>
-            {/* <button>Đăng nhập</button> */}
-            <BasicButton text={"Đăng nhập"} icon={"pi pi-user"}></BasicButton>
-          </Link>
-          <Link to={routes.register}>
-            {/* <button>Đăng ký</button> */}
-            <BasicButton text={"Đăng ký"} icon={"pi pi-sign-in"}></BasicButton>
-          </Link>
-        </Col>
+        {user ? (
+          <Col xs={2} className="Header-login">
+            <Link to={routes.profile}>
+              {/* <button>Đăng nhập</button> */}
+              <p>Welcome {user.email}</p>
+            </Link>
+            <Link to={routes.login}>
+              {/* <button>Đăng ký</button> */}
+              <BasicButton
+                text={"Đăng Xuất"}
+                icon={"pi pi-sign-in"}
+                onClick={handleLogout}
+              ></BasicButton>
+            </Link>
+          </Col>
+        ) : (
+          <Col xs={2} className="Header-login">
+            <Link to={routes.login}>
+              {" "}
+              <BasicButton text={"Đăng nhập"} icon={"pi pi-user"}></BasicButton>
+            </Link>
+            <Link to={routes.register}>
+              {/* <button>Đăng ký</button> */}
+              <BasicButton
+                text={"Đăng ký"}
+                icon={"pi pi-sign-in"}
+              ></BasicButton>
+            </Link>
+          </Col>
+        )}
       </Row>
 
       <Row className="Bottom-header">

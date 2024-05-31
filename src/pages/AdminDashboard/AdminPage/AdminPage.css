@@ -1,10 +1,21 @@
-.Admin-dashboard {
+.admin-content {
+  /* width: 100%; */
+  margin-top: 3%;
+  margin-left: 25%;
   display: flex;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
-.admin-content {
-  margin-left: 300px;
-  padding: 0px 10px;
+.admin-content h1 {
+  font-weight: bold;
+  margin-bottom: 2%;
+}
+.admin-content label {
+  width: 200px;
+}
+
+.admin-content input {
+  width: 300px;
 }

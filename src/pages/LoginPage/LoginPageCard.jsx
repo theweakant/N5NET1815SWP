@@ -16,8 +16,25 @@ import { Button, Form, Input } from "antd";
 import axios from "axios";
 import { useForm } from "antd/es/form/Form";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { login, logout, selectUser } from "../../redux/features/counterSlice";
 
 function LoginPageCard() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
+
+  const handleLogin = () => {
+    const userData = { email };
+    dispatch(login(userData));
+  };
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
+  const [error, setError] = useState("");
   const [form] = useForm();
   const navigate = useNavigate();
   function hanldeClickSubmit() {
@@ -28,8 +45,11 @@ function LoginPageCard() {
     console.log(value);
     try {
       await axios.post("http://157.245.145.162:8080/api/login", value);
+      const userData = { email };
+      dispatch(login(userData));
       navigate(routes.home);
     } catch (error) {
+      setError("Tài khoản hoặc mật khẩu của bạn không đúng");
       console.log(error.response.data);
     }
   }
@@ -94,40 +114,51 @@ function LoginPageCard() {
                         },
                       ]}
                     >
-                      <Input type="email" required />
+                      <Input
+                        type="email"
+                        required
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
                     </Form.Item>
                     <Form.Item
                       label="Mật Khẩu"
                       name="password"
                       rules={[
                         {
+                          min: 6,
+                          message: "Mật khẩu của bạn phải chứa ít nhất 6 ký tự",
+                        },
+                        {
+                          pattern: /^([a-z]|[A-Z]|[0-9])*$/,
+
+                          message:
+                            "Mật khẩu của bạn phải không có ký tự đặc biệt",
+                        },
+                        {
                           required: true,
-                          message: "Hãy nhập Mật Khẩu của bạn",
+                          message: "Hãy nhập Mật Khẩu của bạn!",
                         },
                       ]}
                     >
                       <Input type="password" />
                     </Form.Item>
+                    {error && <div>{error}</div>}
                     <Button onClick={hanldeClickSubmit} className="form-button">
                       Đăng Nhập
                     </Button>
                   </Form>
                 </div>
-                <p className="mb-1" style={{ textAlign: "center" }}>
-                  Hoặc
-                </p>
-                <div className="google-button">
-                  <GoogleLogin
-                    onSuccess={responseMessage}
-                    onError={errorMessage}
-                  />
-                </div>
-                <Link to={routes.forgot} className="small text-muted">
+
+                <Link to={routes.forgot} className="small text-muted link-to">
                   Quên Mật Khẩu ?
                 </Link>
                 <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
                   Bạn chưa có tài khoản ?{" "}
-                  <Link to={routes.register} style={{ color: "#393f81" }}>
+                  <Link
+                    to={routes.register}
+                    style={{ color: "#393f81" }}
+                    className="link-to"
+                  >
                     Đăng Ký
                   </Link>
                 </p>
