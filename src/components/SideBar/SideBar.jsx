@@ -55,7 +55,7 @@ export default function SideBar() {
       </li>
       <li>
         <QuestionMarkIcon color="info" fontSize="large"></QuestionMarkIcon>
-        <Link to="">Quản Lý Câu Hỏi FAQs</Link>
+        <Link to={routes.adminFAQ}>Quản Lý Câu Hỏi FAQs</Link>
       </li>
       <li>
         <EventIcon color="info" fontSize="large"></EventIcon>
