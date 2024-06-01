@@ -43,7 +43,7 @@ export default function AboutPage() {
           </Col>
           <Col md={6} className="d-flex">
             <div className="about-banner-info">
-              <h3>TẦM NHÌN</h3>
+              <h3 className="banner-header">TẦM NHÌN</h3>
               <p>
                 Trở thành công ty chuyên gia tại Việt Nam trong lĩnh vực kim
                 cương, mang đến sản phẩm kim cương chất lượng cùng thiết kế
@@ -56,7 +56,7 @@ export default function AboutPage() {
         <Row className="about-content-row">
           <Col md={6} className="d-flex">
             <div className="about-banner-info">
-              <h3>TRANG SỨC FIVE DIAMOND</h3>
+              <h3 className="banner-header">TRANG SỨC FIVE DIAMOND</h3>
               <p>
                 Mang đến cho bạn trải nghiệm khác biệt với không gian phòng VIP
                 riêng tư, thiết kế trang sức tinh tế, mang đậm dấu ấn cá nhân và
@@ -76,7 +76,7 @@ export default function AboutPage() {
           </Col>
           <Col md={6} className="d-flex">
             <div className="about-banner-info">
-              <h3>KIM CƯƠNG FIVE DIAMOND</h3>
+              <h3 className="banner-header">KIM CƯƠNG FIVE DIAMOND</h3>
               <p>
                 100% kim cương tại Five Diamond được nhập khẩu hải quan chính
                 ngạch, sở hữu đầy đủ giấy tờ pháp lý minh bạch, bảo vệ vững chắc

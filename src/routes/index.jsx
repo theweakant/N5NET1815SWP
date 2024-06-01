@@ -6,7 +6,6 @@ export const routes = {
   faq: "/faq",
   size: "/huong-dan-do-ni",
   bst: "/bo-suu-tap",
-
   blog: "/kien-thuc",
   sale: "/chuong-trinh-khuyen-mai",
   profile: "/trang-ca-nhan",
