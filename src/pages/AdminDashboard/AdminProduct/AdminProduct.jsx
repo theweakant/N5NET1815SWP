@@ -1,10 +1,11 @@
 import SideBar from "../../../components/SideBar/SideBar";
-import { Button, DatePicker, Form, Input } from "antd";
-import { useState } from "react";
+import { Button, DatePicker, Form, Input, Table } from "antd";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useForm } from "antd/es/form/Form";
 import "../AdminPage/AdminPage.css";
+import api from "../../../config/axios";
 const config = {
   rules: [
     {
@@ -27,13 +28,15 @@ export default function AdminProduct() {
   async function handleSubmit(value) {
     console.log(value);
     try {
-      await axios.post("http://157.245.145.162:8080/api/product", value);
+      await api.post("product", value);
       setMessage("Thêm sản phẩm thành công");
     } catch (error) {
       setMessage("Đã có lỗi trong lúc thêm sản phẩm");
       console.log(error.response.data);
     }
   }
+
+
 
   const responseMessage = (response) => {
     console.log(response);
@@ -48,7 +51,9 @@ export default function AdminProduct() {
       <div className="admin-content">
         <h1>Thêm Sản Phẩm</h1>
 
-        <Form
+        <Table />
+
+        {/* <Form
           form={form}
           onFinish={handleSubmit}
           id="form"
@@ -235,7 +240,7 @@ export default function AdminProduct() {
             Thêm Sản Phẩm
           </Button>
           {message && <div>{message}</div>}
-        </Form>
+        </Form> */}
       </div>
     </div>
   );
