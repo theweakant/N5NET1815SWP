@@ -11,7 +11,15 @@ import PersonIcon from "@mui/icons-material/Person";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 import EventIcon from "@mui/icons-material/Event";
 import { routes } from "../../routes";
+import BasicButton from "../Button/myButton";
+import { logout, selectUser } from "../../redux/features/counterSlice";
+import { useDispatch, useSelector } from "react-redux";
 export default function SideBar() {
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
+  const handleLogout = () => {
+    dispatch(logout());
+  };
   return (
     <div className="sidenav">
       <div className="sidenav-header">
@@ -61,6 +69,15 @@ export default function SideBar() {
         <EventIcon color="info" fontSize="large"></EventIcon>
         <Link to="">Quản Lý Sự Kiện Sale</Link>
       </li>
+
+      <Link to={routes.login}>
+        <BasicButton
+          text={"Đăng Xuất"}
+          icon={"pi pi-sign-in"}
+          onClick={handleLogout}
+          className="admin-button-logout"
+        ></BasicButton>
+      </Link>
     </div>
   );
 }

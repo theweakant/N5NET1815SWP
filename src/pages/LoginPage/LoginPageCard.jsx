@@ -22,18 +22,21 @@ import { login, logout, selectUser } from "../../redux/features/counterSlice";
 function LoginPageCard() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [userDataAPI, setUserDataAPI] = useState([]);
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
-  const handleLogin = () => {
-    const userData = { email };
-    dispatch(login(userData));
-  };
+  // const handleLogin = () => {
+  //   const userData = { email };
+  //   dispatch(login(userData));
+  // };
 
   const handleLogout = () => {
     dispatch(logout());
   };
+
   const [error, setError] = useState("");
   const [form] = useForm();
   const navigate = useNavigate();
@@ -44,10 +47,19 @@ function LoginPageCard() {
   async function handleSubmit(value) {
     console.log(value);
     try {
-      await axios.post("http://157.245.145.162:8080/api/login", value);
+      const response = await axios
+        .post("http://157.245.145.162:8080/api/login", value)
+        .then((user) => {
+          console.log(user);
+          console.log(user.data);
+          if (user.data.role === "customer") {
+            navigate(routes.home);
+          } else if (user.data.role === "admin") {
+            navigate(routes.adminDiamond);
+          }
+        });
       const userData = { email };
       dispatch(login(userData));
-      navigate(routes.home);
     } catch (error) {
       setError("Tài khoản hoặc mật khẩu của bạn không đúng");
       console.log(error.response.data);
@@ -140,7 +152,11 @@ function LoginPageCard() {
                         },
                       ]}
                     >
-                      <Input type="password" />
+                      <Input
+                        type="password"
+                        required
+                        onChange={(e) => setPassword(e.target.value)}
+                      />
                     </Form.Item>
                     {error && <div>{error}</div>}
                     <Button onClick={hanldeClickSubmit} className="form-button">

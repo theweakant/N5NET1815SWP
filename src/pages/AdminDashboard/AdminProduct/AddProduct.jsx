@@ -1,18 +1,16 @@
-import SideBar from "../../../components/SideBar/SideBar";
 import { Button, DatePicker, Form, Input } from "antd";
-import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import SideBar from "../../../components/SideBar/SideBar";
 import { useForm } from "antd/es/form/Form";
-import "./AdminPage.css";
-import { routes } from "../../../routes";
 
-export default function AdminDiamond() {
+export default function AddProduct() {
   const [message, setMessage] = useState("");
   const [form] = useForm();
+  //   const navigate = useNavigate();
   const dateFormat = "DD/MM/YYYY";
-  const [data, setData] = useState([]);
-  const navigate = useNavigate();
+  const [product, setProduct] = useState([]);
   function hanldeClickSubmit() {
     form.submit();
   }
@@ -20,44 +18,30 @@ export default function AdminDiamond() {
   async function handleSubmit(value) {
     console.log(value);
     try {
-      await axios.post("http://157.245.145.162:8080/api/diamond", value);
+      await axios
+        .post("http://157.245.145.162:8080/api/product", value)
+        .then((product) => {
+          console.log(product);
+          console.log(product.data);
+        });
       setMessage("Thêm sản phẩm thành công");
-      navigate(routes.adminDiamond);
     } catch (error) {
       setMessage("Đã có lỗi trong lúc thêm sản phẩm");
       console.log(error.response.data);
     }
   }
 
-  async function fetchData() {
-    try {
-      const response = await axios.get(
-        "http://157.245.145.162:8080/api/diamond"
-      );
-      console.log(response.data);
-      setData(response.data);
-    } catch (error) {
-      console.log(error.response.data);
-    }
-  }
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  // useEffect(() => {fetchData();} ,[]) {
-  //   const response = axios
-  //     .get("http://157.245.145.162:8080/api/diamond")
-  //     .then((res) => setData(response.data))
-  //     .catch((error) => console.log(error));
-  // }, []);
-
+  const responseMessage = (response) => {
+    console.log(response);
+  };
+  const errorMessage = (error) => {
+    console.log(error);
+  };
   return (
     <div className="Admin">
       <SideBar></SideBar>
-
       <div className="admin-content">
-        <h1>Thêm Viên Kim Cương</h1>
+        <h1>Thêm Sản Phẩm</h1>
 
         <Form
           form={form}
@@ -66,16 +50,16 @@ export default function AdminDiamond() {
           className="form-main"
         >
           <Form.Item
-            label="Mã Số GIA"
-            name="giaReportNumber"
+            label="Tên sản phẩm"
+            name="name"
             rules={[
               {
                 required: true,
-                message: "Nhập mã số GIA",
+                message: "Nhập Tên sản phẩm",
               },
             ]}
           >
-            <Input type="number" required />
+            <Input type="text" />
           </Form.Item>
           <Form.Item
             label="Image URL 1"
@@ -104,38 +88,24 @@ export default function AdminDiamond() {
             rules={[
               {
                 required: true,
-                message: "Nhập mô tả kim cương",
+                message: "Nhập mô tả sản phẩm",
               },
             ]}
           >
             <Input type="text" />
           </Form.Item>
-
           <Form.Item
-            label="Giá Nhập"
-            name="cost"
+            label="Loại Sản phẩm"
+            name="categoryID"
             rules={[
               {
                 required: true,
-                message: "Nhập giá nhập của kim cương",
+                message: "Nhập loại sản phẩm",
               },
             ]}
           >
-            <Input type="number" required />
+            <Input type="text" required />
           </Form.Item>
-          <Form.Item
-            label="Giá Bán"
-            name="price"
-            rules={[
-              {
-                required: true,
-                message: "Nhập giá bán của kim cương",
-              },
-            ]}
-          >
-            <Input type="number" required />
-          </Form.Item>
-
           <Form.Item
             name="importDate"
             label="Ngày Nhập"
@@ -148,6 +118,18 @@ export default function AdminDiamond() {
             />
           </Form.Item>
 
+          <Form.Item
+            label="Mã Số GIA"
+            name="giaReportNumber"
+            rules={[
+              {
+                required: true,
+                message: "Nhập mã số GIA",
+              },
+            ]}
+          >
+            <Input type="number" required />
+          </Form.Item>
           <Form.Item
             label="Hình dáng"
             name="shape"
@@ -219,34 +201,36 @@ export default function AdminDiamond() {
               format={dateFormat}
             />
           </Form.Item>
+          <Form.Item
+            label="Giá Nhập"
+            name="cost"
+            rules={[
+              {
+                required: true,
+                message: "Nhập giá nhập của sản phẩm",
+              },
+            ]}
+          >
+            <Input type="number" required />
+          </Form.Item>
+          <Form.Item
+            label="Giá Bán"
+            name="price"
+            rules={[
+              {
+                required: true,
+                message: "Nhập giá bán của sản phẩm",
+              },
+            ]}
+          >
+            <Input type="number" required />
+          </Form.Item>
 
           <Button onClick={hanldeClickSubmit} className="form-button">
-            Thêm Viên Kim Cương
+            Thêm Sản Phẩm
           </Button>
           {message && <div>{message}</div>}
         </Form>
-
-        <ul className="diamond-product">
-          <h1>Sản Phẩm kim Cương</h1>
-          {data.map((gem) => (
-            <li key={gem.id}>
-              <p>giaReportNumber: {gem.giaReportNumber}</p>
-              <p>imgURL1: {gem.imgURL1}</p>
-              <p>imgURL2: {gem.imgURL2}</p>
-              <p>imgURL3: {gem.imgURL3}</p>
-              <p>imgURL4: {gem.imgURL4}</p>
-              <p>cost: {gem.cost}</p>
-              <p>price: {gem.price}</p>
-              <p>importDate: {gem.importDate}</p>
-              <p>shape: {gem.shape}</p>
-              <p>carat: {gem.carat}</p>
-              <p>color: {gem.color}</p>
-              <p>clarity: {gem.clarity}</p>
-              <p>cut: {gem.cut}</p>
-              <p>dateOfIssues: {gem.dateOfIssues}</p>
-            </li>
-          ))}
-        </ul>
       </div>
     </div>
   );

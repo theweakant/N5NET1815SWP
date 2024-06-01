@@ -66,3 +66,7 @@ hr.rounded {
   font-weight: bold;
   font-size: 25px;
 }
+
+.admin-button-logout {
+  width: 100%;
+}
