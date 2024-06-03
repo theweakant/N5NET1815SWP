@@ -53,7 +53,7 @@ function LoginPageCard() {
           if (user.data.role === "customer") {
             navigate(routes.home);
           } else if (user.data.role === "admin") {
-            navigate(routes.adminDiamond);
+            navigate(routes.adminProduct);
           }
         });
       const userData = { email };
