@@ -19,3 +19,6 @@
 .admin-content input {
   width: 300px;
 }
+.ant-form-item-label{
+  text-align: left !important;
+}

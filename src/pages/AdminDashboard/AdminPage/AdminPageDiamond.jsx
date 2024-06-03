@@ -1,20 +1,13 @@
 import SideBar from "../../../components/SideBar/SideBar";
-import { Button, Col, DatePicker, Form, Image, Input, Modal, Row, Table } from "antd";
+import { Button, Col, DatePicker, Form, Image, Input, Modal, Popover, Row, Table, Tooltip, Upload } from "antd";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useForm } from "antd/es/form/Form";
 import "./AdminPage.css";
 import api from "../../../config/axios";
-const config = {
-  rules: [
-    {
-      type: "object",
-      required: true,
-      message: "Hãy Chọn Ngày",
-    },
-  ],
-};
+import { UploadOutlined } from "@ant-design/icons";
+
 export default function AdminDiamond() {
   const [message, setMessage] = useState("");
   const [form] = useForm();
@@ -29,8 +22,8 @@ export default function AdminDiamond() {
   async function handleSubmit(value) {
     console.log(value);
     try {
-      await axios.post("http://157.245.145.162:8080/api/diamond", value);
-      setMessage("Thêm sản phẩm thành công");
+      await await api.get("diamond"); +
+        setMessage("Thêm sản phẩm thành công");
     } catch (error) {
       setMessage("Đã có lỗi trong lúc thêm sản phẩm");
       console.log(error.response.data);
@@ -65,7 +58,7 @@ export default function AdminDiamond() {
       key: 'giaReportNumber',
     },
     {
-      title: 'Image URL 1',
+      title: 'Image',
       dataIndex: 'imgURL1',
       key: 'imgURL1',
       render: (value) => <Image src={value} />
@@ -84,6 +77,11 @@ export default function AdminDiamond() {
       title: 'Import Date',
       dataIndex: 'importDate',
       key: 'importDate',
+      render: (date) => (
+        <Tooltip title={date}>
+          <span>{date}</span>
+        </Tooltip>
+      ),
     },
     {
       title: 'Size',
@@ -119,6 +117,11 @@ export default function AdminDiamond() {
       title: 'Date of Issues',
       dataIndex: 'dateOfIssues',
       key: 'dateOfIssues',
+      render: (date) => (
+        <Tooltip title={date}>
+          <span>{date}</span>
+        </Tooltip>
+      ),
     },
   ];
 
@@ -141,26 +144,76 @@ export default function AdminDiamond() {
         <Button type="primary" onClick={showModal}>
           Thêm
         </Button>
-        <Table dataSource={diamonds} columns={columns} />
-        <Modal footer={false} title="Thêm sản phẩm kim cương" okText={""} open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+        <Table
+          dataSource={diamonds}
+          columns={columns}
+          pagination={{ pageSize: 5 }}
+        scroll={{ x: 'max-content' }}
+        />
+        <Modal className="modal-add-form"
+          footer={false}
+          title="Thêm sản phẩm kim cương"
+          okText={""} open={isModalOpen}
+          onOk={handleOk}
+          onCancel={handleCancel}>
           <Form
             form={form}
             onFinish={handleSubmit}
             id="form"
             className="form-main"
           >
+            <Form.Item
+              label="Mã Số GIA"
+              name="giaReportNumber"
+              style={{
+                maxWidth: 'none'
+              }}
+              rules={[
+                {
+                  required: true,
+                  message: "Nhập mã số GIA",
+                },
+              ]}
+            >
+              <Input type="number" required />
+            </Form.Item>
             <Row gutter={16}>
               <Col span={12}>
                 <Form.Item
-                  label="Mã Số GIA"
-                  name="giaReportNumber"
-                  style={{
-                    maxWidth: 'none'
-                  }}
+                  name="importDate"
+                  label="Ngày Nhập"
+                  rules={[{ required: true, message: "Chọn ngày nhập" }]}
+                >
+                  <DatePicker
+                    placeholder="Ngày Nhập"
+                    style={{ width: "100%" }}
+                    format={dateFormat}
+                  />
+                </Form.Item>
+              </Col>
+              <Col span={12}>
+                <Form.Item
+                  name="dateOfIssues"
+                  label="Ngày Cấp GIA"
+                  rules={[{ required: true, message: "Chọn ngày cấp GIA" }]}
+                >
+                  <DatePicker
+                    placeholder="Ngày Cấp GIA"
+                    style={{ width: "100%" }}
+                    format={dateFormat}
+                  />
+                </Form.Item>
+              </Col>
+            </Row>
+            <Row gutter={16}>
+              <Col span={12}>
+                <Form.Item
+                  label="Giá Nhập"
+                  name="cost"
                   rules={[
                     {
                       required: true,
-                      message: "Nhập mã số GIA",
+                      message: "Nhập giá nhập của kim cương",
                     },
                   ]}
                 >
@@ -169,105 +222,80 @@ export default function AdminDiamond() {
               </Col>
               <Col span={12}>
                 <Form.Item
-                
-                  labelCol={{ span: 6 }} style={{
-                    maxWidth: 'none'
-                  }} label="Image URL 1"
-                  name="imgURL1"
+                  label="Giá Bán"
+                  name="price"
                   rules={[
                     {
                       required: true,
-                      message: "Nhập hình ảnh",
+                      message: "Nhập giá bán của kim cương",
                     },
                   ]}
                 >
-                  <Input type="text" />
+                  <Input type="number" required />
                 </Form.Item>
               </Col>
             </Row>
-            <Form.Item label="Image URL 2" name="imgURL2">
-              <Input type="text" />
-            </Form.Item>
-            <Form.Item label="Image URL 3" name="imgURL3">
-              <Input type="text" />
-            </Form.Item>
-            <Form.Item label="Image URL 4" name="imgURL4">
-              <Input type="text" />
-            </Form.Item>
-            <Form.Item
-              label="Mô tả"
-              name="description"
-              rules={[
-                {
-                  required: true,
-                  message: "Nhập mô tả kim cương",
-                },
-              ]}
-            >
-              <Input type="text" />
-            </Form.Item>
+            <Row gutter={16}>
+              <Col span={12}>
+                <Form.Item
+                  label="Hình dáng"
+                  name="shape"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Nhập hình dáng",
+                    },
+                  ]}
+                >
+                  <Input type="text" required />
+                </Form.Item>
+              </Col>
+              <Col span={12}>
+                <Form.Item
+                  label="Carat"
+                  name="carat"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Nhập carat",
+                    },
+                  ]}
+                >
+                  <Input type="number" required />
+                </Form.Item>
 
-            <Form.Item
-              label="Giá Nhập"
-              name="cost"
-              rules={[
-                {
-                  required: true,
-                  message: "Nhập giá nhập của kim cương",
-                },
-              ]}
-            >
-              <Input type="number" required />
-            </Form.Item>
-            <Form.Item
-              label="Giá Bán"
-              name="price"
-              rules={[
-                {
-                  required: true,
-                  message: "Nhập giá bán của kim cương",
-                },
-              ]}
-            >
-              <Input type="number" required />
-            </Form.Item>
-
-            <Form.Item
-              name="importDate"
-              label="Ngày Nhập"
-              rules={[{ required: true, message: "Chọn ngày nhập" }]}
-            >
-              <DatePicker
-                placeholder="Ngày Nhập"
-                style={{ width: "100%" }}
-                format={dateFormat}
-              />
-            </Form.Item>
-
-            <Form.Item
-              label="Hình dáng"
-              name="shape"
-              rules={[
-                {
-                  required: true,
-                  message: "Nhập hình dáng",
-                },
-              ]}
-            >
-              <Input type="text" required />
-            </Form.Item>
-            <Form.Item
-              label="Carat"
-              name="carat"
-              rules={[
-                {
-                  required: true,
-                  message: "Nhập carat",
-                },
-              ]}
-            >
-              <Input type="number" required />
-            </Form.Item>
+              </Col>
+            </Row>
+            <Row gutter={16}>
+              <Col span={12}>
+                <Form.Item
+                  label="Độ Tinh Khiết"
+                  name="clarity"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Nhập độ tinh khiết ",
+                    },
+                  ]}
+                >
+                  <Input type="text" required />
+                </Form.Item>
+              </Col>
+              <Col span={12}>
+                <Form.Item
+                  label="Độ Cắt"
+                  name="cut"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Nhập độ cắt ",
+                    },
+                  ]}
+                >
+                  <Input type="text" required />
+                </Form.Item>
+              </Col>
+            </Row>
             <Form.Item
               label="Màu sắc"
               name="color"
@@ -281,40 +309,54 @@ export default function AdminDiamond() {
               <Input type="text" required />
             </Form.Item>
             <Form.Item
-              label="Độ Tinh Khiết"
-              name="clarity"
+              label="Mô tả"
+              name="description"
               rules={[
                 {
                   required: true,
-                  message: "Nhập độ tinh khiết ",
+                  message: "Nhập mô tả kim cương",
                 },
               ]}
             >
-              <Input type="text" required />
+              <Input type="text" />
             </Form.Item>
-            <Form.Item
-              label="Độ Cắt"
-              name="cut"
+            {/* <Form.Item
+              labelCol={{ span: 6 }} style={{
+                maxWidth: 'none'
+              }} label="Image URL 1"
+              name="imgURL1"
               rules={[
                 {
                   required: true,
-                  message: "Nhập độ cắt ",
+                  message: "Nhập hình ảnh",
                 },
               ]}
             >
-              <Input type="text" required />
-            </Form.Item>
+              <Input type="text" />
+            </Form.Item> */}
             <Form.Item
-              name="dateOfIssues"
-              label="Ngày Cấp GIA"
-              rules={[{ required: true, message: "Chọn ngày cấp GIA" }]}
+              name="upload"
+              label="Tải lên hình ảnh"
+              valuePropName="fileList"
+              getValueFromEvent={(e) => Array.isArray(e) ? e : e?.fileList}
+              extra="Chỉ chọn file ảnh"
             >
-              <DatePicker
-                placeholder="Ngày Cấp GIA"
-                style={{ width: "100%" }}
-                format={dateFormat}
-              />
+              <Upload name="logo" listType="picture" beforeUpload={() => false}>
+                <Button icon={<UploadOutlined />}>Chọn File</Button>
+              </Upload>
             </Form.Item>
+            {/* <Form.Item label="Image URL 2" name="imgURL2">
+              <Input type="text" />
+            </Form.Item>
+            <Form.Item label="Image URL 3" name="imgURL3">
+              <Input type="text" />
+            </Form.Item>
+            <Form.Item label="Image URL 4" name="imgURL4">
+              <Input type="text" />
+          </Form.Item> */}
+
+
+
 
             <Button onClick={hanldeClickSubmit} className="form-button">
               Thêm Viên Kim Cương
