@@ -22,9 +22,7 @@ import { login, logout, selectUser } from "../../redux/features/counterSlice";
 function LoginPageCard() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [userDataAPI, setUserDataAPI] = useState([]);
+
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
@@ -161,6 +159,10 @@ function LoginPageCard() {
                     {error && <div>{error}</div>}
                     <Button onClick={hanldeClickSubmit} className="form-button">
                       Đăng Nhập
+                    </Button>
+                    <p>Hoặc</p>
+                    <Button onClick="" className="form-button">
+                      Login With google
                     </Button>
                   </Form>
                 </div>

@@ -6,7 +6,7 @@ import {
   MDBRow,
   MDBCol,
 } from "mdb-react-ui-kit";
-import "./ForgotPassword.css";
+import "./ChangePassword.css";
 import forgotbanner from "../../../public/assets/images/LoginBanner/forgotbanner.jpg";
 
 import logo from "../../../public/assets/images/Logo/logo.png";
@@ -15,30 +15,20 @@ import { Link } from "react-router-dom";
 import { Button, Form, Input } from "antd";
 import { useForm } from "antd/es/form/Form";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-import { selectUser } from "../../redux/features/counterSlice";
 
-function ForgotPasswordPage() {
+function ChangePasswordPage() {
   const [form] = useForm();
   function hanldeClickSubmit() {
     form.submit();
   }
-  const user = useSelector(selectUser);
-  const dispatch = useDispatch();
-
-  const handleLogout = () => {
-    dispatch(logout());
-  };
 
   async function handleSubmit(value) {
     console.log(value);
     try {
       const response = await axios.post(
-        "http://157.245.145.162:8080/api/forgot-password",
+        "http://157.245.145.162:8080/api/reset-password",
         value
       );
-      const userData = { email };
-      dispatch(login(userData));
       console.log(response);
     } catch (error) {
       console.log(error.response.data);
@@ -74,7 +64,7 @@ function ForgotPasswordPage() {
                 className="fw-normal my-1 pb-3"
                 style={{ letterSpacing: "1px" }}
               >
-                Quên mật khẩu
+                Thay Đổi mật khẩu
               </h5>
               <div className="form">
                 <Form
@@ -84,19 +74,29 @@ function ForgotPasswordPage() {
                   className="form-main"
                 >
                   <Form.Item
-                    label="Email"
-                    name="email"
+                    label="Mật Khẩu Mới"
+                    name="password"
                     rules={[
                       {
+                        min: 6,
+                        message: "Mật khẩu của bạn phải chứa ít nhất 6 ký tự",
+                      },
+                      {
+                        pattern: /^([a-z]|[A-Z]|[0-9])*$/,
+
+                        message:
+                          "Mật khẩu của bạn phải không có ký tự đặc biệt",
+                      },
+                      {
                         required: true,
-                        message: "Hãy nhập email của bạn",
+                        message: "Hãy nhập Mật Khẩu của bạn!",
                       },
                     ]}
                   >
-                    <Input type="email" required />
+                    <Input type="password" required />
                   </Form.Item>
                   <Button onClick={hanldeClickSubmit} className="form-button">
-                    Gửi Đi
+                    Xác Nhận
                   </Button>
                 </Form>
               </div>
@@ -116,14 +116,6 @@ function ForgotPasswordPage() {
                 >
                   Đăng ký tài khoản mới
                 </Link>
-
-                <a
-                  to={routes.changePassword}
-                  style={{ color: "#393f81" }}
-                  className="link-to"
-                >
-                  Đổi Mật Khẩu
-                </a>
               </div>
               <div className="d-flex flex-row justify-content-start">
                 <a href="#!" className="small text-muted me-1">
@@ -141,4 +133,4 @@ function ForgotPasswordPage() {
   );
 }
 
-export default ForgotPasswordPage;
+export default ChangePasswordPage;

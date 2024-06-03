@@ -10,15 +10,18 @@ import { PrimeReactProvider } from "primereact/api";
 // import "primeflex/primeflex.css";
 import "primereact/resources/primereact.css";
 import "primereact/resources/themes/lara-light-cyan/theme.css";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <PrimeReactProvider>
-          <App />
-        </PrimeReactProvider>
-      </PersistGate>
-    </Provider>
-  </BrowserRouter>
+  <GoogleOAuthProvider clientId="735095305101-iqmqg6ao566shu7oqq7pejk5dmgnjodo.apps.googleusercontent.com">
+    <BrowserRouter>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <PrimeReactProvider>
+            <App />
+          </PrimeReactProvider>
+        </PersistGate>
+      </Provider>
+    </BrowserRouter>
+  </GoogleOAuthProvider>
 );

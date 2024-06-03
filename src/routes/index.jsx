@@ -18,4 +18,5 @@ export const routes = {
   adminProduct: "/admin-san-pham",
   adminDiamond: "/admin-kim-cuong",
   adminAdd: "/admin-them-san-pham",
+  changePassword: "/doi-mat-khau",
 };
