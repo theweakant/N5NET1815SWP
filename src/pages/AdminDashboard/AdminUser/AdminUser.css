@@ -1,0 +1,85 @@
+/* AdminUser.css */
+
+.Admin-User {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    background-color: #f0f2f5;
+}
+
+.admin-user-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    margin-left: 200px;
+}
+
+.admin-user-content h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form-main {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-main .ant-form-item {
+    margin-bottom: 16px;
+}
+
+.form-main .ant-form-item-label>label {
+    font-weight: bold;
+}
+
+.form-button {
+    width: 100%;
+    background-color: #1890ff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 16px;
+}
+
+.form-button:hover {
+    background-color: #40a9ff;
+}
+
+.ant-modal-footer {
+    display: none;
+}
+
+.message {
+    margin-top: 16px;
+    color: #1890ff;
+    font-weight: bold;
+    text-align: center;
+}
+
+.ant-table-thead>tr>th {
+    background-color: #fafafa;
+    font-weight: bold;
+    text-align: center;
+}
+
+.ant-table-tbody>tr>td {
+    padding: 16px;
+    text-align: center;
+}
+
+.ant-btn-primary {
+    background-color: #1890ff;
+    border-color: #1890ff;
+}
+
+.ant-btn-primary:hover {
+    background-color: #40a9ff;
+    border-color: #40a9ff;
+}
+
+.ant-form-item-control-input-content>.ant-input-number {
+    width: 100%;
+}

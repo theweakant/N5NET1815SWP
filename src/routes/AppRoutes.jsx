@@ -8,7 +8,6 @@ import FAQPage from "../pages/FAQPage/FAQPage";
 import CollectionPage from "../pages/CollectionPage/CollectionPage";
 import Blog from "../pages/BlogPage/Blog";
 import SaleEventPage from "../pages/SaleEventPage/SaleEventPage";
-// import SizingTutor from "../pages/SizingTutorialPage/SizingTutor";
 import ProfilePage from "../pages/ProfilePage/ProfilePage";
 import AboutPage from "../pages/AboutPage/AboutPage";
 import ChainSizePage from "../pages/ChainSizePage/ChainSizePage";
@@ -18,8 +17,8 @@ import AccessoryInfor from "../pages/AccessoryInforPage/AccessoryInforPage";
 import WarrantyPolicyPage from "../pages/WarrantyPolicyPage/WarrantyPolicyPage";
 import AdminProduct from "../pages/AdminDashboard/AdminProduct/AdminProduct";
 import AdminDiamond from "../pages/AdminDashboard/AdminPage/AdminPageDiamond";
-import AdminFAQ from "../pages/AdminDashboard/AdminFAQ/AdminFAQ";
-
+import AdminManageOrder from "../pages/AdminDashboard/AdminManageOrder/AdmiManageOrder";
+import AdminUser from "../pages/AdminDashboard/AdminUser/AdminUser";
 
 export default function AppRoute() {
   return (
@@ -41,7 +40,9 @@ export default function AppRoute() {
       <Route path={routes.warrantyPolicy} element={<WarrantyPolicyPage />} />
       <Route path={routes.adminProduct} element={<AdminProduct />} />
       <Route path={routes.adminDiamond} element={<AdminDiamond />} />
-      <Route path={routes.adminFAQ} element={<AdminFAQ />} />
+      <Route path={routes.adminmanageorder} element={<AdminManageOrder />} />
+      <Route path={routes.adminUser} element={<AdminUser />} />
+
     </Routes>
   );
 }

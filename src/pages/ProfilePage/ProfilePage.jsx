@@ -7,13 +7,14 @@ import BasicButton from "../../components/Button/myButton";
 import { Link } from "react-router-dom";
 import InputTextField from "../../components/TextField/TextField";
 import ReadDatePickers from "../../components/Button/DatePicker";
+import UploadAvatar from "../../components/UploadAvatar/UploadAvatar";
 function ProfilePage() {
   return (
     <div>
       <Header></Header>
       <div className="avatar-user">
         <img id="avt-img" src={Ninja} />
-        <a href="">Chỉnh sửa ảnh đại diện</a>
+        <UploadAvatar>Chỉnh sửa ảnh đại diện</UploadAvatar>
       </div>
       <div className="info">
         <div className="info-text">

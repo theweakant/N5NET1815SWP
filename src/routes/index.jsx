@@ -16,5 +16,6 @@ export const routes = {
   warrantyPolicy: "/chinh-sach-bao-hanh",
   adminProduct: "/admin-san-pham",
   adminDiamond: "/admin-kim-cuong",
-  adminFAQ: "/admin-faq"
+  adminmanageorder: "/admin-quan-li-don-hang",
+  adminUser: "/admin-user"
 };

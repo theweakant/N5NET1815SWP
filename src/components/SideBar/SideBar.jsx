@@ -15,7 +15,9 @@ export default function SideBar() {
   return (
     <div className="sidenav">
       <div className="sidenav-header">
-        <img src={logo} alt="" />
+        <Link to={routes.home}>
+          <img src={logo} alt="" />
+        </Link>
         <span>Five Diamond</span>
       </div>
       <hr className="rounded" />
@@ -35,7 +37,7 @@ export default function SideBar() {
       </li>
       <li>
         <ShoppingCartIcon color="info" fontSize="large"></ShoppingCartIcon>
-        <Link to="">Quản Lý Đơn Hàng</Link>
+        <Link to={routes.adminmanageorder}>Quản Lý Đơn Hàng</Link>
       </li>
       <li>
         <DiamondIcon color="info" fontSize="large"></DiamondIcon>
@@ -51,12 +53,9 @@ export default function SideBar() {
       </li>
       <li>
         <PersonIcon color="info" fontSize="large"></PersonIcon>
-        <Link to="">Quản Lý Khách Hàng</Link>
+        <Link to={routes.adminUser}>Quản Lý Người Dùng</Link>
       </li>
-      <li>
-        <QuestionMarkIcon color="info" fontSize="large"></QuestionMarkIcon>
-        <Link to={routes.adminFAQ}>Quản Lý Câu Hỏi FAQs</Link>
-      </li>
+
       <li>
         <EventIcon color="info" fontSize="large"></EventIcon>
         <Link to="">Quản Lý Sự Kiện Sale</Link>
