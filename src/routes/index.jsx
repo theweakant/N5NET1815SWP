@@ -19,4 +19,5 @@ export const routes = {
   adminAdd: "/admin-them-san-pham",
   changePassword: "/doi-mat-khau",
   adminmanageorder: "/admin-quan-li-don-hang",
+  adminCategory: "/admin-danh-muc",
 };

@@ -55,15 +55,11 @@ export default function SideBar() {
       </li>
       <li>
         <CategoryIcon color="info" fontSize="large"></CategoryIcon>
-        <Link to="">Quản Lý Danh Mục</Link>
+        <Link to={routes.adminCategory}>Quản Lý Danh Mục</Link>
       </li>
       <li>
         <PersonIcon color="info" fontSize="large"></PersonIcon>
         <Link to="">Quản Lý Khách Hàng</Link>
-      </li>
-      <li>
-        <QuestionMarkIcon color="info" fontSize="large"></QuestionMarkIcon>
-        <Link to="">Quản Lý Câu Hỏi FAQs</Link>
       </li>
       <li>
         <EventIcon color="info" fontSize="large"></EventIcon>

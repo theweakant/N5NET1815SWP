@@ -16,7 +16,7 @@ import { Button, Form, Input } from "antd";
 import { useForm } from "antd/es/form/Form";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { selectUser } from "../../redux/features/counterSlice";
+import { login, selectUser } from "../../redux/features/counterSlice";
 
 function ForgotPasswordPage() {
   const [form] = useForm();
