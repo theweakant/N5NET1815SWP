@@ -18,8 +18,7 @@ import AccessoryInfor from "../pages/AccessoryInforPage/AccessoryInforPage";
 import WarrantyPolicyPage from "../pages/WarrantyPolicyPage/WarrantyPolicyPage";
 import AdminProduct from "../pages/AdminDashboard/AdminProduct/AdminProduct";
 import AdminDiamond from "../pages/AdminDashboard/AdminPage/AdminPageDiamond";
-import AddProduct from "../pages/AdminDashboard/AdminProduct/AddProduct";
-import ChangePasswordPage from "../pages/ChangePassword/ChangePassword";
+import AdminManageOrder from "../pages/AdminDashboard/AdminManageOrder/AdmiManageOrder";
 
 export default function AppRoute() {
   return (
@@ -41,8 +40,8 @@ export default function AppRoute() {
       <Route path={routes.warrantyPolicy} element={<WarrantyPolicyPage />} />
       <Route path={routes.adminProduct} element={<AdminProduct />} />
       <Route path={routes.adminDiamond} element={<AdminDiamond />} />
-      <Route path={routes.adminAdd} element={<AddProduct />} />
-      <Route path={routes.changePassword} element={<ChangePasswordPage />} />
+      <Route path={routes.adminDiamond} element={<AdminDiamond />} />
+      <Route path={routes.adminmanageorder} element={<AdminManageOrder />} />
     </Routes>
   );
 }

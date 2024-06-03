@@ -43,7 +43,7 @@ export default function SideBar() {
       </li>
       <li>
         <ShoppingCartIcon color="info" fontSize="large"></ShoppingCartIcon>
-        <Link to="">Quản Lý Đơn Hàng</Link>
+        <Link to={routes.adminmanageorder}>Quản Lý Đơn Hàng</Link>
       </li>
       <li>
         <DiamondIcon color="info" fontSize="large"></DiamondIcon>

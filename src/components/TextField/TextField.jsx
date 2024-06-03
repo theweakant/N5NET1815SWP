@@ -15,12 +15,13 @@ export default function InputTextField({text}) {
       autoComplete="off"
     >
       <TextField
-        hiddenLabel
-        id="filled-hidden-label-small"
-        defaultValue={text}
-        variant="filled"
-        size="small"
-      />
+          id="outlined-read-only-input"
+          // label="Read Only"
+          defaultValue={text}
+          InputProps={{
+            readOnly: true,
+          }}
+        />
     </Stack>
   );
 }

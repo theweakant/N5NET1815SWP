@@ -6,7 +6,6 @@ export const routes = {
   faq: "/faq",
   size: "/huong-dan-do-ni",
   bst: "/bo-suu-tap",
-
   blog: "/kien-thuc",
   sale: "/chuong-trinh-khuyen-mai",
   profile: "/trang-ca-nhan",
@@ -19,4 +18,5 @@ export const routes = {
   adminDiamond: "/admin-kim-cuong",
   adminAdd: "/admin-them-san-pham",
   changePassword: "/doi-mat-khau",
+  adminmanageorder: "/admin-quan-li-don-hang",
 };
