@@ -22,6 +22,7 @@ export default function SideBar() {
       <h1>Admin DashBoard</h1>
       <hr className="rounded" />
 
+<<<<<<< Updated upstream
       <li>
         <StackedLineChartIcon
           color="info"
@@ -62,5 +63,76 @@ export default function SideBar() {
         <Link to="">Quản Lý Sự Kiện Sale</Link>
       </li>
     </div>
+=======
+        <Link to={routes.bst}>
+          <CNavItem href="#" className="link-text">
+            <CIcon customClassName="nav-icon" icon={cilSpeedometer} /> Biểu Đồ
+            <CBadge color="primary ms-auto">NEW</CBadge>
+          </CNavItem>
+        </Link>
+
+        {/* <CNavGroup
+              toggler={
+                <>
+                  <CIcon customClassName="nav-icon" icon={cilPuzzle} /> Nav
+                  dropdown
+                </>
+              }
+            >
+              <CNavItem href="#">
+                <span className="nav-icon">
+                  <span className="nav-icon-bullet"></span>
+                </span>{" "}
+                Nav dropdown item
+              </CNavItem>
+              <CNavItem href="#">
+                <span className="nav-icon">
+                  <span className="nav-icon-bullet"></span>
+                </span>{" "}
+                Nav dropdown item
+              </CNavItem>
+            </CNavGroup> */}
+        <Link to={routes.bst} className="link-text">
+          <CNavItem href="#">
+            <CIcon customClassName="nav-icon" icon={cilCloudDownload} /> Quản lý
+            đơn hàng
+          </CNavItem>
+        </Link>
+        <Link to={routes.bst} className="link-text">
+          <CNavItem href="#">
+            <CIcon customClassName="nav-icon" icon={cilLayers} /> Quản lý sản
+            phẩm
+          </CNavItem>
+        </Link>
+        <Link to={routes.bst} className="link-text">
+          <CNavItem href="#">
+            <CIcon customClassName="nav-icon" icon={cilLayers} /> Quản lý danh
+            mục
+          </CNavItem>
+        </Link>
+        <Link to={routes.bst} className="link-text">
+          <CNavItem href="#">
+            <CIcon customClassName="nav-icon" icon={cilLayers} /> Quản lý khách
+            hàng
+          </CNavItem>
+        </Link>
+        <Link to={routes.bst} className="link-text">
+          <CNavItem href="#">
+            <CIcon customClassName="nav-icon" icon={cilLayers} /> Quản lý câu
+            hỏi FAQs
+          </CNavItem>
+        </Link>
+        <Link to={routes.bst} className="link-text">
+          <CNavItem href="#">
+            <CIcon customClassName="nav-icon" icon={cilLayers} /> Quản lý sự
+            kiện sale
+          </CNavItem>
+        </Link>
+      </CSidebarNav>
+      {/* <CSidebarHeader className="border-top">
+            <CSidebarToggler />
+          </CSidebarHeader> */}
+    </CSidebar>
+>>>>>>> Stashed changes
   );
 }

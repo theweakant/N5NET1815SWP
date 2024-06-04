@@ -6,6 +6,7 @@ export const routes = {
   faq: "/faq",
   size: "/huong-dan-do-ni",
   bst: "/bo-suu-tap",
+<<<<<<< Updated upstream
 
   blog: "/kien-thuc",
   sale: "/chuong-trinh-khuyen-mai",
@@ -19,4 +20,16 @@ export const routes = {
   adminDiamond: "/admin-kim-cuong",
   adminStatistics: "/admin-thong-ke",
   adminCategory: "/admin-danhmuc",
+=======
+  admin: "/admin",
+  blog: "/blog",
+  sale: "/sale",
+  profile: "/profile",
+  about: "/about",
+  chain: "/chain",
+  kienthuc: "/kien-suc-trang-suc",
+  accessoryInfor: "/accessoryinfor",
+  warrantyPolicy: "/warrantypolicy",
+  // statistics: "/statistics",
+>>>>>>> Stashed changes
 };
