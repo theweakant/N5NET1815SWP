@@ -6,28 +6,32 @@ import "./ProfilePage.css";
 import BasicButton from "../../components/Button/myButton";
 import { Link } from "react-router-dom";
 import InputTextField from "../../components/TextField/TextField";
+import ReadDatePickers from "../../components/Button/DatePicker";
+import UploadAvatar from "../../components/UploadAvatar/UploadAvatar";
 function ProfilePage() {
   return (
     <div>
       <Header></Header>
       <div className="avatar-user">
         <img id="avt-img" src={Ninja} />
-        <a href="">Chỉnh sửa ảnh đại diện</a>
+        <UploadAvatar>Chỉnh sửa ảnh đại diện</UploadAvatar>
       </div>
       <div className="info">
         <div className="info-text">
           <h3>Thông tin cá nhân</h3>
           <div className="input">
             <label>Họ tên:</label>
-            <InputTextField text={"Nguyễn Tuấn Anh"} />
+            <InputTextField text={""} />
           </div>
           <div className="input">
             <label>Giới tính:</label>
-            <InputTextField text={"Nam"} />
+            <InputTextField text={""} />
           </div>
           <div className="input">
             <label>Ngày sinh:</label>
-            <InputTextField text={""} />
+            <ReadDatePickers
+              date={""} 
+              />
           </div>
           <div className="input">
             <label>Số điện thoại:</label>

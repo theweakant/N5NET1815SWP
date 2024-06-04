@@ -6,7 +6,6 @@ export const routes = {
   faq: "/faq",
   size: "/huong-dan-do-ni",
   bst: "/bo-suu-tap",
-<<<<<<< Updated upstream
 
   blog: "/kien-thuc",
   sale: "/chuong-trinh-khuyen-mai",
@@ -18,9 +17,6 @@ export const routes = {
   warrantyPolicy: "/chinh-sach-bao-hanh",
   adminProduct: "/admin-san-pham",
   adminDiamond: "/admin-kim-cuong",
-  adminStatistics: "/admin-thong-ke",
-  adminCategory: "/admin-danhmuc",
-=======
   admin: "/admin",
   blog: "/blog",
   sale: "/sale",
@@ -31,5 +27,9 @@ export const routes = {
   accessoryInfor: "/accessoryinfor",
   warrantyPolicy: "/warrantypolicy",
   // statistics: "/statistics",
->>>>>>> Stashed changes
+  adminAdd: "/admin-them-san-pham",
+  changePassword: "/doi-mat-khau",
+  adminmanageorder: "/admin-quan-li-don-hang",
+  adminCategory: "/admin-danh-muc",
+
 };

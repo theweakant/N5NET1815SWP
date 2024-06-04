@@ -16,16 +16,18 @@ import SizePage from "../pages/SizePage/SizePage";
 import DiamondKnowledgePage from "../pages/DiamondKnowledgePage/DiamondKnowledgePage";
 import AccessoryInfor from "../pages/AccessoryInforPage/AccessoryInforPage";
 import WarrantyPolicyPage from "../pages/WarrantyPolicyPage/WarrantyPolicyPage";
-<<<<<<< Updated upstream
 import AdminProduct from "../pages/AdminDashboard/AdminProduct/AdminProduct";
 import AdminDiamond from "../pages/AdminDashboard/AdminPage/AdminPageDiamond";
+
 import AdminStatistics from "../pages/AdminDashboard/AdminStatistics/AdminStatistics";
 import AdminCategory from "../pages/AdminDashboard/AdminCategory/AdminCategory";
 // import AdminStatistics from "../pages/AdminDashboard/AdminStatistics/AdminStatics";
-=======
+
 import AdminPage from "../pages/AdminDashboard/AdminPage/AdminPageDashBoard";
 // import Statistics from "../pages/Statistics/statistics";
->>>>>>> Stashed changes
+import AdminManageOrder from "../pages/AdminDashboard/AdminManageOrder/AdmiManageOrder";
+import AdminCategory from "../pages/AdminDashboard/AdminCategory/AdminCategory";
+
 
 export default function AppRoute() {
   return (
@@ -45,17 +47,15 @@ export default function AppRoute() {
       <Route path={routes.kienthuc} element={<DiamondKnowledgePage />} />
       <Route path={routes.accessoryInfor} element={<AccessoryInfor />} />
       <Route path={routes.warrantyPolicy} element={<WarrantyPolicyPage />} />
-<<<<<<< Updated upstream
+
       <Route path={routes.adminProduct} element={<AdminProduct />} />
       <Route path={routes.adminDiamond} element={<AdminDiamond />} />
       <Route path={routes.adminDiamond} element={<AdminDiamond />} />
-      <Route path={routes.adminStatistics} element={<AdminStatistics />} />
+      {/* <Route path={routes.statistics} element={<Statistics />} /> */}
+
+      <Route path={routes.adminmanageorder} element={<AdminManageOrder />} />
       <Route path={routes.adminCategory} element={<AdminCategory />} />
 
-=======
-      {/* <Route path={routes.statistics} element={<Statistics />} /> */}
-      
->>>>>>> Stashed changes
     </Routes>
   );
 }

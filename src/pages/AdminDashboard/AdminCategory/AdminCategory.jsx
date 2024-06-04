@@ -1,105 +1,137 @@
-import React, { useState } from 'react';
-import { Button, Table, Modal, Form, Input } from 'antd';
-import SideBar from '../../../components/SideBar/SideBar';
-import '../AdminPage/AdminPage.css';
+import SideBar from "../../../components/SideBar/SideBar";
+import { Button, Form, Input, Modal, Space, Table } from "antd";
+import { useEffect, useState } from "react";
+import { useForm } from "antd/es/form/Form";
+import "../../AdminDashboard/AdminPage.css";
+import api from "../../../config/axios";
 
-const AdminCategory = () => {
-  const [categories, setCategories] = useState([
-    { id: 1, name: 'Nhẫn', type: 'kim cương' },
-    { id: 2, name: 'Dây Chuyền', type: 'kim cương' },
-    { id: 3, name: 'Lắc tay', type: 'vàng' },
-    { id: 4, name: 'Vòng tay', type: 'vàng' },
-    { id: 5, name: 'Viên Kim cương', type: 'vàng' },
-  ]);
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [form] = Form.useForm();
+export default function AdminCategory() {
+  const [message, setMessage] = useState("");
+  const [form] = useForm();
+  const [category, setCategory] = useState([]);
 
-  const handleAddCategory = (values) => {
-    const newCategory = { id: categories.length + 1, ...values };
-    setCategories([...categories, newCategory]);
-    setIsModalVisible(false);
-    form.resetFields();
-  };
+  function hanldeClickSubmit() {
+    form.submit();
+  }
 
-  const handleEditCategory = (id) => {
-    // Logic to edit a category
-  };
+  async function handleSubmit(value) {
+    console.log(value);
+    try {
+      await api.post("category", value);
+      setMessage("Thêm danh mục thành công");
+      setCategory([...category, value]);
+    } catch (error) {
+      setMessage("Đã có lỗi trong lúc thêm danh mục");
+      console.log(error.response.data);
+    }
+  }
 
-  const handleDeleteCategory = (id) => {
-    setCategories(categories.filter(category => category.id !== id));
-  };
+  async function fetchProduct() {
+    const response = await api.get("category");
+    setCategory(response.data);
+  }
+
+  useEffect(() => {
+    fetchProduct();
+  }, []);
 
   const columns = [
     {
-      title: 'Mã',
-      dataIndex: 'id',
-      key: 'id',
+      title: "Tên Danh Mục",
+      dataIndex: "name",
+      key: "name",
     },
     {
-      title: 'Tên danh mục',
-      dataIndex: 'name',
-      key: 'name',
+      title: "Mô Tả Danh Mục",
+      dataIndex: "description",
+      key: "description",
     },
     {
-      title: 'Loại',
-      dataIndex: 'type',
-      key: 'type',
-    },
-    {
-      title: 'Chức năng',
-      key: 'action',
-      render: (text, record) => (
-        <>
-          <Button onClick={() => handleEditCategory(record.id)}>📝</Button>
-          <Button onClick={() => handleDeleteCategory(record.id)}>🗑️</Button>
-        </>
+      title: "Hành Động",
+      render: (_, record) => (
+        <Space size="middle">
+          <a>Invite {record.name}</a>
+          <a>Delete</a>
+        </Space>
       ),
     },
   ];
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
   return (
     <div className="Admin">
-      <SideBar />
-      
-      <div className="content_category">
-        <Button type="primary" onClick={() => setIsModalVisible(true)}>
-          Tạo mới danh mục
+      <SideBar></SideBar>
+
+      <div className="admin-content">
+        <h1>Thêm Danh Mục</h1>
+        <Button type="primary" onClick={showModal}>
+          Thêm
         </Button>
-        <Button type="secondary" onClick={() => console.log('In dữ liệu')}>
-          In dữ liệu
-        </Button>
-        <Table dataSource={categories} columns={columns} rowKey="id" />
+        <Table
+          dataSource={category}
+          columns={columns}
+          pagination={{ pageSize: 5 }}
+          scroll={{ x: "max-content" }}
+        />
         <Modal
-          title="Thêm danh mục"
-          visible={isModalVisible}
-          onCancel={() => setIsModalVisible(false)}
-          footer={null}
+          className="modal-add-form"
+          footer={false}
+          title="Thêm Danh Mục"
+          okText={""}
+          open={isModalOpen}
+          onOk={handleOk}
+          onCancel={handleCancel}
         >
-          <Form form={form} onFinish={handleAddCategory}>
+          <Form
+            form={form}
+            onFinish={handleSubmit}
+            id="form"
+            className="form-main"
+          >
             <Form.Item
+              className="label-form"
+              label="Tên Danh Mục"
               name="name"
-              label="Tên danh mục"
-              rules={[{ required: true, message: 'Vui lòng nhập tên danh mục' }]}
+              rules={[
+                {
+                  required: true,
+                  message: "Nhập tên danh mục",
+                },
+              ]}
             >
-              <Input />
+              <Input type="text" required />
             </Form.Item>
+
             <Form.Item
-              name="type"
-              label="Loại"
-              rules={[{ required: true, message: 'Vui lòng nhập loại' }]}
+              className="label-form"
+              label="Mô tả danh mục"
+              name="description"
+              rules={[
+                {
+                  required: true,
+                  message: "Nhập vào Mô tả danh mục",
+                },
+              ]}
             >
-              <Input />
+              <Input type="text" />
             </Form.Item>
-            <Form.Item>
-              <Button type="primary" htmlType="submit">
-                Thêm
-              </Button>
-            </Form.Item>
+
+            <Button onClick={hanldeClickSubmit} className="form-button">
+              Thêm Danh Mục
+            </Button>
+            {message && <div>{message}</div>}
           </Form>
         </Modal>
       </div>
     </div>
   );
-};
-
-export default AdminCategory;
+}

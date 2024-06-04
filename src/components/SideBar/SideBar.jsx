@@ -11,7 +11,15 @@ import PersonIcon from "@mui/icons-material/Person";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 import EventIcon from "@mui/icons-material/Event";
 import { routes } from "../../routes";
+import BasicButton from "../Button/myButton";
+import { logout, selectUser } from "../../redux/features/counterSlice";
+import { useDispatch, useSelector } from "react-redux";
 export default function SideBar() {
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
+  const handleLogout = () => {
+    dispatch(logout());
+  };
   return (
     <div className="sidenav">
       <div className="sidenav-header">
@@ -36,7 +44,7 @@ export default function SideBar() {
       </li>
       <li>
         <ShoppingCartIcon color="info" fontSize="large"></ShoppingCartIcon>
-        <Link to="">Quản Lý Đơn Hàng</Link>
+        <Link to={routes.adminmanageorder}>Quản Lý Đơn Hàng</Link>
       </li>
       <li>
         <DiamondIcon color="info" fontSize="large"></DiamondIcon>
@@ -55,13 +63,18 @@ export default function SideBar() {
         <Link to="">Quản Lý Khách Hàng</Link>
       </li>
       <li>
-        <QuestionMarkIcon color="info" fontSize="large"></QuestionMarkIcon>
-        <Link to="">Quản Lý Câu Hỏi FAQs</Link>
-      </li>
-      <li>
         <EventIcon color="info" fontSize="large"></EventIcon>
         <Link to="">Quản Lý Sự Kiện Sale</Link>
       </li>
+
+      <Link to={routes.login}>
+        <BasicButton
+          text={"Đăng Xuất"}
+          icon={"pi pi-sign-in"}
+          onClick={handleLogout}
+          className="admin-button-logout"
+        ></BasicButton>
+      </Link>
     </div>
 =======
         <Link to={routes.bst}>

@@ -17,12 +17,28 @@ import { useForm } from "antd/es/form/Form";
 import axios from "axios";
 import { Option } from "antd/es/mentions";
 import { useState } from "react";
+import { login, logout, selectUser } from "../../redux/features/counterSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 function RegisterPageCard() {
   const [message, setMessage] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const dispatch = useDispatch();
+  const user = useSelector(selectUser);
+
+  const handleLogin = () => {
+    const userData = { firstname, lastname };
+    dispatch(login(userData));
+  };
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
+  const dateFormat = "DD/MM/YYYY";
 
   const [form] = useForm();
-  const dateFormat = "DD/MM/YYYY";
   async function handleSubmit(value) {
     console.log(value);
     try {
