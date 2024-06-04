@@ -27,7 +27,7 @@ export default function SideBar() {
           color="info"
           fontSize="large"
         ></StackedLineChartIcon>
-        <Link to="">Thống Kê</Link>
+        <Link to={routes.adminStatistics}>Thống Kê</Link>
       </li>
       <li>
         <BarChartIcon color="info" fontSize="large"></BarChartIcon>
@@ -47,7 +47,7 @@ export default function SideBar() {
       </li>
       <li>
         <CategoryIcon color="info" fontSize="large"></CategoryIcon>
-        <Link to="">Quản Lý Danh Mục</Link>
+        <Link to={routes.adminCategory}>Quản Lý Danh Mục</Link>
       </li>
       <li>
         <PersonIcon color="info" fontSize="large"></PersonIcon>

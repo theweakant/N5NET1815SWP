@@ -17,4 +17,6 @@ export const routes = {
   warrantyPolicy: "/chinh-sach-bao-hanh",
   adminProduct: "/admin-san-pham",
   adminDiamond: "/admin-kim-cuong",
+  adminStatistics: "/admin-thong-ke",
+  adminCategory: "/admin-danhmuc",
 };
