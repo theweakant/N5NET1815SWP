@@ -1,25 +1,24 @@
 import SideBar from "../../../components/SideBar/SideBar";
-import { Button, Col, DatePicker, Form, Image, Input, Modal, Row, Table } from "antd";
+import {
+  Button,
+  DatePicker,
+  Form,
+  Image,
+  Input,
+  Modal,
+  Space,
+  Table,
+} from "antd";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 import { useForm } from "antd/es/form/Form";
-import "./AdminPage.css";
+import "../../AdminDashboard/AdminPage.css";
 import api from "../../../config/axios";
-const config = {
-  rules: [
-    {
-      type: "object",
-      required: true,
-      message: "Hãy Chọn Ngày",
-    },
-  ],
-};
+import { Link } from "react-router-dom";
+
 export default function AdminDiamond() {
   const [message, setMessage] = useState("");
   const [form] = useForm();
-  const navigate = useNavigate();
-  const [diamonds, setDiamonds] = useState([])
+  const [diamonds, setDiamonds] = useState([]);
   const dateFormat = "DD/MM/YYYY";
 
   function hanldeClickSubmit() {
@@ -29,8 +28,9 @@ export default function AdminDiamond() {
   async function handleSubmit(value) {
     console.log(value);
     try {
-      await axios.post("http://157.245.145.162:8080/api/diamond", value);
+      await api.post("diamond", value);
       setMessage("Thêm sản phẩm thành công");
+      setDiamonds([...diamonds, value]);
     } catch (error) {
       setMessage("Đã có lỗi trong lúc thêm sản phẩm");
       console.log(error.response.data);
@@ -42,83 +42,96 @@ export default function AdminDiamond() {
     setDiamonds(response.data);
   }
 
-  useEffect(() => {
-    fetchProduct()
-  }, [])
+  async function deleteProduct(id) {
+    console.log(id);
+    try {
+      await api.delete("diamond/id");
+      // setMessage("Thêm sản phẩm thành công");
+      setDiamonds([...diamonds, id]);
+    } catch (error) {
+      // setMessage("Đã có lỗi trong lúc thêm sản phẩm");
+      console.log(error.response.data);
+    }
+  }
 
-  const responseMessage = (response) => {
-    console.log(response);
-  };
-  const errorMessage = (error) => {
-    console.log(error);
-  };
+  useEffect(() => {
+    fetchProduct();
+  }, []);
 
   const columns = [
     {
-      title: 'ID',
-      dataIndex: 'id',
-      key: 'id',
+      title: "ID",
+      dataIndex: "id",
+      key: "id",
     },
     {
-      title: 'GIA Report Number',
-      dataIndex: 'giaReportNumber',
-      key: 'giaReportNumber',
+      title: "GIA Report Number",
+      dataIndex: "giaReportNumber",
+      key: "giaReportNumber",
     },
     {
-      title: 'Image URL 1',
-      dataIndex: 'imgURL1',
-      key: 'imgURL1',
-      render: (value) => <Image src={value} />
+      title: "Image URL 1",
+      dataIndex: "imgURL1",
+      key: "imgURL1",
+      render: (value) => <Image src={value} />,
     },
     {
-      title: 'Cost',
-      dataIndex: 'cost',
-      key: 'cost',
+      title: "Cost",
+      dataIndex: "cost",
+      key: "cost",
     },
     {
-      title: 'Price',
-      dataIndex: 'price',
-      key: 'price',
+      title: "Price",
+      dataIndex: "price",
+      key: "price",
     },
     {
-      title: 'Import Date',
-      dataIndex: 'importDate',
-      key: 'importDate',
+      title: "Import Date",
+      dataIndex: "importDate",
+      key: "importDate",
     },
     {
-      title: 'Size',
-      dataIndex: 'size',
-      key: 'size',
+      title: "Size",
+      dataIndex: "size",
+      key: "size",
     },
     {
-      title: 'Shape',
-      dataIndex: 'shape',
-      key: 'shape',
+      title: "Shape",
+      dataIndex: "shape",
+      key: "shape",
     },
     {
-      title: 'Carat',
-      dataIndex: 'carat',
-      key: 'carat',
+      title: "Carat",
+      dataIndex: "carat",
+      key: "carat",
     },
     {
-      title: 'Color',
-      dataIndex: 'color',
-      key: 'color',
+      title: "Color",
+      dataIndex: "color",
+      key: "color",
     },
     {
-      title: 'Clarity',
-      dataIndex: 'clarity',
-      key: 'clarity',
+      title: "Clarity",
+      dataIndex: "clarity",
+      key: "clarity",
     },
     {
-      title: 'Cut',
-      dataIndex: 'cut',
-      key: 'cut',
+      title: "Cut",
+      dataIndex: "cut",
+      key: "cut",
     },
     {
-      title: 'Date of Issues',
-      dataIndex: 'dateOfIssues',
-      key: 'dateOfIssues',
+      title: "Date of Issues",
+      dataIndex: "dateOfIssues",
+      key: "dateOfIssues",
+    },
+    {
+      title: "Hành Động",
+      render: () => (
+        <Space size="middle">
+          <Button onClick={deleteProduct}>xóa</Button>
+        </Space>
+      ),
     },
   ];
 
@@ -141,66 +154,49 @@ export default function AdminDiamond() {
         <Button type="primary" onClick={showModal}>
           Thêm
         </Button>
-        <Table dataSource={diamonds} columns={columns} />
-        <Modal footer={false} title="Thêm sản phẩm kim cương" okText={""} open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+        <Table
+          dataSource={diamonds}
+          columns={columns}
+          pagination={{ pageSize: 5 }}
+          scroll={{ x: "max-content" }}
+        />
+        <Modal
+          className="modal-add-form"
+          footer={false}
+          title="Thêm sản phẩm kim cương"
+          okText={""}
+          open={isModalOpen}
+          onOk={handleOk}
+          onCancel={handleCancel}
+        >
           <Form
             form={form}
             onFinish={handleSubmit}
             id="form"
             className="form-main"
           >
-            <Row gutter={16}>
-              <Col span={12}>
-                <Form.Item
-                  label="Mã Số GIA"
-                  name="giaReportNumber"
-                  style={{
-                    maxWidth: 'none'
-                  }}
-                  rules={[
-                    {
-                      required: true,
-                      message: "Nhập mã số GIA",
-                    },
-                  ]}
-                >
-                  <Input type="number" required />
-                </Form.Item>
-              </Col>
-              <Col span={12}>
-                <Form.Item
-                
-                  labelCol={{ span: 6 }} style={{
-                    maxWidth: 'none'
-                  }} label="Image URL 1"
-                  name="imgURL1"
-                  rules={[
-                    {
-                      required: true,
-                      message: "Nhập hình ảnh",
-                    },
-                  ]}
-                >
-                  <Input type="text" />
-                </Form.Item>
-              </Col>
-            </Row>
-            <Form.Item label="Image URL 2" name="imgURL2">
-              <Input type="text" />
-            </Form.Item>
-            <Form.Item label="Image URL 3" name="imgURL3">
-              <Input type="text" />
-            </Form.Item>
-            <Form.Item label="Image URL 4" name="imgURL4">
-              <Input type="text" />
-            </Form.Item>
             <Form.Item
-              label="Mô tả"
-              name="description"
+              className="label-form"
+              label="Mã Số GIA"
+              name="giaReportNumber"
               rules={[
                 {
                   required: true,
-                  message: "Nhập mô tả kim cương",
+                  message: "Nhập mã số GIA",
+                },
+              ]}
+            >
+              <Input type="number" required />
+            </Form.Item>
+
+            <Form.Item
+              className="label-form"
+              label="Image URL 1"
+              name="imgURL1"
+              rules={[
+                {
+                  required: true,
+                  message: "Nhập hình ảnh",
                 },
               ]}
             >
@@ -208,6 +204,28 @@ export default function AdminDiamond() {
             </Form.Item>
 
             <Form.Item
+              className="label-form"
+              label="Image URL 2"
+              name="imgURL2"
+            >
+              <Input type="text" />
+            </Form.Item>
+            <Form.Item
+              className="label-form"
+              label="Image URL 3"
+              name="imgURL3"
+            >
+              <Input type="text" />
+            </Form.Item>
+            <Form.Item
+              className="label-form"
+              label="Image URL 4"
+              name="imgURL4"
+            >
+              <Input type="text" />
+            </Form.Item>
+            <Form.Item
+              className="label-form"
               label="Giá Nhập"
               name="cost"
               rules={[
@@ -220,6 +238,7 @@ export default function AdminDiamond() {
               <Input type="number" required />
             </Form.Item>
             <Form.Item
+              className="label-form"
               label="Giá Bán"
               name="price"
               rules={[
@@ -231,8 +250,8 @@ export default function AdminDiamond() {
             >
               <Input type="number" required />
             </Form.Item>
-
             <Form.Item
+              className="label-form"
               name="importDate"
               label="Ngày Nhập"
               rules={[{ required: true, message: "Chọn ngày nhập" }]}
@@ -243,8 +262,33 @@ export default function AdminDiamond() {
                 format={dateFormat}
               />
             </Form.Item>
-
             <Form.Item
+              className="label-form"
+              name="dateOfIssues"
+              label="Ngày Cấp GIA"
+              rules={[{ required: true, message: "Chọn ngày cấp GIA" }]}
+            >
+              <DatePicker
+                placeholder="Ngày Cấp GIA"
+                style={{ width: "100%" }}
+                format={dateFormat}
+              />
+            </Form.Item>
+            <Form.Item
+              className="label-form"
+              label="Size"
+              name="size"
+              rules={[
+                {
+                  required: true,
+                  message: "Nhập size",
+                },
+              ]}
+            >
+              <Input type="number" required />
+            </Form.Item>
+            <Form.Item
+              className="label-form"
               label="Hình dáng"
               name="shape"
               rules={[
@@ -257,6 +301,7 @@ export default function AdminDiamond() {
               <Input type="text" required />
             </Form.Item>
             <Form.Item
+              className="label-form"
               label="Carat"
               name="carat"
               rules={[
@@ -269,6 +314,7 @@ export default function AdminDiamond() {
               <Input type="number" required />
             </Form.Item>
             <Form.Item
+              className="label-form"
               label="Màu sắc"
               name="color"
               rules={[
@@ -281,6 +327,7 @@ export default function AdminDiamond() {
               <Input type="text" required />
             </Form.Item>
             <Form.Item
+              className="label-form"
               label="Độ Tinh Khiết"
               name="clarity"
               rules={[
@@ -293,6 +340,7 @@ export default function AdminDiamond() {
               <Input type="text" required />
             </Form.Item>
             <Form.Item
+              className="label-form"
               label="Độ Cắt"
               name="cut"
               rules={[
@@ -304,25 +352,12 @@ export default function AdminDiamond() {
             >
               <Input type="text" required />
             </Form.Item>
-            <Form.Item
-              name="dateOfIssues"
-              label="Ngày Cấp GIA"
-              rules={[{ required: true, message: "Chọn ngày cấp GIA" }]}
-            >
-              <DatePicker
-                placeholder="Ngày Cấp GIA"
-                style={{ width: "100%" }}
-                format={dateFormat}
-              />
-            </Form.Item>
-
             <Button onClick={hanldeClickSubmit} className="form-button">
               Thêm Viên Kim Cương
             </Button>
             {message && <div>{message}</div>}
           </Form>
         </Modal>
-
       </div>
     </div>
   );
