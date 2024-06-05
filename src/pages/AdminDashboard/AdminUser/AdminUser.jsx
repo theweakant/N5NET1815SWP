@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useForm } from "antd/es/form/Form";
-import "./AdminUser.css";
+// import "./AdminUser.css";
 import api from "../../../config/axios";
 
 const config = {
@@ -110,7 +110,7 @@ export default function AdminUser() {
 
     return (
         <div className="Admin-User">
-            <SideBar />
+            {/* <SideBar /> */}
 
             <div className="admin-user-content">
                 <h1>Admin User</h1>

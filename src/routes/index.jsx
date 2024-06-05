@@ -16,6 +16,11 @@ export const routes = {
   warrantyPolicy: "/chinh-sach-bao-hanh",
   adminProduct: "/admin-san-pham",
   adminDiamond: "/admin-kim-cuong",
+  adminAdd: "/admin-them-san-pham",
+  changePassword: "/doi-mat-khau",
   adminmanageorder: "/admin-quan-li-don-hang",
-  adminUser: "/admin-user"
+  adminCategory: "/admin-danh-muc",
+  adminUser: "/admin-user",
+  tracking: "/theo-doi-don-hang",
+  saleproduct: "/san-pham-giam-gia",
 };
