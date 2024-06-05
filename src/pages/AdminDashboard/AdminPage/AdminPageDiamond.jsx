@@ -51,6 +51,7 @@ export default function AdminDiamond() {
       title: 'ID',
       dataIndex: 'id',
       key: 'id',
+      fixed: 'left',
     },
     {
       title: 'GIA Report Number',
