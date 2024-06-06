@@ -18,4 +18,5 @@ export const routes = {
   adminDiamond: "/admin-kim-cuong",
   adminmanageorder: "/admin-quan-li-don-hang",
   productdetail: "/chi-tiet-san-pham",
+  diamondprice: "/bang-gia-kim-cuong",
 };

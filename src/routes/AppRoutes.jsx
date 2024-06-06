@@ -20,6 +20,7 @@ import AdminProduct from "../pages/AdminDashboard/AdminProduct/AdminProduct";
 import AdminDiamond from "../pages/AdminDashboard/AdminPage/AdminPageDiamond";
 import AdminManageOrder from "../pages/AdminDashboard/AdminManageOrder/AdmiManageOrder";
 import ProductDetailPage from "../pages/ProductPage/ProductDetailPage";
+import DiamondPricePage from "../pages/DiamondPricePage/DiamondPricePage";
 
 export default function AppRoute() {
   return (
@@ -44,6 +45,7 @@ export default function AppRoute() {
       <Route path={routes.adminDiamond} element={<AdminDiamond />} />
       <Route path={routes.adminmanageorder} element={<AdminManageOrder />} />
       <Route path={routes.productdetail} element={<ProductDetailPage />} />
+      <Route path={routes.diamondprice} element={<DiamondPricePage />} />
     </Routes>
   );
 }
