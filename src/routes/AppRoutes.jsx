@@ -19,6 +19,7 @@ import WarrantyPolicyPage from "../pages/WarrantyPolicyPage/WarrantyPolicyPage";
 import AdminProduct from "../pages/AdminDashboard/AdminProduct/AdminProduct";
 import AdminDiamond from "../pages/AdminDashboard/AdminPage/AdminPageDiamond";
 import AdminManageOrder from "../pages/AdminDashboard/AdminManageOrder/AdmiManageOrder";
+import ProductDetailPage from "../pages/ProductPage/ProductDetailPage";
 
 export default function AppRoute() {
   return (
@@ -42,6 +43,7 @@ export default function AppRoute() {
       <Route path={routes.adminDiamond} element={<AdminDiamond />} />
       <Route path={routes.adminDiamond} element={<AdminDiamond />} />
       <Route path={routes.adminmanageorder} element={<AdminManageOrder />} />
+      <Route path={routes.product} element={<ProductDetailPage />} />
     </Routes>
   );
 }
