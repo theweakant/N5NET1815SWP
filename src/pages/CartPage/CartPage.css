@@ -1,0 +1,100 @@
+.page-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .container {
+    flex: 1;
+    padding-top: 20px;
+  }
+  
+  .order-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .product-details {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .product-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-right: 35px;
+  }
+  
+  .order-item-details {
+    flex: 1;
+  }
+  
+  .col-md-8 {
+    margin-bottom: 20px;
+  }
+  
+  .col-md-4 {
+    position: sticky;
+    top: 20px;
+  }
+  
+  .card {
+    border: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .summary {
+    margin-top: 20px;
+  }
+.btn-danger {
+    width: 15%;
+  }
+  .card-body .btn-proceed-to-checkout {
+    margin-bottom: 20px;
+  }
+  /* CartPage.css */
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.quantity-control .quantity {
+  margin: 0 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.quantity-control .btn {
+  padding: 5px 10px;
+}
+
+.quantity-control .btn-outline-secondary {
+  border-color: #c4c4c4;
+  color: #333;
+}
+
+.quantity-control .btn-outline-secondary:hover {
+  background-color: #d0d0d0;
+  border-color: #b6b6b6;
+}
+  
+  @media (max-width: 768px) {
+    .col-md-4 {
+      position: static;
+    }
+  }

@@ -20,6 +20,8 @@ import AdminProduct from "../pages/AdminDashboard/AdminProduct/AdminProduct";
 import AdminDiamond from "../pages/AdminDashboard/AdminPage/AdminPageDiamond";
 import AdminManageOrder from "../pages/AdminDashboard/AdminManageOrder/AdmiManageOrder";
 import AdminCategory from "../pages/AdminDashboard/AdminCategory/AdminCategory";
+import CheckOut from "../pages/CheckOut/CheckOut";
+import CartPage from "../pages/CartPage/CartPage";
 
 export default function AppRoute() {
   return (
@@ -44,6 +46,9 @@ export default function AppRoute() {
       <Route path={routes.adminDiamond} element={<AdminDiamond />} />
       <Route path={routes.adminmanageorder} element={<AdminManageOrder />} />
       <Route path={routes.adminCategory} element={<AdminCategory />} />
+      <Route path={routes.checkOut} element={<CheckOut />} />
+      <Route path={routes.cartPage} element={<CartPage />} />
+
     </Routes>
   );
 }
