@@ -1,61 +1,68 @@
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import React, { useState } from "react";
+import { Container } from "react-bootstrap";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
-import ProductCard from "../../components/productCard/productCard";
-import Banner4 from "../../../public/assets/images/Banner/banner4.jpg";
-import Banner5 from "../../../public/assets/images/Banner/banner5.png";
-import Product2 from "../../../public/assets/images/product/product2.png";
-import Product3 from "../../../public/assets/images/product/product3.png";
-import Product4 from "../../../public/assets/images/product/product4.png";
-import Product5 from "../../../public/assets/images/product/product5.png";
+import { Dropdown, Menu } from 'antd';
 import "./SaleProductPage.css";
-import OutlinedButtons from "../../components/Button/OutlineButton";
-import BasicButton from "../../components/Button/myButton";
-import MyBreadcrumb from "../../components/Breadcrumb/Breadcrumb";
-import { routes } from "../../routes";
+import { saleProducts } from "./ListOfSaleProducts";
+import Banner from "../../components/Banner/banner";
+import banner1 from "../../../public/assets/images/Banner/banner1.jpg";
+import banner2 from "../../../public/assets/images/Banner/banner2.jpg";
+import banner3 from "../../../public/assets/images/Banner/banner3.jpg";
+import banner4 from "../../../public/assets/images/Banner/banner4.jpg";
 
-function SaleProductPage() {
+
+const SaleProductPage = () => {
+    const [selectedCategory, setSelectedCategory] = useState(null);
+
+    // Filter products by category
+    const filteredProducts = selectedCategory ? saleProducts.filter(product => product.category === selectedCategory) : saleProducts;
+
+    // Generate menu items for the dropdown
+    const menu = (
+        <Menu onClick={({ key }) => setSelectedCategory(key === "all" ? null : key)}>
+            <Menu.Item key="all">All</Menu.Item>
+            <Menu.Item key="ring">Rings</Menu.Item>
+            <Menu.Item key="necklace">Necklaces</Menu.Item>
+            <Menu.Item key="bracelet">Bracelets</Menu.Item>
+        </Menu>
+    );
+
     return (
         <div>
             <Header />
+
             <Container>
+                <Banner
+                    className="sale-product-banner"
+                    pic1={banner1}
+                    pic2={banner2}
+                    pic3={banner3}
+                    pic4={banner4}
+                ></Banner>
                 <div>
                     <div className="sale-content">
                         <p>NHẪN ƯU ĐÃI ĐẾN 20%</p>
                         <p>VÒNG CỔ ƯU ĐÃI ĐẾN 40%</p>
                         <p>KIM CƯƠNG ƯU ĐÃI 2%</p>
                     </div>
-                    <Row>
-                        <Col>
-                            <ProductCard
-                                img={Product2} // Assuming these are the correct paths to your product images
-                                text={"Nhẫn Cưới Salsa 111841F2KK1 111841F2ML1"}
-                                price={"22,000,000đ"}
-                            />
-                        </Col>
-                        <Col>
-                            <ProductCard
-                                img={Product3}
-                                text={"Product 3 Name"}
-                                price={"Price 3"}
-                            />
-                        </Col>
-                        <Col>
-                            <ProductCard
-                                img={Product4}
-                                text={"Product 4 Name"}
-                                price={"Price 4"}
-                            />
-                        </Col>
-                        <Col>
-                            <ProductCard
-                                img={Product5}
-                                text={"Product 5 Name"}
-                                price={"Price 5"}
-                            />
-                        </Col>
-                    </Row>
+                    {/* Category dropdown */}
+                    <Dropdown overlay={menu} trigger={['hover']}>
+                        <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                            Filter by Category
+                        </a>
+                    </Dropdown>
+                    <div className='sale-product-card'>
+                        {filteredProducts.map((product) => (
+                            <div className='col-2' key={product.id}>
+                                <div className='card' >
+                                    <img src={product.img} alt={product.name} />
+                                    <h3>{product.name}</h3>
+                                    <h3>{product.price}</h3>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </Container>
             <Footer />
