@@ -17,5 +17,5 @@ export const routes = {
   adminProduct: "/admin-san-pham",
   adminDiamond: "/admin-kim-cuong",
   adminmanageorder: "/admin-quan-li-don-hang",
-  product: "/san-pham",
+  productdetail: "/chi-tiet-san-pham",
 };

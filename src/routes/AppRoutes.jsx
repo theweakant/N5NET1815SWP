@@ -43,7 +43,7 @@ export default function AppRoute() {
       <Route path={routes.adminDiamond} element={<AdminDiamond />} />
       <Route path={routes.adminDiamond} element={<AdminDiamond />} />
       <Route path={routes.adminmanageorder} element={<AdminManageOrder />} />
-      <Route path={routes.product} element={<ProductDetailPage />} />
+      <Route path={routes.productdetail} element={<ProductDetailPage />} />
     </Routes>
   );
 }

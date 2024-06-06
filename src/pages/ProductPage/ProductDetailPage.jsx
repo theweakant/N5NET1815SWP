@@ -7,7 +7,8 @@ import product6 from '../../../public/assets/images/product/product6.png';
 import product6a from '../../../public/assets/images/product/product6a.png';
 import { Rating } from '@mui/material';
 import { Button, InputNumber, Select } from 'antd';
-import {ShoppingOutlined } from '@ant-design/icons';
+import { ShoppingOutlined } from '@ant-design/icons';
+import ProductCard from '../../components/productCard/productCard';
 
 export default function ProductPage(props) {
     const onChange = (value) => {
@@ -116,16 +117,53 @@ export default function ProductPage(props) {
                             <p>Hướng dẫn đo ni</p>
                         </div>
                         <div className='button-buy'>
-                        <Button type="primary" icon={<ShoppingOutlined />} size={size}>
+                            <Button type="primary" icon={<ShoppingOutlined />} size={size}>
                                 MUA NGAY
-                        </Button>
+                            </Button>
                         </div>
                     </div>
                 </div>
-                <h2 className='header-productinfo'>THÔNG TIN SẢN PHẨM</h2>
-
+                <h5 className='header-product-info'>THÔNG TIN SẢN PHẨM</h5>
+                <div className='product-info'>
+                    <div className='info-detail'>
+                        <p style={{ fontWeight: "bold" }}>Loại sản phẩm:</p>
+                        <p>Nhẫn</p>
+                    </div>
+                    <div className='info-detail'>
+                        <p style={{ fontWeight: "bold" }}>Đá chính:</p>
+                        <p>Kim cươnng 99 giác cắt</p>
+                    </div>
+                    <div className='info-detail'>
+                        <p style={{ fontWeight: "bold" }}>Chất liệu:</p>
+                        <p>Vàng 14k</p>
+                    </div>
+                </div>
+                <h5 className='header-review'>ĐÁNH GIÁ SẢN PHẨM</h5>
             </Container>
-            
+            <h3 className='header-relevant-product'>CÁC SẢN PHẨM TƯƠNG TỰ</h3>
+            <div className='relevant-product-list'>
+            <div className='relevant-productcard'>
+                <ProductCard
+                    img={product6}
+                    price={40000000}
+                    text={"Nhẫn kim cương ABCXYZ123456"}
+                />
+            </div>
+            <div className='relevant-productcard'>
+                <ProductCard
+                    img={product6}
+                    price={40000000}
+                    text={"Nhẫn kim cương ABCXYZ123456"}
+                />
+            </div>
+            <div className='relevant-productcard'>
+                <ProductCard
+                    img={product6}
+                    price={40000000}
+                    text={"Nhẫn kim cương ABCXYZ123456"}
+                />
+            </div>
+            </div>
             <Footer />
         </div>
     );
