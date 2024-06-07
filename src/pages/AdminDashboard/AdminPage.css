@@ -27,3 +27,12 @@
 .label-form input {
   width: 100%;
 }
+
+.admin-add-button {
+  margin-bottom: 3%;
+}
+
+.admin-add-button button {
+  margin-left: 10vh;
+  margin-right: 10vh;
+}

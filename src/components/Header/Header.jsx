@@ -13,6 +13,9 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function Header() {
   const user = useSelector(selectUser);
+  const userfirstname = localStorage.getItem("firstname");
+  const userlastname = localStorage.getItem("lastname");
+
   const dispatch = useDispatch();
   const handleLogout = () => {
     dispatch(logout());
@@ -55,7 +58,10 @@ export default function Header() {
         {user ? (
           <Col xs={2} className="Header-login">
             <Link to={routes.profile}>
-              <p>{user.email}</p>
+              {/* <p>{user.email}</p> */}
+              <p>
+                {userfirstname} {userlastname}
+              </p>
             </Link>
             <Link to={routes.login}>
               <BasicButton

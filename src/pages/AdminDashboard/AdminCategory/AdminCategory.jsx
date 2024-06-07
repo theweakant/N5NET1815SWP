@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "antd/es/form/Form";
 import "../../AdminDashboard/AdminPage.css";
 import api from "../../../config/axios";
+import { Category } from "@mui/icons-material";
 
 export default function AdminCategory() {
   const [message, setMessage] = useState("");
@@ -12,6 +13,11 @@ export default function AdminCategory() {
 
   function hanldeClickSubmit() {
     form.submit();
+  }
+
+  function hanldeDeleteSubmit(id) {
+    form.submit();
+    (e) => this.deleteRow(category.id, e);
   }
 
   async function handleSubmit(value) {
@@ -31,11 +37,27 @@ export default function AdminCategory() {
     setCategory(response.data);
   }
 
+  async function deleteProduct(id, value) {
+    console.log(id);
+    try {
+      await api.delete(`category/${id}`);
+      // setMessage("Thêm sản phẩm thành công");
+    } catch (error) {
+      // setMessage("Đã có lỗi trong lúc thêm sản phẩm");
+      // console.log(error.response.data);
+    }
+  }
+
   useEffect(() => {
     fetchProduct();
   }, []);
 
   const columns = [
+    {
+      title: "ID",
+      dataIndex: "id",
+      key: "id",
+    },
     {
       title: "Tên Danh Mục",
       dataIndex: "name",
@@ -50,8 +72,14 @@ export default function AdminCategory() {
       title: "Hành Động",
       render: (_, record) => (
         <Space size="middle">
-          <a>Invite {record.name}</a>
-          <a>Delete</a>
+          <Form
+            form={form}
+            onFinish={deleteProduct}
+            id="form"
+            className="form-main"
+          >
+            <Button onClick={hanldeDeleteSubmit()}>Delete</Button>
+          </Form>
         </Space>
       ),
     },
@@ -67,6 +95,7 @@ export default function AdminCategory() {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
+
   return (
     <div className="Admin">
       <SideBar></SideBar>
