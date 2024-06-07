@@ -1,28 +1,40 @@
+.Footer {
+  background-color: #f5f5f5;
+  margin-top: 30px;
+  /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+  /* margin: 0 20px; */
+}
+
 .Footer-logo {
-  /* width: 20%; */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .Footer-logo img {
-  width: 20%;
+  width: 30%;
 }
 
 .Footer-center {
+
+
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 30px;
-}
-.Footer {
-  background-color: #f5f5f5;
-  margin-top: 50px;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  gap: 10px;
+  font-size: 1.2rem;
+  padding: 10px;
 }
 
 .Footer-middle {
   color: #676767;
+  margin-bottom: 10px;
+  position: relative;
+  /* padding-right: 40px; */
+  margin-right: 30px;
+  margin-bottom: 20px;
+  /* Increase bottom margin to create space between Footer-middle sections */
+
 }
 
 .Footer-middle a {
@@ -31,11 +43,19 @@
 }
 
 .Footer-middle a:hover {
-  text-decoration: underline;
+  color: #04849a;
+  transition: 0.2s;
 }
+
 .Footer-middle h5 {
-  color: black;
-  text-shadow: 2px 2px 8px #676767;
+  color: #000;
+  font-size: 18px;
+  margin-bottom: 10px;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 20px;
+  /* Increase bottom margin to create space between h5 and p tags */
+
 }
 
 hr.solid {
@@ -49,7 +69,7 @@ hr.solid {
 .connect {
   width: 180px;
   height: 29px;
-  background: red;
+  background: #06b6d4;
   display: block;
   color: #fff;
   text-align: center;
@@ -88,7 +108,37 @@ h3 {
 
 .Footer-end button {
   border-radius: 70rem;
-  color: red;
+  color: #06b6d4;
   background-color: white;
-  border: 2px solid red;
+  border: 2px solid #06b6d4;
+}
+
+.blue-hr {
+  border-top: 2px solid #04a8c5;
+  width: calc(100% - 100px);
+  margin: 0;
+  position: absolute;
+
+  top: 25px;
+  margin-top: 6px;
+
+
+}
+
+.Footer-content {
+  padding-left: 50px;
+}
+
+.Footer-center i {
+  color: #06b6d4;
+
+
+}
+
+.Footer-head-hr {
+  width: 100%;
+  color: #06b6d4;
+  border-top: 4px solid #04a8c5;
+
+
 }

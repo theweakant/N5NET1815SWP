@@ -13,18 +13,10 @@ import BasicButton from "../../components/Button/myButton";
 import { Container } from "react-bootstrap";
 import MyBreadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import { routes } from "../../routes";
-import { saleProducts } from "../SaleProductPage/ListOfSaleProducts"; // Ensure the correct path
+import { Link } from 'react-router-dom';
+
 
 function SaleEventPage() {
-  const [selectedCategory, setSelectedCategory] = useState(null);
-
-  // Filter products by category
-  const filteredProducts = selectedCategory ? saleProducts.filter(product => product.category === selectedCategory) : saleProducts;
-
-  // Handler for filtering by category
-  const handleFilter = (category) => {
-    setSelectedCategory(category);
-  };
 
   return (
     <div>
@@ -50,13 +42,15 @@ function SaleEventPage() {
             <p onClick={() => handleFilter("diamond")}>KIM CƯƠNG ƯU ĐÃI 2%</p>
           </div>
           <div className="sale-content-img">
-            <img src={Product2} onClick={() => handleFilter("ring")} alt="Ring" /> {/* ring */}
-            <img src={Product3} onClick={() => handleFilter("bracelet")} alt="Bracelet" /> {/* bracelet */}
-            <img src={Product4} onClick={() => handleFilter("necklace")} alt="Necklace" /> {/* necklace */}
-            <img src={Product5} onClick={() => handleFilter("earring")} alt="Earring" /> {/* earring */}
+            <img src={Product2} /> {/* ring */}
+            <img src={Product3} /> {/* bracelet */}
+            <img src={Product4} /> {/* necklace */}
+            <img src={Product5} /> {/* earring */}
           </div>
           <div className="button" id="outlined">
-            <OutlinedButtons text={"Xem tất cả"} onClick={() => handleFilter(null)} /> {/* all */}
+            <Link to={routes.saleproduct}>
+              <OutlinedButtons text={"Xem tất cả"} />
+            </Link>
           </div>
         </div>
         <div className="button" id="filled">
