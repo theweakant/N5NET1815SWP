@@ -23,4 +23,5 @@ export const routes = {
   adminCategory: "/admin-danh-muc",
   checkOut: "/check-out",
   cartPage: "/cart-page"
+  // errorPage: "/error-page"
 };
