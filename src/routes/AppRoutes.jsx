@@ -26,6 +26,7 @@ import AdminCategory from "../pages/AdminDashboard/AdminCategory/AdminCategory";
 import AdminPage from "../pages/AdminDashboard/AdminPage/AdminPageDashBoard";
 // import Statistics from "../pages/Statistics/statistics";
 import AdminManageOrder from "../pages/AdminDashboard/AdminManageOrder/AdmiManageOrder";
+import AdminCategory from "../pages/AdminDashboard/AdminCategory/AdminCategory";
 
 export default function AppRoute() {
   return (
@@ -52,7 +53,6 @@ export default function AppRoute() {
 
       <Route path={routes.adminmanageorder} element={<AdminManageOrder />} />
       <Route path={routes.adminCategory} element={<AdminCategory />} />
-
     </Routes>
   );
 }

@@ -31,5 +31,4 @@ export const routes = {
   changePassword: "/doi-mat-khau",
   adminmanageorder: "/admin-quan-li-don-hang",
   adminCategory: "/admin-danh-muc",
-
 };
