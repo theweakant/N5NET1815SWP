@@ -95,13 +95,13 @@ const SaleProductPage = () => {
                                                 <h3>{product.name}</h3>
                                             </Link>
 
-                                            <div className="sale-price">
-                                                <h3>{salePrice}</h3>
+                                            <div>
+                                                <h3 className="sale-price">{salePrice}</h3>
                                             </div>
                                             {/* Sale price and discount */}
                                             <div className="price-info">
-                                                <span>{product.price}</span>
-                                                <span>(-{salePercentage})</span>
+                                                <span className="retail-price">{product.price}</span>
+                                                <span className="sale-percent"> (-{salePercentage})</span>
                                             </div>
                                             {/* Rating */}
                                             <div className="star-rating">

@@ -26,5 +26,8 @@ export const routes = {
   changePassword: "/doi-mat-khau",
   notfound: "/notfound",
   saleProduct: "/san-pham-giam-gia",
+  tracking: "/theo-doi-don-hang",
+  deliveryStaff: "/nhan-vien-van-chuyen",
+
 
 };

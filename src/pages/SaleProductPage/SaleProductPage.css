@@ -24,28 +24,23 @@
     flex: 0 0 20%;
     /* Each column takes up 20% of the container width */
     padding-left: 10px;
-    /* Adjust for Bootstrap's gutter */
     padding-right: 10px;
-    /* Adjust for Bootstrap's gutter */
 }
 
 .product-card-infor {
-    background-color: yellow;
+    background-color: #fafafa;
+    padding-bottom: 20px;
 }
 
 .product-card {
-
-
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     margin: 10px;
-
     /* padding: 25px; */
     text-align: center;
     position: relative;
     overflow: hidden;
-    /* Add shadow for depth */
+
     transition: transform 0.3s ease;
-    /* Add transition effect */
 }
 
 
@@ -57,37 +52,40 @@
 }
 
 .product-detail h3 {
-    font-size: 16px;
+    font-size: 12px;
     padding-top: 10px;
 }
 
 .product-detail h3 {
-    font-size: 16px;
-    /* margin-top: 10px; */
+    font-size: 22px;
     color: #333;
-    /* Darken text color */
 
 }
+
 
 .sale-price {
-    padding: 0;
-    margin: 0;
-
-}
-
-
-
-.sale-price h3 {
     color: rgb(12, 12, 240);
+    font-size: 20px;
+    padding: 0px !important;
+    margin: 0 !important;
 }
 
 
 .price-info {
     font-style: italic;
 
-
 }
 
+
+
+.retail-price {
+    font-size: 14px;
+}
+
+.sale-percent {
+    font-size: 14px;
+
+}
 
 .star-rating {
     position: absolute;

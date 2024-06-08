@@ -24,6 +24,9 @@ import NotFound from "../pages/NotFound/NotFound";
 import ProtectedRoute from "./protectedRoute";
 import AdminDiamondShell from "../pages/AdminDashboard/AdminDiamond/AdminPageDiamondShell";
 import SaleProductPage from "../pages/SaleProductPage/SaleProductPage";
+import DeliveryStaffPage from "../pages/DeliveryStaffPage/DeliveryStaffPage";
+import TrackingPage from "../pages/TrackingPage/TrackingPage";
+
 
 
 export default function AppRoute() {
@@ -39,6 +42,9 @@ export default function AppRoute() {
       <Route path={routes.blog} element={<Blog />} />
       <Route path={routes.sale} element={<SaleEventPage />} />
       <Route path={routes.saleProduct} element={<SaleProductPage />} />
+      <Route path={routes.tracking} element={<TrackingPage />} />
+      <Route path={routes.deliveryStaff} element={<DeliveryStaffPage />} />
+
 
 
       <Route
