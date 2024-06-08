@@ -53,7 +53,7 @@ export default function AppRoute() {
       <Route
         path={routes.adminProduct}
         element={
-          <ProtectedRoute role="ADMIN">
+          <ProtectedRoute role="admin">
             <AdminProduct />
           </ProtectedRoute>
         }
@@ -61,7 +61,7 @@ export default function AppRoute() {
       <Route
         path={routes.adminDiamond}
         element={
-          <ProtectedRoute role="ADMIN">
+          <ProtectedRoute role="admin">
             <AdminDiamond />
           </ProtectedRoute>
         }
@@ -69,7 +69,7 @@ export default function AppRoute() {
       <Route
         path={routes.adminmanageorder}
         element={
-          <ProtectedRoute role="ADMIN">
+          <ProtectedRoute role="admin">
             <AdminManageOrder />
           </ProtectedRoute>
         }
@@ -77,16 +77,8 @@ export default function AppRoute() {
       <Route
         path={routes.adminCategory}
         element={
-          <ProtectedRoute role="ADMIN">
+          <ProtectedRoute role="admin">
             <AdminCategory />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path={routes.adminDiamondshell}
-        element={
-          <ProtectedRoute role="ADMIN">
-            <AdminDiamondShell />
           </ProtectedRoute>
         }
       />

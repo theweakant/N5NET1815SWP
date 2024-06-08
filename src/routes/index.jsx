@@ -19,6 +19,8 @@ export const routes = {
   adminDiamond: "/admin-kim-cuong",
   adminAdd: "/admin-them-san-pham",
   adminmanageorder: "/admin-quan-li-don-hang",
+  productdetail: "/chi-tiet-san-pham",
+  diamondprice: "/bang-gia-kim-cuong",
   adminCategory: "/admin-danh-muc",
   changePassword: "/doi-mat-khau",
   notfound: "/notfound",
