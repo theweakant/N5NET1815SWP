@@ -22,6 +22,6 @@ export const routes = {
   adminmanageorder: "/admin-quan-li-don-hang",
   adminCategory: "/admin-danh-muc",
   checkOut: "/check-out",
-  cartPage: "/cart-page"
-  // errorPage: "/error-page"
+  cartPage: "/cart-page",
+  errorPage: "/error-page"
 };

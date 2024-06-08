@@ -22,6 +22,7 @@ import AdminManageOrder from "../pages/AdminDashboard/AdminManageOrder/AdmiManag
 import AdminCategory from "../pages/AdminDashboard/AdminCategory/AdminCategory";
 import CheckOut from "../pages/CheckOut/CheckOut";
 import CartPage from "../pages/CartPage/CartPage";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 export default function AppRoute() {
   return (
@@ -48,6 +49,7 @@ export default function AppRoute() {
       <Route path={routes.adminCategory} element={<AdminCategory />} />
       <Route path={routes.checkOut} element={<CheckOut />} />
       <Route path={routes.cartPage} element={<CartPage />} />
+      <Route path={routes.errorPage} element={<ErrorPage/>} />
 
     </Routes>
   );
