@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { useForm } from "antd/es/form/Form";
 import "../../AdminDashboard/AdminPage.css";
 import api from "../../../config/axios";
-import { Category } from "@mui/icons-material";
 
 export default function AdminCategory() {
   const [message, setMessage] = useState("");
@@ -95,7 +94,6 @@ export default function AdminCategory() {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-
   return (
     <div className="Admin">
       <SideBar></SideBar>

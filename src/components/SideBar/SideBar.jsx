@@ -2,16 +2,13 @@ import { Link } from "react-router-dom";
 import "./SideBar.css";
 import logo from "../../../public/assets/images/Logo/logo.png";
 import BarChartIcon from "@mui/icons-material/BarChart";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import StackedLineChartIcon from "@mui/icons-material/StackedLineChart";
 import CategoryIcon from "@mui/icons-material/Category";
 import DiamondIcon from "@mui/icons-material/Diamond";
 import PersonIcon from "@mui/icons-material/Person";
-import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 import EventIcon from "@mui/icons-material/Event";
 import { routes } from "../../routes";
-import BasicButton from "../Button/myButton";
 import { logout, selectUser } from "../../redux/features/counterSlice";
 import { useDispatch, useSelector } from "react-redux";
 import LogoutIcon from "@mui/icons-material/Logout";
@@ -25,6 +22,7 @@ export default function SideBar() {
     <div className="sidenav">
       <div className="sidenav-header">
         <img src={logo} alt="" />
+
         <span>Five Diamond</span>
       </div>
       <hr className="rounded" />
