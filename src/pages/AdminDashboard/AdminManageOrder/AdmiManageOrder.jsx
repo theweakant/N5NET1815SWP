@@ -3,8 +3,7 @@ import { Container } from "react-bootstrap";
 import SideBar from "../../../components/SideBar/SideBar";
 import "./AdminManageOrder.css";
 import { Table } from "antd";
-import SideBar from "../../../components/SideBar/SideBar";
-import { Button, Col, DatePicker, Form, Image, Input, Modal, Popover, Row, Table, Tooltip, Upload } from "antd";
+import { Button, Col, DatePicker, Form, Image, Input, Modal, Popover, Row, Tooltip, Upload } from "antd";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -180,7 +179,7 @@ export default function AdminDiamond() {
       name: 'John Brown',
       age: 32,
       address: 'New York Park1',
-    },
+    },  
   ];
   return (
     <div>
