@@ -8,7 +8,11 @@ import { Link } from "react-router-dom";
 import InputTextField from "../../components/TextField/TextField";
 import ReadDatePickers from "../../components/Button/DatePicker";
 import UploadAvatar from "../../components/UploadAvatar/UploadAvatar";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../redux/features/counterSlice";
 function ProfilePage() {
+  const user = useSelector(selectUser);
+
   return (
     <div>
       <Header></Header>
@@ -20,26 +24,28 @@ function ProfilePage() {
         <div className="info-text">
           <h3>Thông tin cá nhân</h3>
           <div className="input">
+            <label>Họ: </label>
+            <InputTextField text={user.firstname} />
+          </div>
+          <div className="input">
             <label>Họ tên:</label>
-            <InputTextField text={""} />
+            <InputTextField text={user.lastname} />
           </div>
           <div className="input">
             <label>Giới tính:</label>
-            <InputTextField text={""} />
+            <InputTextField text={user.gender} />
           </div>
           <div className="input">
             <label>Ngày sinh:</label>
-            <ReadDatePickers
-              date={""} 
-              />
+            <ReadDatePickers date={user.dob} />
           </div>
           <div className="input">
             <label>Số điện thoại:</label>
-            <InputTextField text={""} />
+            <InputTextField text={user.phone} />
           </div>
           <div className="input">
             <label>Địa chỉ:</label>
-            <InputTextField text={""} />
+            <InputTextField text={user.address} />
           </div>
         </div>
         <Link to="">
@@ -51,11 +57,11 @@ function ProfilePage() {
           <h3>Thông tin tài khoản</h3>
           <div className="input">
             <label>Tài khoản:</label>
-            <InputTextField text={""} />
+            <InputTextField text={user.email} />
           </div>
           <div className="input">
             <label>Mật khẩu:</label>
-            <InputTextField text={""} />
+            <InputTextField text={user.password} />
           </div>
         </div>
         <Link to="">

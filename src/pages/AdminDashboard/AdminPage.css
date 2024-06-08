@@ -25,14 +25,35 @@
 }
 
 .label-form input {
-  width: 100%;
+  width: 90%;
 }
 
-.admin-add-button {
-  margin-bottom: 3%;
+.modal-add-form {
+  width: 80% !important;
 }
 
-.admin-add-button button {
-  margin-left: 10vh;
-  margin-right: 10vh;
+.admin-upload-button {
+  width: 90%;
+  text-align: center;
+}
+.form-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.form-content-main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.select-input {
+  width: 90% !important;
+}
+
+.data-table {
+  margin-top: 10%;
+  text-align: center;
 }

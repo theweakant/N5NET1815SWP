@@ -17,11 +17,12 @@ import DiamondKnowledgePage from "../pages/DiamondKnowledgePage/DiamondKnowledge
 import AccessoryInfor from "../pages/AccessoryInforPage/AccessoryInforPage";
 import WarrantyPolicyPage from "../pages/WarrantyPolicyPage/WarrantyPolicyPage";
 import AdminProduct from "../pages/AdminDashboard/AdminProduct/AdminProduct";
-import AdminDiamond from "../pages/AdminDashboard/AdminPage/AdminPageDiamond";
+import AdminDiamond from "../pages/AdminDashboard/AdminDiamond/AdminPageDiamond";
 import AdminManageOrder from "../pages/AdminDashboard/AdminManageOrder/AdmiManageOrder";
 import AdminCategory from "../pages/AdminDashboard/AdminCategory/AdminCategory";
 import NotFound from "../pages/NotFound/NotFound";
 import ProtectedRoute from "./protectedRoute";
+import AdminDiamondShell from "../pages/AdminDashboard/AdminDiamond/AdminPageDiamondShell";
 import ProductDetailPage from "../pages/ProductPage/ProductDetailPage";
 import DiamondPricePage from "../pages/DiamondPricePage/DiamondPricePage";
 
@@ -41,7 +42,7 @@ export default function AppRoute() {
       <Route
         path={routes.profile}
         element={
-          <ProtectedRoute role="customer">
+          <ProtectedRoute role="CUSTOMER">
             <ProfilePage />
           </ProtectedRoute>
         }
@@ -51,10 +52,39 @@ export default function AppRoute() {
       <Route path={routes.kienthuc} element={<DiamondKnowledgePage />} />
       <Route path={routes.accessoryInfor} element={<AccessoryInfor />} />
       <Route path={routes.warrantyPolicy} element={<WarrantyPolicyPage />} />
-      <Route path={routes.adminProduct} element={<AdminProduct />} />
-      <Route path={routes.adminDiamond} element={<AdminDiamond />} />
-      <Route path={routes.adminDiamond} element={<AdminDiamond />} />
-      <Route path={routes.adminmanageorder} element={<AdminManageOrder />} />
+      <Route
+        path={routes.adminProduct}
+        element={
+          <ProtectedRoute role="admin">
+            <AdminProduct />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path={routes.adminDiamond}
+        element={
+          <ProtectedRoute role="admin">
+            <AdminDiamond />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path={routes.adminmanageorder}
+        element={
+          <ProtectedRoute role="admin">
+            <AdminManageOrder />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path={routes.adminCategory}
+        element={
+          <ProtectedRoute role="admin">
+            <AdminCategory />
+          </ProtectedRoute>
+        }
+      />
+      <Route path={routes.notfound} element={<NotFound />} />
     </Routes>
   );
 }

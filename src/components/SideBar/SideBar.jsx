@@ -14,6 +14,7 @@ import { routes } from "../../routes";
 import BasicButton from "../Button/myButton";
 import { logout, selectUser } from "../../redux/features/counterSlice";
 import { useDispatch, useSelector } from "react-redux";
+import LogoutIcon from "@mui/icons-material/Logout";
 export default function SideBar() {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
@@ -55,6 +56,10 @@ export default function SideBar() {
       </li>
       <li>
         <CategoryIcon color="info" fontSize="large"></CategoryIcon>
+        <Link to={routes.adminDiamondshell}>Quản Lý Vỏ Kim Cương</Link>
+      </li>
+      <li>
+        <CategoryIcon color="info" fontSize="large"></CategoryIcon>
         <Link to={routes.adminCategory}>Quản Lý Danh Mục</Link>
       </li>
       <li>
@@ -66,14 +71,21 @@ export default function SideBar() {
         <Link to="">Quản Lý Sự Kiện Sale</Link>
       </li>
 
-      <Link to={routes.login}>
+      {/* <Link to={routes.login}>
         <BasicButton
           text={"Đăng Xuất"}
           icon={"pi pi-sign-in"}
           onClick={handleLogout}
           className="admin-button-logout"
         ></BasicButton>
-      </Link>
+      </Link> */}
+
+      <li>
+        <LogoutIcon color="info" fontSize="large"></LogoutIcon>
+        <Link onClick={handleLogout} to={routes.login}>
+          Đăng Xuất
+        </Link>
+      </li>
     </div>
   );
 }
