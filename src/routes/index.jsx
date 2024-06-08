@@ -15,10 +15,11 @@ export const routes = {
   accessoryInfor: "/kien-thuc-trang-suc",
   warrantyPolicy: "/chinh-sach-bao-hanh",
   adminProduct: "/admin-san-pham",
+  adminDiamondshell: "/admin-vo-kim-cuong",
   adminDiamond: "/admin-kim-cuong",
   adminAdd: "/admin-them-san-pham",
-  changePassword: "/doi-mat-khau",
   adminmanageorder: "/admin-quan-li-don-hang",
   adminCategory: "/admin-danh-muc",
+  changePassword: "/doi-mat-khau",
   notfound: "/notfound",
 };

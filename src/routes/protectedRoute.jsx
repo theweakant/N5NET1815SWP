@@ -1,14 +1,27 @@
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import { routes } from ".";
+import { useDispatch, useSelector } from "react-redux";
+import { selectUser } from "../redux/features/counterSlice";
 
 const ProtectedRoute = ({ children, role }) => {
-  const userRole = localStorage.getItem("role");
-  if (!userRole) {
+  const user = useSelector(selectUser);
+  const location = useLocation();
+  console.log(location.pathname === "/");
+  console.log(role);
+
+  // if (user.role === "ADMIN" && location.pathname === "/") {
+  //   return <Navigate to={routes.login} />;
+  // }
+
+  if (!user.role) {
     return <Navigate to={routes.login} />;
   }
-  if (userRole !== role) {
+  if (user.role !== role) {
     return <Navigate to={routes.notfound} />;
   }
+
+  console.log(user.role);
+  console.log(role);
   return children;
 };
 
