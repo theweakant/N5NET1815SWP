@@ -6,7 +6,6 @@ import "primeicons/primeicons.css";
 import BasicButton from "../Button/myButton";
 import { routes } from "../../routes";
 import { Link } from "react-router-dom";
-import OtherSearch from "../searchBar/searchBar";
 import SearchBar from "../searchBar/searchBar";
 import { logout, selectUser } from "../../redux/features/counterSlice";
 import { useDispatch, useSelector } from "react-redux";

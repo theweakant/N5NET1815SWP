@@ -69,6 +69,14 @@ export default function AppRoute() {
         }
       />
       <Route
+        path={routes.adminDiamondshell}
+        element={
+          <ProtectedRoute role="ADMIN">
+            <AdminDiamondShell />
+          </ProtectedRoute>
+        }
+      />
+      <Route
         path={routes.adminmanageorder}
         element={
           <ProtectedRoute role="admin">
