@@ -21,7 +21,7 @@ const ErrorPage = () => {
         <div className="err2">𝟒</div>
       </div>
       <div className="msg">Đi đâu đây? Tìm kim cương 
-        <p>Kim cương có ở  <a href="#">đây</a> nè</p>
+        <p>Kim cương có ở  <a href="/">đây</a> nè</p>
       </div>
     </div>
   );
