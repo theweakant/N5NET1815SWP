@@ -17,11 +17,12 @@ import DiamondKnowledgePage from "../pages/DiamondKnowledgePage/DiamondKnowledge
 import AccessoryInfor from "../pages/AccessoryInforPage/AccessoryInforPage";
 import WarrantyPolicyPage from "../pages/WarrantyPolicyPage/WarrantyPolicyPage";
 import AdminProduct from "../pages/AdminDashboard/AdminProduct/AdminProduct";
-import AdminDiamond from "../pages/AdminDashboard/AdminPage/AdminPageDiamond";
+import AdminDiamond from "../pages/AdminDashboard/AdminDiamond/AdminPageDiamond";
 import AdminManageOrder from "../pages/AdminDashboard/AdminManageOrder/AdmiManageOrder";
 import AdminCategory from "../pages/AdminDashboard/AdminCategory/AdminCategory";
 import NotFound from "../pages/NotFound/NotFound";
 import ProtectedRoute from "./protectedRoute";
+import AdminDiamondShell from "../pages/AdminDashboard/AdminDiamond/AdminPageDiamondShell";
 
 export default function AppRoute() {
   return (
@@ -62,6 +63,14 @@ export default function AppRoute() {
         element={
           <ProtectedRoute role="ADMIN">
             <AdminDiamond />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path={routes.adminDiamondshell}
+        element={
+          <ProtectedRoute role="ADMIN">
+            <AdminDiamondShell />
           </ProtectedRoute>
         }
       />
