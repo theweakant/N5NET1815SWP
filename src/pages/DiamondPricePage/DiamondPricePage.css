@@ -9,4 +9,8 @@
     display: flex;
     justify-content: center;
     margin-top: 2%;
-}   
+}  
+.price-table td{
+    width: 16.66%;
+    text-align: center;
+}
