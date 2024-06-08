@@ -23,6 +23,8 @@ import AdminCategory from "../pages/AdminDashboard/AdminCategory/AdminCategory";
 import NotFound from "../pages/NotFound/NotFound";
 import ProtectedRoute from "./protectedRoute";
 import AdminDiamondShell from "../pages/AdminDashboard/AdminDiamond/AdminPageDiamondShell";
+import SaleProductPage from "../pages/SaleProductPage/SaleProductPage";
+
 
 export default function AppRoute() {
   return (
@@ -36,6 +38,8 @@ export default function AppRoute() {
       <Route path={routes.bst} element={<CollectionPage />} />
       <Route path={routes.blog} element={<Blog />} />
       <Route path={routes.sale} element={<SaleEventPage />} />
+      <Route path={routes.saleProduct} element={<SaleProductPage />} />
+
 
       <Route
         path={routes.profile}

@@ -1,11 +1,11 @@
-
-
 import React, { useState } from "react";
 import { Container } from "react-bootstrap";
-import { Link } from "react-router-dom"; // Import Link from React Router
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { Dropdown, Menu, Pagination } from 'antd';
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
-import { Dropdown, Menu, Pagination } from 'antd';
 import "./SaleProductPage.css";
 import { saleProducts } from "./ListOfSaleProducts";
 import Banner from "../../components/Banner/banner";
@@ -17,13 +17,14 @@ import banner4 from "../../../public/assets/images/Banner/banner4.jpg";
 const SaleProductPage = () => {
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
-    const pageSize = 18; // Number of items per page
+    const pageSize = 16; // Number of items per page
 
     // Pagination handler
     const onChange = (pageNumber) => {
         console.log('Page: ', pageNumber);
         setCurrentPage(pageNumber);
-        history.push(`/san-pham-giam-gia/page-${pageNumber}`);
+        // Update URL using React Router
+        // history.push(`/san-pham-giam-gia/page-${pageNumber}`);
     };
 
     // Calculate the index range for the current page
@@ -35,6 +36,13 @@ const SaleProductPage = () => {
 
     // Slice the products array based on the current page and page size
     const paginatedProducts = filteredProducts.slice(startIndex, endIndex);
+
+    // Function to calculate sale price
+    const calculateSalePrice = (originalPrice, discountPercentage) => {
+        const discountAmount = (originalPrice * discountPercentage) / 100;
+        const salePrice = originalPrice - discountAmount;
+        return salePrice.toFixed(2); // Round to 2 decimal places
+    };
 
     // Generate menu items for the dropdown
     const menu = (
@@ -50,6 +58,7 @@ const SaleProductPage = () => {
         <div>
             <Header />
             <Container>
+                {/* Banner component */}
                 <Banner
                     className="sale-product-banner"
                     pic1={banner1}
@@ -69,16 +78,42 @@ const SaleProductPage = () => {
                             Filter by Category
                         </a>
                     </Dropdown>
+                    {/* Sale product cards */}
                     <div className='sale-product-card'>
-                        {paginatedProducts.map((product) => (
-                            <div className='col-2' key={product.id}>
-                                <div className='card' >
-                                    <img src={product.img} alt={product.name} />
-                                    <h3>{product.name}</h3>
-                                    <h3>{product.price}</h3>
+                        {paginatedProducts.map((product) => {
+                            const salePrice = calculateSalePrice(product.price, product.sale);
+                            const salePercentage = `${product.sale * 100}%`;
+                            return (
+                                <div className='col-3' key={product.id}>
+                                    <div className='product-card' >
+                                        <Link className="product-detail-img" to='/san-pham'>
+                                            <img src={product.img} alt={product.name} />
+                                        </Link>
+
+                                        <div className="product-card-infor">
+                                            <Link className="product-detail" to='/san-pham'>
+                                                <h3>{product.name}</h3>
+                                            </Link>
+
+                                            <div className="sale-price">
+                                                <h3>{salePrice}</h3>
+                                            </div>
+                                            {/* Sale price and discount */}
+                                            <div className="price-info">
+                                                <span>{product.price}</span>
+                                                <span>(-{salePercentage})</span>
+                                            </div>
+                                            {/* Rating */}
+                                            <div className="star-rating">
+                                                <FontAwesomeIcon icon={faStar} style={{ color: '#FFD700' }} />
+                                                <span>{product.rating}</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
                 </div>
                 {/* Pagination */}
@@ -86,7 +121,7 @@ const SaleProductPage = () => {
                     className="pagination"
                     current={currentPage}
                     onChange={onChange}
-                    total={filteredProducts.length} // Total number of products, not just paginated
+                    total={filteredProducts.length}
                     pageSize={pageSize}
                 />
                 {/* Display page number in URL for page 2 and onwards */}
@@ -96,7 +131,8 @@ const SaleProductPage = () => {
             </Container>
             <Footer />
         </div>
+
     );
-}
+};
 
 export default SaleProductPage;
