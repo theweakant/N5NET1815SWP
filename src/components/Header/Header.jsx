@@ -6,13 +6,23 @@ import "primeicons/primeicons.css";
 import BasicButton from "../Button/myButton";
 import { routes } from "../../routes";
 import { Link } from "react-router-dom";
-import OtherSearch from "../searchBar/searchBar";
 import SearchBar from "../searchBar/searchBar";
 import { logout, selectUser } from "../../redux/features/counterSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import DropdownContent from "./DropdownContent/DropdownContent";
 
 export default function Header() {
+  const [isProductDropdownOpen, setIsProductDropdownOpen] = useState(false);
+  const handleMouseOverProduct = () => {
+    setIsProductDropdownOpen(true);
+  };
+  const handleMouseLeaveProduct = () => {
+    setIsProductDropdownOpen(false);
+  };
+
   const user = useSelector(selectUser);
+
   const dispatch = useDispatch();
   const handleLogout = () => {
     dispatch(logout());
@@ -55,7 +65,10 @@ export default function Header() {
         {user ? (
           <Col xs={2} className="Header-login">
             <Link to={routes.profile}>
-              <p>{user.email}</p>
+              {/* <p>{user.email}</p> */}
+              <p>
+                {user.firstname} {user.lastname}
+              </p>
             </Link>
             <Link to={routes.login}>
               <BasicButton
@@ -89,8 +102,19 @@ export default function Header() {
         <Col className="Header-navigation">
           <Link to={routes.bst}>Bộ Sưu Tập</Link>
         </Col>
-        <Col className="Header-navigation">
+        <Col
+          className="Header-navigation dropdownContainer"
+          onMouseOver={handleMouseOverProduct}
+        >
           <Link to="">Sản Phẩm Về Kim Cương</Link>
+          {isProductDropdownOpen && (
+            <div
+              className="dropdownWrapper"
+              onMouseLeave={handleMouseLeaveProduct}
+            >
+              <DropdownContent></DropdownContent>
+            </div>
+          )}
         </Col>
         <Col className="Header-navigation">
           <Link to={routes.size}>Hướng Dẫn Đo Ni</Link>

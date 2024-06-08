@@ -14,6 +14,11 @@ export default function AdminCategory() {
     form.submit();
   }
 
+  function hanldeDeleteSubmit(id) {
+    form.submit();
+    (e) => this.deleteRow(category.id, e);
+  }
+
   async function handleSubmit(value) {
     console.log(value);
     try {
@@ -31,11 +36,27 @@ export default function AdminCategory() {
     setCategory(response.data);
   }
 
+  async function deleteProduct(id, value) {
+    console.log(id);
+    try {
+      await api.delete(`category/${id}`);
+      // setMessage("Thêm sản phẩm thành công");
+    } catch (error) {
+      // setMessage("Đã có lỗi trong lúc thêm sản phẩm");
+      // console.log(error.response.data);
+    }
+  }
+
   useEffect(() => {
     fetchProduct();
   }, []);
 
   const columns = [
+    {
+      title: "ID",
+      dataIndex: "id",
+      key: "id",
+    },
     {
       title: "Tên Danh Mục",
       dataIndex: "name",
@@ -50,8 +71,14 @@ export default function AdminCategory() {
       title: "Hành Động",
       render: (_, record) => (
         <Space size="middle">
-          <a>Invite {record.name}</a>
-          <a>Delete</a>
+          <Form
+            form={form}
+            onFinish={deleteProduct}
+            id="form"
+            className="form-main"
+          >
+            <Button onClick={hanldeDeleteSubmit()}>Delete</Button>
+          </Form>
         </Space>
       ),
     },

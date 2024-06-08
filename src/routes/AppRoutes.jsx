@@ -8,6 +8,7 @@ import FAQPage from "../pages/FAQPage/FAQPage";
 import CollectionPage from "../pages/CollectionPage/CollectionPage";
 import Blog from "../pages/BlogPage/Blog";
 import SaleEventPage from "../pages/SaleEventPage/SaleEventPage";
+// import SizingTutor from "../pages/SizingTutorialPage/SizingTutor";
 import ProfilePage from "../pages/ProfilePage/ProfilePage";
 import AboutPage from "../pages/AboutPage/AboutPage";
 import ChainSizePage from "../pages/ChainSizePage/ChainSizePage";
@@ -16,13 +17,12 @@ import DiamondKnowledgePage from "../pages/DiamondKnowledgePage/DiamondKnowledge
 import AccessoryInfor from "../pages/AccessoryInforPage/AccessoryInforPage";
 import WarrantyPolicyPage from "../pages/WarrantyPolicyPage/WarrantyPolicyPage";
 import AdminProduct from "../pages/AdminDashboard/AdminProduct/AdminProduct";
-import AdminDiamond from "../pages/AdminDashboard/AdminPage/AdminPageDiamond";
+import AdminDiamond from "../pages/AdminDashboard/AdminDiamond/AdminPageDiamond";
 import AdminManageOrder from "../pages/AdminDashboard/AdminManageOrder/AdmiManageOrder";
 import AdminCategory from "../pages/AdminDashboard/AdminCategory/AdminCategory";
-import AdminUser from "../pages/AdminDashboard/AdminUser/AdminUser";
-import TrackingPage from "../pages/TrackingPage/TrackingPage";
-import SaleProductPage from "../pages/SaleProductPage/SaleProductPage";
-
+import NotFound from "../pages/NotFound/NotFound";
+import ProtectedRoute from "./protectedRoute";
+import AdminDiamondShell from "../pages/AdminDashboard/AdminDiamond/AdminPageDiamondShell";
 
 export default function AppRoute() {
   return (
@@ -36,21 +36,61 @@ export default function AppRoute() {
       <Route path={routes.bst} element={<CollectionPage />} />
       <Route path={routes.blog} element={<Blog />} />
       <Route path={routes.sale} element={<SaleEventPage />} />
-      <Route path={routes.profile} element={<ProfilePage />} />
+
+      <Route
+        path={routes.profile}
+        element={
+          <ProtectedRoute role="CUSTOMER">
+            <ProfilePage />
+          </ProtectedRoute>
+        }
+      />
       <Route path={routes.about} element={<AboutPage />} />
       <Route path={routes.chain} element={<ChainSizePage />} />
       <Route path={routes.kienthuc} element={<DiamondKnowledgePage />} />
       <Route path={routes.accessoryInfor} element={<AccessoryInfor />} />
       <Route path={routes.warrantyPolicy} element={<WarrantyPolicyPage />} />
-      <Route path={routes.adminProduct} element={<AdminProduct />} />
-      <Route path={routes.adminDiamond} element={<AdminDiamond />} />
-      <Route path={routes.adminmanageorder} element={<AdminManageOrder />} />
-      <Route path={routes.adminCategory} element={<AdminCategory />} />
-      <Route path={routes.adminUser} element={<AdminUser />} />
-      <Route path={routes.tracking} element={<TrackingPage />} />
-      <Route path={routes.saleproduct} element={<SaleProductPage />} />
-
-
+      <Route
+        path={routes.adminProduct}
+        element={
+          <ProtectedRoute role="ADMIN">
+            <AdminProduct />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path={routes.adminDiamond}
+        element={
+          <ProtectedRoute role="ADMIN">
+            <AdminDiamond />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path={routes.adminDiamondshell}
+        element={
+          <ProtectedRoute role="ADMIN">
+            <AdminDiamondShell />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path={routes.adminmanageorder}
+        element={
+          <ProtectedRoute role="ADMIN">
+            <AdminManageOrder />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path={routes.adminCategory}
+        element={
+          <ProtectedRoute role="ADMIN">
+            <AdminCategory />
+          </ProtectedRoute>
+        }
+      />
+      <Route path={routes.notfound} element={<NotFound />} />
     </Routes>
   );
 }

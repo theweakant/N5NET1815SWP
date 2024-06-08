@@ -1,15 +1,14 @@
 .sidenav {
   height: 100%;
-  width: 20%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
+  width: 20%; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
   left: 0;
   background-color: #202531;
 
   overflow-x: hidden;
 }
-
 
 .sidenav a {
   width: 100%;
@@ -26,7 +25,8 @@
   color: #e2e3e4;
 }
 
-.sidenav ul {}
+.sidenav ul {
+}
 
 .sidenav li {
   cursor: pointer;
@@ -70,6 +70,10 @@ hr.rounded {
   color: #e2e3e4;
   font-weight: bold;
   font-size: 25px;
+}
+
+.admin-button-logout {
+  width: 100%;
 }
 
 .admin-button-logout {

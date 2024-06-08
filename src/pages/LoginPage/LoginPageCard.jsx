@@ -11,13 +11,15 @@ import logobanner from "../../../public/assets/images/LoginBanner/loginbanner.jp
 import logo from "../../../public/assets/images/Logo/logo.png";
 import { routes } from "../../routes";
 import { Link, useNavigate } from "react-router-dom";
-import { GoogleLogin } from "@react-oauth/google";
 import { Button, Form, Input } from "antd";
 import axios from "axios";
 import { useForm } from "antd/es/form/Form";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout, selectUser } from "../../redux/features/counterSlice";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { auth, provider } from "../../config/firebase";
+import api from "../../config/axios";
 
 function LoginPageCard() {
   const [email, setEmail] = useState("");
@@ -25,15 +27,6 @@ function LoginPageCard() {
 
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
-
-  // const handleLogin = () => {
-  //   const userData = { email };
-  //   dispatch(login(userData));
-  // };
-
-  const handleLogout = () => {
-    dispatch(logout());
-  };
 
   const [error, setError] = useState("");
   const [form] = useForm();
@@ -45,31 +38,45 @@ function LoginPageCard() {
   async function handleSubmit(value) {
     console.log(value);
     try {
-      const response = await axios
-        .post("http://157.245.145.162:8080/api/login", value)
-        .then((user) => {
-          console.log(user);
-          console.log(user.data);
-          if (user.data.role === "customer") {
-            navigate(routes.home);
-          } else if (user.data.role === "admin") {
-            navigate(routes.adminDiamond);
-          }
-        });
-      const userData = { email };
-      dispatch(login(userData));
+      const response = await api.post("login", value).then((userApi) => {
+        console.log(userApi);
+        console.log(userApi.data);
+        localStorage.setItem("token", userApi.data.token);
+
+        if (userApi.data.role === "CUSTOMER") {
+          navigate(routes.home);
+        } else if (userApi.data.role === "ADMIN") {
+          navigate(routes.adminDiamond);
+        }
+        dispatch(login(userApi.data));
+      });
     } catch (error) {
       setError("Tài khoản hoặc mật khẩu của bạn không đúng");
       console.log(error.response.data);
     }
   }
 
-  const responseMessage = (response) => {
-    console.log(response);
+  const handleLoginGG = () => {
+    signInWithPopup(auth, provider)
+      .then(async (result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = result.user.accessToken;
+        const response = await api.post("login-google", { token: token });
+        console.log(response.data);
+        // IdP data available using getAdditionalUserInfo(result)
+        // ...
+
+        if (response.data.role === "CUSTOMER") {
+          navigate(routes.home);
+        }
+        dispatch(login(response.data));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
-  const errorMessage = (error) => {
-    console.log(error);
-  };
+
   return (
     <div className="background-login">
       <MDBContainer className="my-5">
@@ -108,7 +115,7 @@ function LoginPageCard() {
                     form={form}
                     onFinish={handleSubmit}
                     id="form"
-                    className="form-main"
+                    className="form-login"
                   >
                     <Form.Item
                       label="Email"
@@ -161,7 +168,7 @@ function LoginPageCard() {
                       Đăng Nhập
                     </Button>
                     <p>Hoặc</p>
-                    <Button onClick="" className="form-button">
+                    <Button onClick={handleLoginGG} className="form-button">
                       Login With google
                     </Button>
                   </Form>

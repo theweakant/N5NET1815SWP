@@ -3,8 +3,65 @@ import { Container } from "react-bootstrap";
 import SideBar from "../../../components/SideBar/SideBar";
 import "./AdminManageOrder.css";
 import { Table } from "antd";
+import {
+  Button,
+  Col,
+  DatePicker,
+  Form,
+  Image,
+  Input,
+  Modal,
+  Popover,
+  Row,
+  Tooltip,
+  Upload,
+} from "antd";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useForm } from "antd/es/form/Form";
+import "./AdminManageOrder.css";
+import api from "../../../config/axios";
+import { UploadOutlined } from "@ant-design/icons";
 
-export default function AdminManageOrder(props) {
+export default function AdminDiamond() {
+  const [message, setMessage] = useState("");
+  const [form] = useForm();
+  const navigate = useNavigate();
+  const [diamonds, setDiamonds] = useState([]);
+  const dateFormat = "DD/MM/YYYY";
+
+  function hanldeClickSubmit() {
+    form.submit();
+  }
+
+  async function handleSubmit(value) {
+    console.log(value);
+    try {
+      await await api.get("diamond");
+      +setMessage("Thêm sản phẩm thành công");
+    } catch (error) {
+      setMessage("Đã có lỗi trong lúc thêm sản phẩm");
+      console.log(error.response.data);
+    }
+  }
+
+  async function fetchProduct() {
+    const response = await api.get("diamond");
+    setDiamonds(response.data);
+  }
+
+  // useEffect(() => {
+  //   fetchProduct()
+  // }, [])
+
+  const responseMessage = (response) => {
+    console.log(response);
+  };
+  const errorMessage = (error) => {
+    console.log(error);
+  };
+
   const columns = [
     {
       title: "Full Name",
