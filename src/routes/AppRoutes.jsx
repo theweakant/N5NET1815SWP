@@ -19,6 +19,9 @@ import WarrantyPolicyPage from "../pages/WarrantyPolicyPage/WarrantyPolicyPage";
 import AdminProduct from "../pages/AdminDashboard/AdminProduct/AdminProduct";
 import AdminDiamond from "../pages/AdminDashboard/AdminPage/AdminPageDiamond";
 import AdminManageOrder from "../pages/AdminDashboard/AdminManageOrder/AdmiManageOrder";
+import AdminCategory from "../pages/AdminDashboard/AdminCategory/AdminCategory";
+import NotFound from "../pages/NotFound/NotFound";
+import ProtectedRoute from "./protectedRoute";
 import ProductDetailPage from "../pages/ProductPage/ProductDetailPage";
 import DiamondPricePage from "../pages/DiamondPricePage/DiamondPricePage";
 
@@ -34,7 +37,15 @@ export default function AppRoute() {
       <Route path={routes.bst} element={<CollectionPage />} />
       <Route path={routes.blog} element={<Blog />} />
       <Route path={routes.sale} element={<SaleEventPage />} />
-      <Route path={routes.profile} element={<ProfilePage />} />
+
+      <Route
+        path={routes.profile}
+        element={
+          <ProtectedRoute role="customer">
+            <ProfilePage />
+          </ProtectedRoute>
+        }
+      />
       <Route path={routes.about} element={<AboutPage />} />
       <Route path={routes.chain} element={<ChainSizePage />} />
       <Route path={routes.kienthuc} element={<DiamondKnowledgePage />} />
@@ -44,8 +55,6 @@ export default function AppRoute() {
       <Route path={routes.adminDiamond} element={<AdminDiamond />} />
       <Route path={routes.adminDiamond} element={<AdminDiamond />} />
       <Route path={routes.adminmanageorder} element={<AdminManageOrder />} />
-      <Route path={routes.productdetail} element={<ProductDetailPage />} />
-      <Route path={routes.diamondprice} element={<DiamondPricePage />} />
     </Routes>
   );
 }

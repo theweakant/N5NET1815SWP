@@ -1,7 +1,7 @@
 .admin-content {
   /* width: 100%; */
   margin-top: 3%;
-  margin-left: 25%;
+  margin-left: 20%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,6 +19,20 @@
 .admin-content input {
   width: 300px;
 }
-.ant-form-item-label{
-  text-align: left !important;
+
+.label-form label {
+  width: 200px;
+}
+
+.label-form input {
+  width: 100%;
+}
+
+.admin-add-button {
+  margin-bottom: 3%;
+}
+
+.admin-add-button button {
+  margin-left: 10vh;
+  margin-right: 10vh;
 }

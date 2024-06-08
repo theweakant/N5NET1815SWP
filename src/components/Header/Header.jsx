@@ -13,6 +13,9 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function Header() {
   const user = useSelector(selectUser);
+  const userfirstname = localStorage.getItem("firstname");
+  const userlastname = localStorage.getItem("lastname");
+
   const dispatch = useDispatch();
   const handleLogout = () => {
     dispatch(logout());
@@ -23,10 +26,10 @@ export default function Header() {
       <Row className="Top-header">
         <Col xs={4} className="Header-left">
           <div className="Header-left-component">
-            <Link to={routes.adminDiamond}>
+            {/* <Link to={routes.adminDiamond}>
               {" "}
               <p>Vào Trang admin</p>
-            </Link>
+            </Link> */}
           </div>
           <div className="Header-left-component">
             <i className="pi pi-phone"></i>
@@ -55,11 +58,12 @@ export default function Header() {
         {user ? (
           <Col xs={2} className="Header-login">
             <Link to={routes.profile}>
-              {/* <button>Đăng nhập</button> */}
-              <p>Welcome {user.email}</p>
+              {/* <p>{user.email}</p> */}
+              <p>
+                {userfirstname} {userlastname}
+              </p>
             </Link>
             <Link to={routes.login}>
-              {/* <button>Đăng ký</button> */}
               <BasicButton
                 text={"Đăng Xuất"}
                 icon={"pi pi-sign-in"}
