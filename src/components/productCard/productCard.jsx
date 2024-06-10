@@ -1,22 +1,44 @@
+
+
+import React from "react";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 import "./productCard.css";
 
-export default function ProductCard({ img, text, price }) {
+export default function ProductCard({ img, text, price, salePrice, salePercent, rating }) {
   return (
-    <div className="product-hit">
+    <div className={`product-hit ${pageType}`}>
       <div className="product-img">
-        <a href="">
+        <Link to='/san-pham'>
           <img src={img} alt="" />
-        </a>
-        <a href="" className="see-more-red" title="Chi tiết"></a>
+        </Link>
+        <Link to='/san-pham' className="see-more-red" title="Chi tiết"></Link>
       </div>
-      <div className="icon-sale"></div>
-
+      {/* <div className="icon-sale"></div> */}
       <div className="product-text">
         <p>
-          <a href="">{text}</a>
+          <Link to='/san-pham'>{text}</Link>
         </p>
-        <span>{price}</span>
+        {salePrice ? (
+          <div className="price-info">
+            <span className="sale-price">{salePrice}</span>
+            <div>
+              <span className="retail-price">{price}</span>
+              <span className="sale-percent">(-{salePercent})</span>
+            </div>
+          </div>
+        ) : (
+          <span>{price}</span>
+        )}
+        {rating && (
+          <div className="star-rating">
+            <FontAwesomeIcon icon={faStar} />
+            <span>{rating}</span>
+          </div>
+        )}
       </div>
     </div>
   );
 }
+

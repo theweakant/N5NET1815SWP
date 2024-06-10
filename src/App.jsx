@@ -5,10 +5,16 @@ import AppRoute from "./routes/AppRoutes";
 
 function App() {
   return (
+
     <div className="inter-div">
       <AppRoute></AppRoute>
+
     </div>
+
   );
 }
 
 export default App;
+
+
+

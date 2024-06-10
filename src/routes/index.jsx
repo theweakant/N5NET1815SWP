@@ -27,7 +27,7 @@ export const routes = {
   notfound: "/notfound",
   saleProduct: "/san-pham-giam-gia",
   tracking: "/theo-doi-don-hang",
-  deliveryStaff: "/nhan-vien-van-chuyen",
+  deliveryStaff: "/nhan-vien-giao-hang",
 
 
 };
