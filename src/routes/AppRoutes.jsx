@@ -25,6 +25,7 @@ import ProtectedRoute from "./protectedRoute";
 import AdminDiamondShell from "../pages/AdminDashboard/AdminDiamond/AdminPageDiamondShell";
 import ProductDetailPage from "../pages/ProductPage/ProductDetailPage";
 import DiamondPricePage from "../pages/DiamondPricePage/DiamondPricePage";
+import SaleStaffPage from "../pages/SaleStaffPage/SaleStaffPage";
 
 export default function AppRoute() {
   return (
@@ -38,7 +39,8 @@ export default function AppRoute() {
       <Route path={routes.bst} element={<CollectionPage />} />
       <Route path={routes.blog} element={<Blog />} />
       <Route path={routes.sale} element={<SaleEventPage />} />
-
+      <Route path={routes.diamondprice} element={<DiamondPricePage />} />
+      <Route path={routes.salestaff} element={<SaleStaffPage />} />
       <Route
         path={routes.profile}
         element={

@@ -5,7 +5,7 @@ import { useForm } from "antd/es/form/Form";
 import "../../AdminDashboard/AdminPage.css";
 import api from "../../../config/axios";
 
-export default function AdminDiamondShell() {
+export default function AdminDiamondShell() { 
   const [message, setMessage] = useState("");
   const [deleteMessage, setdeleteMessage] = useState("");
   const [form] = useForm();

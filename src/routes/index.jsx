@@ -25,4 +25,5 @@ export const routes = {
   adminCategory: "/admin-danh-muc",
   changePassword: "/doi-mat-khau",
   notfound: "/notfound",
+  salestaff: "/nhan-vien-sale",
 };

@@ -11,7 +11,7 @@ import "./RegisterPage.css";
 import registerbanner from "../../../public/assets/images/LoginBanner/registerbanner.jpg";
 import logo from "../../../public/assets/images/Logo/logo.png";
 import { routes } from "../../routes";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { Button, DatePicker, Form, Input, Select } from "antd";
 import { useForm } from "antd/es/form/Form";
 import axios from "axios";
@@ -24,6 +24,7 @@ function RegisterPageCard() {
   const [message, setMessage] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
@@ -47,6 +48,7 @@ function RegisterPageCard() {
         value
       );
       console.log(response);
+      // navigate(routes.login);
       setMessage("Tài Khoản của bạn đã được tạo thành công");
     } catch (error) {
       setMessage("Đã có lỗi trong việc tạo tài khoản của bạn");
