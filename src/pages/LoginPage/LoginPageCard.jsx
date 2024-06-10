@@ -11,12 +11,11 @@ import logobanner from "../../../public/assets/images/LoginBanner/loginbanner.jp
 import logo from "../../../public/assets/images/Logo/logo.png";
 import { routes } from "../../routes";
 import { Link, useNavigate } from "react-router-dom";
-import { Button, Form, Input } from "antd";
-import axios from "axios";
+import { Button, Form, Input, Modal } from "antd";
 import { useForm } from "antd/es/form/Form";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { login, logout, selectUser } from "../../redux/features/counterSlice";
+import { login, selectUser } from "../../redux/features/counterSlice";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth, provider } from "../../config/firebase";
 import api from "../../config/axios";
@@ -42,12 +41,15 @@ function LoginPageCard() {
         console.log(userApi);
         console.log(userApi.data);
         localStorage.setItem("token", userApi.data.token);
-
+        Modal.success({
+          Content: "LoginSuccess",
+        });
         if (userApi.data.role === "CUSTOMER") {
           navigate(routes.home);
         } else if (userApi.data.role === "ADMIN") {
           navigate(routes.adminDiamond);
         }
+
         dispatch(login(userApi.data));
       });
     } catch (error) {

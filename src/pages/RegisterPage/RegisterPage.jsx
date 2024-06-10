@@ -95,7 +95,7 @@ function RegisterPageCard() {
                   form={form}
                   onFinish={handleSubmit}
                   id="form"
-                  className="form-main"
+                  className=""
                 >
                   <Form.Item
                     required
@@ -172,9 +172,9 @@ function RegisterPageCard() {
                     ]}
                   >
                     <Select placeholder="Chọn Giới Tính của bạn">
-                      <Option value="male">Nam</Option>
-                      <Option value="female">Nữ</Option>
-                      <Option value="other">khác</Option>
+                      <Option value="MALE">Nam</Option>
+                      <Option value="FEMALE">Nữ</Option>
+                      <Option value="OTHER">khác</Option>
                     </Select>
                   </Form.Item>
                   <Form.Item

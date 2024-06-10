@@ -95,25 +95,22 @@ export default function Header() {
         )}
       </Row>
 
-      <Row className="Bottom-header">
+      <Col className="Bottom-header">
         <Col className="Header-navigation">
           <Link to={routes.about}>Giới Thiệu</Link>
         </Col>
         <Col className="Header-navigation">
           <Link to={routes.bst}>Bộ Sưu Tập</Link>
         </Col>
-        <Col
-          className="Header-navigation dropdownContainer"
-          onMouseOver={handleMouseOverProduct}
-        >
+        <Col className="dropdownContainer" onMouseOver={handleMouseOverProduct}>
           <Link to="">Sản Phẩm Về Kim Cương</Link>
           {isProductDropdownOpen && (
-            <div
+            <Col
               className="dropdownWrapper"
               onMouseLeave={handleMouseLeaveProduct}
             >
               <DropdownContent></DropdownContent>
-            </div>
+            </Col>
           )}
         </Col>
         <Col className="Header-navigation">
@@ -128,7 +125,7 @@ export default function Header() {
         <Col className="Header-navigation">
           <Link to={routes.faq}>Câu Hỏi Thường Gặp</Link>
         </Col>
-      </Row>
+      </Col>
     </Container>
   );
 }

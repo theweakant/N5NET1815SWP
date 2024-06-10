@@ -8,6 +8,25 @@
 .Header-logo img {
   width: 20%;
 }
+.dropdownWrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 10%;
+  width: 100%;
+  left: 0;
+  z-index: 1000;
+  /* background: #ffffff; */
+}
+.dropdownContainer {
+  /* position: relative; */
+  text-align: center;
+  margin-top: 19px;
+}
+
+.dropdownContainer a {
+  color: black !important;
+}
 
 .Header-search {
   display: flex;
@@ -36,6 +55,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .Header-navigation a {
@@ -51,19 +71,24 @@
 }
 
 .Header-navigation a:hover {
-  color: #06b6d4;
+  /* color: #06b6d4; */
+  color: black;
   transition: 0.2s;
+  text-decoration: underline;
   /* Change text color on hover */
 }
 
 .Header {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .Bottom-header {
+  width: 100% !important;
+  display: flex !important;
   padding-top: 1%;
-  width: 100%;
 }
 
 .p-inputtext {
@@ -96,4 +121,10 @@
   display: flex;
   justify-content: space-between;
   gap: 0 10px;
+}
+
+@media screen and (max-width: 1440px) {
+  .Header-navigation {
+    font-size: 15px !important;
+  }
 }

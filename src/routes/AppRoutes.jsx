@@ -20,9 +20,9 @@ import AdminProduct from "../pages/AdminDashboard/AdminProduct/AdminProduct";
 import AdminDiamond from "../pages/AdminDashboard/AdminDiamond/AdminPageDiamond";
 import AdminManageOrder from "../pages/AdminDashboard/AdminManageOrder/AdmiManageOrder";
 import AdminCategory from "../pages/AdminDashboard/AdminCategory/AdminCategory";
-import NotFound from "../pages/NotFound/NotFound";
 import ProtectedRoute from "./protectedRoute";
 import AdminDiamondShell from "../pages/AdminDashboard/AdminDiamond/AdminPageDiamondShell";
+import Notfound from "../pages/Notfound/Notfound";
 
 export default function AppRoute() {
   return (
@@ -90,7 +90,7 @@ export default function AppRoute() {
           </ProtectedRoute>
         }
       />
-      <Route path={routes.notfound} element={<NotFound />} />
+      <Route path={routes.notfound} element={<Notfound />} />
     </Routes>
   );
 }
