@@ -146,6 +146,10 @@ export default function AdminDiamond() {
         },
         {
           text: "EMERALD",
+          value: "EMERALD",
+        },
+        {
+          text: "PRINCESS",
           value: "PRINCESS",
         },
         {
