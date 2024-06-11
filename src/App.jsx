@@ -7,7 +7,7 @@ function App() {
   return (
 
     <div className="inter-div">
-      <AppRoute></AppRoute>
+      <AppRoute />
 
     </div>
 

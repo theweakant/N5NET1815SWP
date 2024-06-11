@@ -32,7 +32,7 @@ export default function GuestPage() {
               text={"Nhẫn Cưới Salsa 111841F2KK1 111841F2ML1"}
               price={"22,000,000đ"}
               pageType="guest-page"
-            ></ProductCard>
+            />
           </Col>
           <Col>
             <ProductCard

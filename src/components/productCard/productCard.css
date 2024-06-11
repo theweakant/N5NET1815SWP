@@ -34,28 +34,36 @@
   align-items: center;
 }
 
+
+
 .sale-price {
   color: #c48c46;
-  /* Red color similar to the provided image */
+  /* Highlighted color for sale price */
   font-size: 20px;
   padding: 0 !important;
   margin: 0 !important;
 }
 
-.retail-price {
+.retail-price-sale {
   font-size: 14px;
   text-decoration: line-through;
+  /* Strike-through for SaleProductPage */
   color: gray;
+  display: inline;
+}
+
+.retail-price-guest {
+  font-size: 14px;
+  color: #c48c46;
+  /* Highlighted color for retail price in GuestPage */
   display: inline;
 }
 
 .sale-percent {
   font-size: 14px;
   color: gray;
-  /* Red color similar to the provided image */
   display: inline;
   margin-left: 5px;
-  /* Add some space between retail price and sale percent */
 }
 
 .star-rating {
