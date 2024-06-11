@@ -42,7 +42,9 @@ export default function AppRoute() {
       <Route path={routes.bst} element={<CollectionPage />} />
       <Route path={routes.blog} element={<Blog />} />
       <Route path={routes.sale} element={<SaleEventPage />} />
-
+      <Route path={routes.diamondprice} element={<DiamondPricePage />} />
+      <Route path={routes.salestaff} element={<SaleStaffPage />} />
+      <Route path={routes.productdetail} element={<ProductDetailPage />} />
       <Route
         path={routes.profile}
         element={
@@ -59,7 +61,7 @@ export default function AppRoute() {
       <Route
         path={routes.adminProduct}
         element={
-          <ProtectedRoute role="ADMIN">
+          <ProtectedRoute role="admin">
             <AdminProduct />
           </ProtectedRoute>
         }
@@ -67,7 +69,7 @@ export default function AppRoute() {
       <Route
         path={routes.adminDiamond}
         element={
-          <ProtectedRoute role="ADMIN">
+          <ProtectedRoute role="admin">
             <AdminDiamond />
           </ProtectedRoute>
         }
@@ -83,7 +85,7 @@ export default function AppRoute() {
       <Route
         path={routes.adminmanageorder}
         element={
-          <ProtectedRoute role="ADMIN">
+          <ProtectedRoute role="admin">
             <AdminManageOrder />
           </ProtectedRoute>
         }
@@ -91,7 +93,7 @@ export default function AppRoute() {
       <Route
         path={routes.adminCategory}
         element={
-          <ProtectedRoute role="ADMIN">
+          <ProtectedRoute role="admin">
             <AdminCategory />
           </ProtectedRoute>
         }
