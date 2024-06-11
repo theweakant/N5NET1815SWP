@@ -83,3 +83,7 @@
   width: 60%;
   margin-left: 5%;
 }
+
+.ant-table-filter-dropdown {
+  width: 150% !important;
+}

@@ -34,4 +34,5 @@ export const routes = {
   saleProduct: "/san-pham-khuyen-mai",
   tracking: "/theo-doi-don-hang",
   saleStaff: "/nhan-vien-sale",
+  deliveryStaff: "/nhan-vien-giao-hang",
 };

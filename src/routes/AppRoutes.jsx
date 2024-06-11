@@ -29,6 +29,7 @@ import ProductPage from "../pages/ProductPage/ProductDetailPage";
 import SaleProductPage from "../pages/SaleProductPage/SaleProductPage";
 import TrackingPage from "../pages/TrackingPage/TrackingPage";
 import SaleStaffPage from "../pages/SaleStaffPage/SaleStaffPage";
+import DeliveryStaffPage from "../pages/DeliveryStaffPage/DeliveryStaffPage";
 
 export default function AppRoute() {
   return (
@@ -110,6 +111,7 @@ export default function AppRoute() {
 
       <Route path={routes.tracking} element={<TrackingPage />} />
       <Route path={routes.saleStaff} element={<SaleStaffPage />} />
+      <Route path={routes.deliveryStaff} element={<DeliveryStaffPage />} />
     </Routes>
   );
 }

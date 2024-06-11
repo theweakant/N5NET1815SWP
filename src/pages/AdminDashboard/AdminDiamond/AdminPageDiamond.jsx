@@ -117,9 +117,6 @@ export default function AdminDiamond() {
       dataIndex: "giaReportNumber",
       // key: "giaReportNumber",
       render: (text, record) => record.certificate?.giaReportNumber || "N/A",
-
-      // render: (value) =>
-      //   value === null || value === undefined ? "" : value.giaReportNumber,
       sorter: (c, d) =>
         c.certificate?.giaReportNumber - d.certificate?.giaReportNumber,
       defaultSortOrder: "ascend",
