@@ -3,6 +3,7 @@ export const routes = {
   login: "/dang-nhap",
   register: "/dang-ky",
   forgot: "/quen-mat-khau",
+  changePassword: "/doi-mat-khau",
   faq: "/faq",
   size: "/huong-dan-do-ni",
   bst: "/bo-suu-tap",
@@ -14,6 +15,8 @@ export const routes = {
   kienthuc: "/kien-thuc-kim-cuong",
   accessoryInfor: "/kien-thuc-trang-suc",
   warrantyPolicy: "/chinh-sach-bao-hanh",
+
+  admin: "/admin",
   adminProduct: "/admin-san-pham",
   adminDiamondshell: "/admin-vo-kim-cuong",
   adminDiamond: "/admin-kim-cuong",
