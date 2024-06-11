@@ -33,4 +33,5 @@ export const routes = {
   saleEvent: "/chuong-trinh-khuyen-mai",
   saleProduct: "/san-pham-khuyen-mai",
   tracking: "/theo-doi-don-hang",
+  saleStaff: "/nhan-vien-sale",
 };

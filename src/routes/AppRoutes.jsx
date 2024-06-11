@@ -8,7 +8,6 @@ import FAQPage from "../pages/FAQPage/FAQPage";
 import CollectionPage from "../pages/CollectionPage/CollectionPage";
 import Blog from "../pages/BlogPage/Blog";
 import SaleEventPage from "../pages/SaleEventPage/SaleEventPage";
-// import SizingTutor from "../pages/SizingTutorialPage/SizingTutor";
 import ProfilePage from "../pages/ProfilePage/ProfilePage";
 import AboutPage from "../pages/AboutPage/AboutPage";
 import ChainSizePage from "../pages/ChainSizePage/ChainSizePage";
@@ -29,6 +28,7 @@ import DiamondPricePage from "../pages/DiamondPricePage/DiamondPricePage";
 import ProductPage from "../pages/ProductPage/ProductDetailPage";
 import SaleProductPage from "../pages/SaleProductPage/SaleProductPage";
 import TrackingPage from "../pages/TrackingPage/TrackingPage";
+import SaleStaffPage from "../pages/SaleStaffPage/SaleStaffPage";
 
 export default function AppRoute() {
   return (
@@ -43,8 +43,6 @@ export default function AppRoute() {
       <Route path={routes.blog} element={<Blog />} />
       <Route path={routes.sale} element={<SaleEventPage />} />
       <Route path={routes.diamondprice} element={<DiamondPricePage />} />
-      <Route path={routes.salestaff} element={<SaleStaffPage />} />
-      <Route path={routes.productdetail} element={<ProductDetailPage />} />
       <Route
         path={routes.profile}
         element={
@@ -61,7 +59,7 @@ export default function AppRoute() {
       <Route
         path={routes.adminProduct}
         element={
-          <ProtectedRoute role="admin">
+          <ProtectedRoute role="ADMIN">
             <AdminProduct />
           </ProtectedRoute>
         }
@@ -69,7 +67,7 @@ export default function AppRoute() {
       <Route
         path={routes.adminDiamond}
         element={
-          <ProtectedRoute role="admin">
+          <ProtectedRoute role="ADMIN">
             <AdminDiamond />
           </ProtectedRoute>
         }
@@ -85,7 +83,7 @@ export default function AppRoute() {
       <Route
         path={routes.adminmanageorder}
         element={
-          <ProtectedRoute role="admin">
+          <ProtectedRoute role="ADMIN">
             <AdminManageOrder />
           </ProtectedRoute>
         }
@@ -93,7 +91,7 @@ export default function AppRoute() {
       <Route
         path={routes.adminCategory}
         element={
-          <ProtectedRoute role="admin">
+          <ProtectedRoute role="ADMIN">
             <AdminCategory />
           </ProtectedRoute>
         }
@@ -111,6 +109,7 @@ export default function AppRoute() {
       <Route path={routes.productdetail} element={<ProductPage />} />
 
       <Route path={routes.tracking} element={<TrackingPage />} />
+      <Route path={routes.saleStaff} element={<SaleStaffPage />} />
     </Routes>
   );
 }
