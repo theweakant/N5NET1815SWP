@@ -3,6 +3,7 @@ import { Button, Form, Image, Input, Modal, Select, Space, Table } from "antd";
 import { useEffect, useState } from "react";
 import { useForm } from "antd/es/form/Form";
 import "../../AdminDashboard/AdminPage.css";
+
 import api from "../../../config/axios";
 import { UploadOutlined } from "@ant-design/icons";
 
@@ -693,7 +694,6 @@ export default function AdminDiamond() {
         <div className="data-table">
           <h1>Quản Lý Kim Cương</h1>
           <Table
-            className="Table"
             dataSource={diamond}
             columns={columns}
             onChange={onChange}

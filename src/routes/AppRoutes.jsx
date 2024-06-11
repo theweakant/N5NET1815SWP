@@ -22,6 +22,13 @@ import AdminManageOrder from "../pages/AdminDashboard/AdminManageOrder/AdmiManag
 import AdminCategory from "../pages/AdminDashboard/AdminCategory/AdminCategory";
 import ProtectedRoute from "./protectedRoute";
 import AdminDiamondShell from "../pages/AdminDashboard/AdminDiamond/AdminPageDiamondShell";
+import CartPage from "../pages/CartPage/CartPage";
+import CheckOut from "../pages/CheckOut/CheckOut";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import DiamondPricePage from "../pages/DiamondPricePage/DiamondPricePage";
+import ProductPage from "../pages/ProductPage/ProductDetailPage";
+import SaleProductPage from "../pages/SaleProductPage/SaleProductPage";
+import TrackingPage from "../pages/TrackingPage/TrackingPage";
 
 export default function AppRoute() {
   return (
@@ -89,7 +96,19 @@ export default function AppRoute() {
           </ProtectedRoute>
         }
       />
-      <Route path={routes.notfound} element={<Notfound />} />
+      <Route path={routes.notfound} element={<ErrorPage />} />
+
+      <Route path={routes.cart} element={<CartPage />} />
+      <Route path={routes.checkout} element={<CheckOut />} />
+      <Route path={routes.priceDiamond} element={<DiamondPricePage />} />
+      <Route path={routes.productdetail} element={<ProductPage />} />
+      <Route path={routes.saleEvent} element={<SaleEventPage />} />
+
+      <Route path={routes.saleProduct} element={<SaleProductPage />} />
+
+      <Route path={routes.productdetail} element={<ProductPage />} />
+
+      <Route path={routes.tracking} element={<TrackingPage />} />
     </Routes>
   );
 }

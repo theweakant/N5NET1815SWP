@@ -20,7 +20,6 @@
   width: 53%;
   margin-left: 5%;
   margin-right: 61px;
-
 }
 
 /* .col-md-8{
@@ -82,7 +81,7 @@ h4 {
 }
 
 .checkout-page h4 {
-  color: #38A9B8;
+  color: #38a9b8;
   margin-top: 20px;
   font-weight: bold;
 }
@@ -104,9 +103,9 @@ h4 {
   color: #343a40;
 }
 
-button.btn-success {
+/* button.btn-success {
   font-size: 18px;
-}
+} */
 
 .form-check-label[for="formDeliveryTime-time1"],
 .form-check-label[for="formDeliveryTime-time2"] {
@@ -126,7 +125,6 @@ button.btn-success {
   flex-direction: column;
   gap: 5px;
 
-
   grid-template-columns: 1fr 1fr 1fr;
 }
 
@@ -134,8 +132,7 @@ button.btn-success {
   white-space: nowrap;
 }
 
-
-.box>div {
+.box > div {
   display: flex;
   align-items: center;
 }
@@ -157,8 +154,8 @@ i {
 
 /* Trong file CSS của bạn hoặc thẻ <style> nếu sử dụng CSS inline */
 .order-btn button {
-  background-color: #38A9B8;
-  border-color: #38A9B8;
+  background-color: #38a9b8;
+  border-color: #38a9b8;
   font-size: 18px;
   padding: 10px 20px;
   height: 55px;

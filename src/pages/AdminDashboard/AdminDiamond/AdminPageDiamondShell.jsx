@@ -20,6 +20,7 @@ export default function AdminDiamondShell() {
       await api.post("material", value);
       setMessage("Thêm vỏ kim cương thành công");
       setDiamondshell([...diamondshell, value]);
+      33;
     } catch (error) {
       setMessage("Đã có lỗi trong lúc thêm vỏ kim cương");
       console.log(error.response.data);

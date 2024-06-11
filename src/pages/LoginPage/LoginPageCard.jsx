@@ -47,9 +47,6 @@ function LoginPageCard() {
         } else if (userApi.data.role === "ADMIN") {
           navigate(routes.adminDiamond);
         }
-        toast.success("Đăng nhập thành công", {
-          duration: 8000,
-        });
 
         dispatch(login(userApi.data));
       });

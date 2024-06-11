@@ -11,15 +11,10 @@ import Banner from "../../components/Banner/banner";
 import RowProduct from "../../components/RowProduct/rowProduct";
 import "./GuestPage.css";
 import rowbanner1 from "../../../public/assets/images/rowBanner/rowbanner1.jpg";
-import { Toaster } from "react-hot-toast";
 
 export default function GuestPage() {
   return (
     <div>
-      <div>
-        <Toaster position="top-right" />
-      </div>
-
       <Header></Header>
       <Container>
         <Banner
