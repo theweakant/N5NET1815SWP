@@ -158,17 +158,6 @@ function SaleStaffPage() {
             key: 'status',
         },
         {
-            title: 'Liên hệ khách hàng',
-            key: 'contact',
-            render: (text, record) => (
-                <Button type="link" onClick={() => handleAction(record)}>
-                    <div className='contact-text'>
-                        <PhoneOutlined />Liên hệ
-                    </div>
-                </Button>
-            ),
-        },
-        {
             title: 'Xem đơn hàng',
             key: 'view-order',
             render: (text, record) => (

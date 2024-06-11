@@ -41,6 +41,7 @@ export default function AppRoute() {
       <Route path={routes.sale} element={<SaleEventPage />} />
       <Route path={routes.diamondprice} element={<DiamondPricePage />} />
       <Route path={routes.salestaff} element={<SaleStaffPage />} />
+      <Route path={routes.productdetail} element={<ProductDetailPage />} />
       <Route
         path={routes.profile}
         element={
