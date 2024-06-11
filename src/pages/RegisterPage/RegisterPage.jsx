@@ -14,38 +14,20 @@ import { routes } from "../../routes";
 import { Link } from "react-router-dom";
 import { Button, DatePicker, Form, Input, Select } from "antd";
 import { useForm } from "antd/es/form/Form";
-import axios from "axios";
 import { Option } from "antd/es/mentions";
 import { useState } from "react";
-import { login, logout, selectUser } from "../../redux/features/counterSlice";
-import { useDispatch, useSelector } from "react-redux";
+import api from "../../config/axios";
 
 function RegisterPageCard() {
   const [message, setMessage] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
-  const dispatch = useDispatch();
-  const user = useSelector(selectUser);
-
-  const handleLogin = () => {
-    const userData = { firstname, lastname };
-    dispatch(login(userData));
-  };
-
-  const handleLogout = () => {
-    dispatch(logout());
-  };
   const dateFormat = "DD/MM/YYYY";
 
   const [form] = useForm();
   async function handleSubmit(value) {
     console.log(value);
     try {
-      const response = await axios.post(
-        "http://157.245.145.162:8080/api/register",
-        value
-      );
+      const response = await api.post("register", value);
       console.log(response);
       setMessage("Tài Khoản của bạn đã được tạo thành công");
     } catch (error) {

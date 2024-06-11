@@ -51,7 +51,7 @@ export default function Header() {
             <p>HỆ THỐNG PHÂN PHỐI</p>
           </div>
         </Col>
-        <Col xs={4} className="Header-logo">
+        <Col xs={3} className="Header-logo">
           <Link to={routes.home}>
             <img src={logo} alt="" />
           </Link>
@@ -63,10 +63,15 @@ export default function Header() {
           ></SearchBar>
         </Col>
         {user ? (
-          <Col xs={2} className="Header-login">
-            <Link to={routes.profile}>
+          <Col xs={3} className="Header-login">
+            <Link to={routes.profile} className="profile-name">
               {/* <p>{user.email}</p> */}
-              <p>
+
+              <span
+                className="pi pi-user"
+                style={{ fontSize: "1.5rem" }}
+              ></span>
+              <p className="username">
                 {user.firstname} {user.lastname}
               </p>
             </Link>
@@ -102,15 +107,18 @@ export default function Header() {
         <Col className="Header-navigation">
           <Link to={routes.bst}>Bộ Sưu Tập</Link>
         </Col>
-        <Col className="dropdownContainer" onMouseOver={handleMouseOverProduct}>
+        <Col
+          className="Header-navigation dropdownContainer"
+          onMouseOver={handleMouseOverProduct}
+        >
           <Link to="">Sản Phẩm Về Kim Cương</Link>
           {isProductDropdownOpen && (
-            <Col
+            <div
               className="dropdownWrapper"
               onMouseLeave={handleMouseLeaveProduct}
             >
               <DropdownContent></DropdownContent>
-            </Col>
+            </div>
           )}
         </Col>
         <Col className="Header-navigation">

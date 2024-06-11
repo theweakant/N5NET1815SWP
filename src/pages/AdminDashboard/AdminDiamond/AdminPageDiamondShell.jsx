@@ -31,22 +31,6 @@ export default function AdminDiamondShell() {
     setDiamondshell(response.data);
   }
 
-  async function deleteProduct(id) {
-    console.log(id);
-    try {
-      await api.delete(`diamond//${id}`);
-      setdeleteMessage("Xóa thành công");
-      setDiamondshell(
-        diamondshell.filter((gem) => {
-          return gem.id !== id;
-        })
-      );
-    } catch (error) {
-      setdeleteMessage("Đã có lỗi trong lúc Xóa");
-      console.log(error.response.data);
-    }
-  }
-
   useEffect(() => {
     fetchProduct();
   }, []);
@@ -96,12 +80,12 @@ export default function AdminDiamondShell() {
     },
     {
       title: "Hành Động",
-      render: (diamond) => {
+      render: (values) => {
         return (
           <>
             <Button
               onClick={(e) => {
-                deleteDiamondShell(diamond.id);
+                deleteDiamondShell(values);
               }}
             >
               Xóa
@@ -112,17 +96,17 @@ export default function AdminDiamondShell() {
     },
   ];
 
-  async function deleteDiamondShell(id) {
-    console.log(id);
+  async function deleteDiamondShell(values) {
+    console.log(values);
     try {
       Modal.confirm({
         title: "Bạn có chắc muốn xóa sản phẩm này ?",
         onOk: () => {
-          api.delete(`material/${id}`);
+          api.delete(`material/${values.id}`);
           setdeleteMessage("Xóa thành công");
           setDiamondshell(
             diamondshell.filter((gem) => {
-              return gem.id !== id;
+              return gem.id !== values.id;
             })
           );
         },
@@ -160,7 +144,7 @@ export default function AdminDiamondShell() {
                   },
                 ]}
               >
-                <Input type="text" required />
+                <Input type="text" required readOnly />
               </Form.Item>
 
               <Form.Item
@@ -180,7 +164,6 @@ export default function AdminDiamondShell() {
                 </Select>
               </Form.Item>
               <Form.Item
-                initialValue="DIAMOND"
                 className="label-form"
                 label="Loại Đá phụ"
                 name="typeOfSub"
@@ -191,7 +174,10 @@ export default function AdminDiamondShell() {
                   },
                 ]}
               >
-                <Input type="text" required readOnly />
+                <Select className="select-input" placeholder="chọn loại đá phụ">
+                  <Select.Option value="DIAMOND">Diamond</Select.Option>
+                  <Select.Option value="MOISSANITE">Moissanite</Select.Option>
+                </Select>
               </Form.Item>
               <Form.Item
                 className="label-form"
@@ -216,20 +202,6 @@ export default function AdminDiamondShell() {
                   {
                     required: true,
                     message: "Nhập quantityOfSub",
-                  },
-                ]}
-              >
-                <Input type="number" required />
-              </Form.Item>
-
-              <Form.Item
-                className="label-form"
-                label="Giá"
-                name="price"
-                rules={[
-                  {
-                    required: true,
-                    message: "Nhập giá ",
                   },
                 ]}
               >

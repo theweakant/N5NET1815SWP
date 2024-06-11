@@ -15,9 +15,7 @@ export default function AdminDiamond() {
   const [formUpdate] = useForm();
 
   const [diamond, setDiamond] = useState([]);
-  const [diamondUpdate, setDiamondUpdate] = useState([]);
   const [certificate, setCertificate] = useState([]);
-  const [editingMaterial, setEditingMaterial] = useState(null);
   function hanldeClickSubmit() {
     form.submit();
   }
@@ -85,12 +83,16 @@ export default function AdminDiamond() {
     }
   }
 
-  async function updateMaterial(id) {
-    console.log(id);
-    // console.log(diamond);
+  async function updateMaterial(values) {
+    console.log("haha...", values);
     try {
-      await api.put(`material/${id}`);
+      await api.put(`material/${values.id}`, values);
       setUpdateMessage("Chỉnh sửa thành công");
+      setDiamond(
+        diamond.filter((gem) => {
+          return gem.id !== values.id;
+        })
+      );
       console.log("chỉnh sửa thành công");
     } catch (error) {
       console.log("chỉnh sửa thất bại, có lỗi");
@@ -98,33 +100,75 @@ export default function AdminDiamond() {
       console.log(error.response.data);
     }
   }
+  const onChange = (pagination, filters, sorter, extra) => {
+    console.log("params", pagination, filters, sorter, extra);
+  };
 
   const columns = [
     {
       title: "ID",
       dataIndex: "id",
       key: "id",
+      sorter: (a, b) => a.id - b.id,
     },
     {
-      title: "Certificate ID",
-      dataIndex: "certificateID",
-      key: "certificateID",
-    },
-    {
-      title: "Type",
-      dataIndex: "type",
-      key: "type",
+      title: "giaReportNumber",
+      dataIndex: "giaReportNumber",
+      // key: "giaReportNumber",
+      render: (text, record) => record.certificate?.giaReportNumber || "N/A",
+
+      // render: (value) =>
+      //   value === null || value === undefined ? "" : value.giaReportNumber,
+      sorter: (c, d) =>
+        c.certificate?.giaReportNumber - d.certificate?.giaReportNumber,
+      defaultSortOrder: "ascend",
     },
     {
       title: "Image URL ",
       dataIndex: "imgURL",
       key: "imgURL",
-      render: (value) => <Image src={value} />,
+      render: (value) => <Image src={value} style={{ width: 80 }} />,
     },
     {
       title: "Shape",
       dataIndex: "shape",
       key: "shape",
+      filters: [
+        {
+          text: "ROUND",
+          value: "ROUND",
+        },
+        {
+          text: "OVAL",
+          value: "OVAL",
+        },
+        {
+          text: "CUSHION",
+          value: "CUSHION",
+        },
+        {
+          text: "EMERALD",
+          value: "PRINCESS",
+        },
+        {
+          text: "RADIANT",
+          value: "RADIANT",
+        },
+        {
+          text: "HEART",
+          value: "HEART",
+        },
+        {
+          text: "MARQUISE",
+          value: "MARQUISE",
+        },
+        {
+          text: "ASSHER",
+          value: "ASSHER",
+        },
+      ],
+
+      onFilter: (value, record) => record.shape.indexOf(value) === 0,
     },
     {
       title: "Size",
@@ -167,21 +211,24 @@ export default function AdminDiamond() {
       render: (values) => {
         return (
           <>
-            <Button
-              onClick={(e) => {
-                deleteMaterial(values);
-              }}
-            >
-              Xóa
-            </Button>
+            <div className="action-button">
+              <Button
+                onClick={(e) => {
+                  deleteMaterial(values);
+                }}
+                className="delete-button"
+              >
+                Xóa
+              </Button>
 
-            <Button
-              icon={<UploadOutlined />}
-              className="admin-upload-button"
-              onClick={showModalUpdate}
-            >
-              Chỉnh sửa
-            </Button>
+              <Button
+                icon={<UploadOutlined />}
+                className="admin-upload-button update-button"
+                onClick={showModalUpdate}
+              >
+                Chỉnh sửa
+              </Button>
+            </div>
 
             <Modal
               className="modal-add-form"
@@ -192,10 +239,10 @@ export default function AdminDiamond() {
               onOk={handleUpdateOk}
               onCancel={handleUpdateCancel}
             >
-              <Form
+              {/* <Form
                 form={formUpdate}
                 onFinish={(e) => {
-                  updateMaterial(diamond.id);
+                  updateMaterial(values);
                 }}
                 id="form-update"
                 className="form-main"
@@ -207,18 +254,14 @@ export default function AdminDiamond() {
                       label="Hình Dáng"
                       name="shape"
                     >
-                      <Input
-                        type="text"
-                        required
-                        defaultValue={diamond.shape}
-                      />
+                      <Input type="text" required value={values.shape} />
                     </Form.Item>
 
                     <Form.Item className="label-form" label="Size" name="size">
                       <Input
                         type="number"
                         required
-                        defaultValue={diamond.size}
+                        defaultValue={values.size}
                       />
                     </Form.Item>
 
@@ -227,11 +270,7 @@ export default function AdminDiamond() {
                       label="Màu sắc"
                       name="color"
                     >
-                      <Input
-                        type="text"
-                        required
-                        defaultValue={diamond.color}
-                      />
+                      <Input type="text" required defaultValue={values.color} />
                     </Form.Item>
                     <Form.Item
                       className="label-form"
@@ -241,7 +280,7 @@ export default function AdminDiamond() {
                       <Input
                         type="text"
                         required
-                        defaultValue={diamond.clarity}
+                        defaultValue={values.clarity}
                       />
                     </Form.Item>
                     <Form.Item
@@ -252,11 +291,11 @@ export default function AdminDiamond() {
                       <Input
                         type="number"
                         required
-                        defaultValue={diamond.carat}
+                        defaultValue={values.carat}
                       />
                     </Form.Item>
                     <Form.Item className="label-form" label="Độ Cắt" name="cut">
-                      <Input type="text" required defaultValue={diamond.cut} />
+                      <Input type="text" required defaultValue={values.cut} />
                     </Form.Item>
                   </div>
                   <div className="form-content">
@@ -268,7 +307,7 @@ export default function AdminDiamond() {
                       <Input
                         type="text"
                         required
-                        defaultValue={diamond.origin}
+                        defaultValue={values.origin}
                       />
                     </Form.Item>
 
@@ -276,7 +315,7 @@ export default function AdminDiamond() {
                       <Input
                         type="number"
                         required
-                        defaultValue={diamond.price}
+                        defaultValue={values.price}
                       />
                     </Form.Item>
 
@@ -285,20 +324,85 @@ export default function AdminDiamond() {
                       label="Image URL "
                       name="imgURL"
                     >
-                      <Input type="text" defaultValue={diamond.imgURL} />
+                      <Input type="text" defaultValue={values.imgURL} />
                     </Form.Item>
                   </div>
                 </div>
                 <Button
                   onClick={(e) => {
-                    hanldeUpdateClickSubmit(diamond.id);
+                    hanldeUpdateClickSubmit();
                   }}
                   className="form-button"
                 >
                   Chỉnh Sửa Kim Cương
                 </Button>
                 {updateMessage && <div>{updateMessage}</div>}
-              </Form>
+              </Form> */}
+              {/* <Input
+                value={values.shape}
+                onChange={(e) => {
+                  setEditingMaterial((pre) => {
+                    return { ...pre, shape: e.target.value };
+                  });
+                }}
+              />
+              <Input
+                value={values.size}
+                onChange={(e) => {
+                  setEditingMaterial((pre) => {
+                    return { ...pre, size: e.target.value };
+                  });
+                }}
+              />
+              <Input
+                value={values.color}
+                onChange={(e) => {
+                  setEditingMaterial((pre) => {
+                    return { ...pre, color: e.target.value };
+                  });
+                }}
+              />
+              <Input
+                value={values.clarity}
+                onChange={(e) => {
+                  setEditingMaterial((pre) => {
+                    return { ...pre, clarity: e.target.value };
+                  });
+                }}
+              />
+              <Input
+                value={values.carat}
+                onChange={(e) => {
+                  setEditingMaterial((pre) => {
+                    return { ...pre, carat: e.target.value };
+                  });
+                }}
+              />
+              <Input
+                value={values.cut}
+                onChange={(e) => {
+                  setEditingMaterial((pre) => {
+                    return { ...pre, cut: e.target.value };
+                  });
+                }}
+              />
+              <Input
+                value={values.imgURL}
+                onChange={(e) => {
+                  setEditingMaterial((pre) => {
+                    return { ...pre, imgURL: e.target.value };
+                  });
+                }}
+              />
+              <Input
+                value={values.price}
+                onChange={(e) => {
+                  setEditingMaterial((pre) => {
+                    return { ...pre, price: e.target.value };
+                  });
+                }}
+              />
+              <Button onClick={updateMaterial(values,)}></Button> */}
             </Modal>
           </>
         );
@@ -311,6 +415,8 @@ export default function AdminDiamond() {
       title: "Report Number",
       dataIndex: "giaReportNumber",
       key: "giaReportNumber",
+      sorter: (a, b) => a.giaReportNumber - b.giaReportNumber,
+      defaultSortOrder: "ascend",
     },
     {
       title: "File URL",
@@ -479,20 +585,28 @@ export default function AdminDiamond() {
                   <Select.Option value="POOR">Poor</Select.Option>
                 </Select>
               </Form.Item>
-              <Form.Item
-                className="label-form"
-                label="Chứng Chỉ"
-                name="certificateID"
-                required
-              >
+              <div className="certificate-form">
+                <Form.Item
+                  className="label-form"
+                  label="Số Chứng Chỉ"
+                  name="giaReportNumber"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Nhập số Chứng Chỉ ",
+                    },
+                  ]}
+                >
+                  <Input type="number" required />
+                </Form.Item>
                 <Button
                   icon={<UploadOutlined />}
                   className="admin-upload-button"
                   onClick={showModal}
                 >
-                  Thêm Chứng Chỉ
+                  Chứng Chỉ Khả Dụng
                 </Button>
-              </Form.Item>
+              </div>
             </div>
             <div className="form-content">
               <Form.Item
@@ -508,7 +622,7 @@ export default function AdminDiamond() {
               >
                 <Select className="select-input" placeholder="chọn Nguồn Gốc">
                   <Select.Option value="NATURAL">Tự Nhiên</Select.Option>
-                  <Select.Option value="ARTIFICAL">Nhân Tạo</Select.Option>
+                  <Select.Option value="ARTIFICIAL">Nhân Tạo</Select.Option>
                 </Select>
               </Form.Item>
 
@@ -544,6 +658,7 @@ export default function AdminDiamond() {
               </Form.Item>
             </div>
           </div>
+
           <Button onClick={hanldeClickSubmit} className="form-button">
             Thêm Viên Kim Cương
           </Button>
@@ -571,14 +686,17 @@ export default function AdminDiamond() {
             columns={columnsGIA}
             pagination={{ pageSize: 5 }}
             scroll={{ x: "max-content" }}
+            onChange={onChange}
           />
         </Modal>
 
         <div className="data-table">
           <h1>Quản Lý Kim Cương</h1>
           <Table
+            className="Table"
             dataSource={diamond}
             columns={columns}
+            onChange={onChange}
             pagination={{ pageSize: 5 }}
             scroll={{ x: "max-content" }}
           />

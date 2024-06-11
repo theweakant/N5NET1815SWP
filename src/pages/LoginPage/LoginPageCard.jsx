@@ -19,6 +19,8 @@ import { login, selectUser } from "../../redux/features/counterSlice";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth, provider } from "../../config/firebase";
 import api from "../../config/axios";
+import toast from "react-hot-toast";
+import "react-toastify/dist/ReactToastify.css";
 
 function LoginPageCard() {
   const [email, setEmail] = useState("");
@@ -41,14 +43,15 @@ function LoginPageCard() {
         console.log(userApi);
         console.log(userApi.data);
         localStorage.setItem("token", userApi.data.token);
-        Modal.success({
-          Content: "LoginSuccess",
-        });
+
         if (userApi.data.role === "CUSTOMER") {
           navigate(routes.home);
         } else if (userApi.data.role === "ADMIN") {
           navigate(routes.adminDiamond);
         }
+        toast.success("Đăng nhập thành công", {
+          duration: 8000,
+        });
 
         dispatch(login(userApi.data));
       });
