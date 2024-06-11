@@ -10,8 +10,8 @@
   margin-top: 30px;
 }
 
-.order-tracking {
-  margin-top: 30px;
+.order-tracking-content {
+    margin-top: 10px;
 }
 
 .payment-method {
@@ -30,11 +30,19 @@
   margin: 0 10px;
 }
 
+.product-info {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 .product-info img {
-  max-width: 50%;
-  height: auto;
-  display: block;
-  margin-bottom: 10px;
+    width: 60%;
+    /* Reduce the size of the image */
+    height: auto;
+    display: block;
+    margin-right: 10px;/
 }
 
 .product-info p {
@@ -43,15 +51,26 @@
   margin-bottom: 8px;
 }
 
+.price-info {
+    padding: 0;
+    text-align: left;
+}
+
 .price-info p {
   font-size: 12px;
   line-height: 1.4;
   margin-bottom: 8px;
   margin-bottom: 5px;
+    font-size: 12px;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    margin-bottom: 5px;
 }
 
 .total-price {
   padding-top: 20px;
+    padding-top: 20px;
+    text-align: left;
 }
 
 h3,
@@ -96,5 +115,9 @@ h4 {
 }
 
 .container {
-  flex-grow: 1;
+    flex-grow: 1;
+}
+
+.order-tracking-content .order-tracking-id {
+    text-align: left;
 }
