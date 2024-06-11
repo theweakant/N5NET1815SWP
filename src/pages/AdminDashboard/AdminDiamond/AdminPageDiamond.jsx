@@ -55,7 +55,7 @@ export default function AdminDiamond() {
   }, [diamond]); // Only re-run this effect when diamond changes
 
   async function fetchCertificate() {
-    const certificate = await api.get("certificate/not-yet-used");
+    const certificate = await api.get("certificate/available");
     setCertificate(certificate.data);
   }
 
@@ -166,7 +166,7 @@ export default function AdminDiamond() {
         },
       ],
 
-      onFilter: (value, record) => record.shape.indexOf(value) === 0,
+      onFilter: (value, record) => record.shape?.indexOf(value) === 0,
     },
     {
       title: "Size",
