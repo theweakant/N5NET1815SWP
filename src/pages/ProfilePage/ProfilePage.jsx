@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import Ninja from "../../../public/assets/images/Avatar/NinjaAvatar.png";
@@ -7,19 +7,104 @@ import BasicButton from "../../components/Button/myButton";
 import { Link } from "react-router-dom";
 import InputTextField from "../../components/TextField/TextField";
 import ReadDatePickers from "../../components/Button/DatePicker";
-import UploadAvatar from "../../components/UploadAvatar/UploadAvatar";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../redux/features/counterSlice";
 function ProfilePage() {
   const user = useSelector(selectUser);
+  const inputRef = useRef(null);
+  const [image, setImage] = useState("");
+  const [defaultImage, setDefaultImage] = useState(Ninja);
+
+  const handleImageClick = () => {
+    inputRef.current.click();
+  };
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    console.log(file);
+    setImage(event.target.files[0]);
+  };
+
+  const handleUpdateClick = () => {
+    if (image) {
+      const newDefaultImage = URL.createObjectURL(image);
+      setDefaultImage(newDefaultImage);
+      setImage(null); // Reset image state
+    }
+  };
+  
 
   return (
     <div>
       <Header></Header>
       <div className="avatar-user">
-        <img id="avt-img" src={Ninja} />
-        <UploadAvatar>Chỉnh sửa ảnh đại diện</UploadAvatar>
+        <div onClick={handleImageClick} className="img-avt" >
+          {image ? (
+            <img id="avt-img" src={URL.createObjectURL(image)} alt=""/>
+          ) : (
+            <img id="avt-img" src={defaultImage} alt="Default Avatar" />
+          )}
+          <input
+            type="file"
+            ref={inputRef}
+            onChange={handleImageChange}
+            style={{ display: "none" }}
+          />
+        </div>
+        <button className="update-img-btn" onClick={handleUpdateClick}>Cập nhật</button>
       </div>
+      
+      {/* useEffect(() => {
+    const savedImage = localStorage.getItem('userImage');
+    if (savedImage) {
+      setDefaultImage(savedImage);
+    } else {
+      setDefaultImage(Ninja);
+    }
+  }, []);
+  const handleImageClick = () => {
+    inputRef.current.click();
+  };
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    console.log(file);
+    setImage(event.target.files[0]);
+  };
+
+  const handleUpdateClick = () => {
+    if (image) {
+      const newDefaultImage = URL.createObjectURL(image);
+      setDefaultImage(newDefaultImage);
+      localStorage.setItem('userImage', newDefaultImage);
+      setImage(null);
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      if (image) {
+        URL.revokeObjectURL(image);
+      }
+    };
+  }, [image]);
+
+  return (
+    <div>
+      <Header></Header>
+      <div className="avatar-user">
+        <div onClick={handleImageClick} className="img-avt">
+          <img id="avt-img" src={image ? URL.createObjectURL(image) : defaultImage} alt="Avatar" />
+          <input
+            type="file"
+            ref={inputRef}
+            onChange={handleImageChange}
+            style={{ display: "none" }}
+          />
+        </div>
+        <button className="update-img-btn" onClick={handleUpdateClick}>Cập nhật</button>
+      </div> */}
+
       <div className="info">
         <div className="info-text">
           <h3>Thông tin cá nhân</h3>
