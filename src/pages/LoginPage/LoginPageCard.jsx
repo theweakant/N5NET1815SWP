@@ -19,8 +19,6 @@ import { login, selectUser } from "../../redux/features/counterSlice";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth, provider } from "../../config/firebase";
 import api from "../../config/axios";
-import toast from "react-hot-toast";
-import "react-toastify/dist/ReactToastify.css";
 
 function LoginPageCard() {
   const [email, setEmail] = useState("");

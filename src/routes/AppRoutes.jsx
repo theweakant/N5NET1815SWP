@@ -22,7 +22,6 @@ import AdminManageOrder from "../pages/AdminDashboard/AdminManageOrder/AdmiManag
 import AdminCategory from "../pages/AdminDashboard/AdminCategory/AdminCategory";
 import ProtectedRoute from "./protectedRoute";
 import AdminDiamondShell from "../pages/AdminDashboard/AdminDiamond/AdminPageDiamondShell";
-import Notfound from "../pages/Notfound/Notfound";
 
 export default function AppRoute() {
   return (
