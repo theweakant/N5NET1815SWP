@@ -128,7 +128,7 @@ export default function Header() {
           <Link to={routes.blog}>Kiến Thức</Link>
         </Col>
         <Col className="Header-navigation">
-          <Link to="">Bảng Giá Kim Cương</Link>
+          <Link to={routes.priceDiamond}>Bảng Giá Kim Cương</Link>
         </Col>
         <Col className="Header-navigation">
           <Link to={routes.faq}>Câu Hỏi Thường Gặp</Link>

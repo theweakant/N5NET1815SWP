@@ -9,6 +9,7 @@
   width: 25%;
   margin-left: 40%;
 }
+
 .dropdownWrapper {
   position: absolute;
   display: flex;
@@ -19,6 +20,7 @@
   z-index: 1000;
   /* background: #ffffff; */
 }
+
 .dropdownContainer {
   /* position: relative; */
   /* text-align: center; */
@@ -123,6 +125,12 @@
   display: flex;
   justify-content: space-between;
   gap: 0 10px;
+
+}
+
+.Header-left-component i {
+  color: #06b6d4;
+  /* Ensure icons inherit the color */
 }
 
 .username {
