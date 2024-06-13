@@ -31,7 +31,7 @@ export default function AccessoryInfor() {
           pic8={necklace}
         />
 
-        <div>
+        <div className="accessory-infor-container-text">
           <div className="accessory-infor">
             <h1 className="accessory-info-title">KIẾN THỨC TRANG SỨC</h1>
             <p>
