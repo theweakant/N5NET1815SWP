@@ -24,9 +24,9 @@ export default function DiamondKnowledgePage() {
           title3="THÔNG TIN KHUYẾN MÃI"
           link3={routes.sale}
         ></MyBreadcrumb>
-        <div className="diamond-container">
+        <div className="diamond-knowledge-container">
 
-          <h1 className="title">KIẾN THỨC KIM CƯƠNG</h1>
+          <h1 className="diamond-knowledge-title">KIẾN THỨC KIM CƯƠNG</h1>
           <div className="info-content">
             <h4 className="type">Shape</h4>
             <p className="content">

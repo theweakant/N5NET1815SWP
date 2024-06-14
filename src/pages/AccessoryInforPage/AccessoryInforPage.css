@@ -1,19 +1,18 @@
 .accessory-infor-container {
-  margin-top: 5%;
-  margin-bottom: 5px;
-  width: 70%;
+  margin: 5% auto;
+  width: 70% !important;
   font-family: "Arial", sans-serif;
-
+  justify-content: center;
+  align-items: center;
 }
-
-
 
 .accessory-infor-container h1 {
   color: #258389;
   text-align: center;
   font-weight: bold;
   font-size: 40px;
-  margin-top: 15px !important;
+  margin-top: 10px !important;
+  margin-bottom: 50px;
 }
 
 .accessory-infor-container h2 {
@@ -60,7 +59,13 @@
   margin-top: 50px;
   font-size: 16px;
   line-height: 1.6;
-  font-weight: normal;
+  font-weight: bold;
+}
+
+.accessory-infor-container-end {
+  text-align: center;
+  font-weight: 100;
+  font-style: italic;
 }
 
 @media (max-width: 768px) {
