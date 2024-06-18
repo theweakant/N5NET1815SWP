@@ -8,8 +8,9 @@ import {
 } from "mdb-react-ui-kit";
 import "./RegisterPage.css";
 
-import registerbanner from "../../../public/assets/images/LoginBanner/registerbanner.jpg";
-import logo from "../../../public/assets/images/Logo/logo.png";
+// import registerbanner from "../../../public/assets/images/LoginBanner/registerbanner.jpg";
+// import logo from "../../../public/assets/images/Logo/logo.png";
+import React from 'react';
 import { routes } from "../../routes";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { Button, DatePicker, Form, Input, Select } from "antd";
@@ -47,7 +48,7 @@ function RegisterPageCard() {
         <MDBRow className="g-0">
           <MDBCol md="6">
             <MDBCardImage
-              src={registerbanner}
+              // src={registerbanner}
               alt="login form"
               className="rounded-start w-100"
             />
@@ -63,16 +64,16 @@ function RegisterPageCard() {
                 <span className="">Quay Lại Trang Chủ</span>
               </Link>
               <div className="d-flex flex-row mt-2 form-header">
-                <img src={logo} alt="" className="form-logo" />
+                {/* <img src={logo} alt="" className="form-logo" /> */}
                 <span className="h1 fw-bold mb-0">Five Diamond</span>
               </div>
-
               <h5
                 className="fw-normal my-0 pb-3"
                 style={{ letterSpacing: "1px" }}
               >
                 Đăng Ký
               </h5>
+
               <div className="form">
                 <Form
                   form={form}
@@ -198,7 +199,7 @@ function RegisterPageCard() {
                       },
                     ]}
                   >
-                    <Input type="password" />
+                    <Input type="password" data-testid="password-input" />
                   </Form.Item>
                   <Form.Item
                     dependencies={["password"]}
@@ -223,9 +224,10 @@ function RegisterPageCard() {
                       }),
                     ]}
                   >
-                    <Input type="password" required />
+                    <Input type="password" data-testid="confirm-password-input" required />
+
                   </Form.Item>
-                  {message && <div>{message}</div>}
+                  {message && <div data-testid="error-message">{message}</div>}
 
                   <Button onClick={hanldeClickSubmit} className="form-button ">
                     Đăng Ký
