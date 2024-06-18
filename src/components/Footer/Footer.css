@@ -1,0 +1,144 @@
+.Footer {
+  background-color: #f5f5f5;
+  margin-top: 30px;
+  /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+  /* margin: 0 20px; */
+}
+
+.Footer-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Footer-logo img {
+  width: 30%;
+}
+
+.Footer-center {
+
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;
+  padding: 10px;
+}
+
+.Footer-middle {
+  color: #676767;
+  margin-bottom: 10px;
+  position: relative;
+  /* padding-right: 40px; */
+  margin-right: 30px;
+  margin-bottom: 20px;
+  /* Increase bottom margin to create space between Footer-middle sections */
+
+}
+
+.Footer-middle a {
+  text-decoration: none;
+  color: #676767;
+}
+
+.Footer-middle a:hover {
+  color: #04849a;
+  transition: 0.2s;
+}
+
+.Footer-middle h5 {
+  color: #000;
+  font-size: 18px;
+  margin-bottom: 10px;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 20px;
+  /* Increase bottom margin to create space between h5 and p tags */
+
+}
+
+hr.solid {
+  border-top: 3px solid #bbb;
+}
+
+#text-center {
+  text-align: center;
+}
+
+.connect {
+  width: 180px;
+  height: 29px;
+  background: #06b6d4;
+  display: block;
+  color: #fff;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 400;
+  border-radius: 12px;
+  line-height: 29px;
+  text-transform: uppercase;
+  margin: 0 auto;
+  transition: 0.3s linear;
+  text-decoration: none;
+  position: absolute;
+  top: -15px;
+  right: 44%;
+}
+
+h3 {
+  font-size: 14px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.Footer-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.Footer-end {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.Footer-end button {
+  border-radius: 70rem;
+  color: #06b6d4;
+  background-color: white;
+  border: 2px solid #06b6d4;
+}
+
+.blue-hr {
+  border-top: 2px solid #04a8c5;
+  width: calc(100% - 100px);
+  margin: 0;
+  position: absolute;
+
+  top: 25px;
+  margin-top: 6px;
+
+
+}
+
+.Footer-content {
+  padding-left: 50px;
+}
+
+.Footer-center i {
+  color: #06b6d4;
+
+
+}
+
+.Footer-head-hr {
+  width: 100%;
+  color: #06b6d4;
+  border-top: 4px solid #04a8c5;
+
+
+}

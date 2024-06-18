@@ -1,0 +1,97 @@
+.admin-content {
+  /* width: 100%; */
+  margin-top: 3%;
+  margin-left: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.admin-content h1 {
+  font-weight: bold;
+  margin-bottom: 2%;
+}
+.admin-content label {
+  width: 200px;
+}
+
+.admin-content input {
+  width: 300px;
+}
+
+.label-form label {
+  width: 200px;
+}
+
+.label-form input {
+  width: 90%;
+}
+
+.modal-add-form {
+  width: 80% !important;
+}
+
+.modal-updateCategory-form {
+  width: 50%;
+}
+
+.admin-upload-button {
+  width: 90%;
+  text-align: center;
+}
+.form-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.form-content-main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.select-input {
+  width: 90% !important;
+}
+
+.data-table {
+  margin-top: 10%;
+  text-align: center;
+}
+
+.certificate-form {
+  width: 95%;
+  display: flex;
+}
+
+.certificate-form input {
+  width: 90%;
+}
+
+.certificate-form button {
+  width: 32%;
+}
+
+.action-button {
+  width: 100%;
+}
+
+.delete-button {
+  width: 35%;
+}
+
+.update-button {
+  width: 60%;
+  margin-left: 5%;
+}
+
+.ant-table-filter-dropdown {
+  width: 150% !important;
+}
+
+.data-table {
+  width: 80% !important;
+}

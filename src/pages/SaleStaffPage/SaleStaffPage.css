@@ -1,0 +1,11 @@
+.order-table{
+    margin-top: 20px;
+}
+.filter-buttons{
+    margin-top: 20px;
+}
+.contact-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
