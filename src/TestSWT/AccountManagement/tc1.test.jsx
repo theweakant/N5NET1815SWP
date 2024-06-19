@@ -2,7 +2,9 @@ import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import RegisterPageCard from '../../pages/RegisterPage/RegisterPage.jsx';
-import axios from '../../config/axios'; // Import axios
+import axios from '../../config/axios';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 jest.mock('../../config/axios', () => ({
     create: jest.fn(() => ({
@@ -12,21 +14,20 @@ jest.mock('../../config/axios', () => ({
             },
         },
         post: jest.fn((url, data) => {
-            return Promise.resolve({ data: { success: true } }); // Simulate successful registration
+            return Promise.resolve({ data: { success: true, message: 'Tài Khoản của bạn đã được tạo thành công' } });
         }),
     })),
 }));
 
 describe('RegisterPageCard component', () => {
     it('should submit form with valid information and display success message', async () => {
-        // Render the RegisterPageCard component inside MemoryRouter
         render(
             <MemoryRouter>
                 <RegisterPageCard />
+                <ToastContainer />
             </MemoryRouter>
         );
 
-        // Fill out the form with valid data
         fireEvent.change(screen.getByLabelText(/Họ/i), { target: { value: 'John' } });
         fireEvent.change(screen.getByLabelText(/Tên/i), { target: { value: 'Doe' } });
         fireEvent.change(screen.getByLabelText(/Ngày Sinh/i), { target: { value: '01/01/1990' } });
@@ -47,17 +48,14 @@ describe('RegisterPageCard component', () => {
         const submitButton = screen.getByRole('button', { name: /Đăng Ký/i });
         fireEvent.click(submitButton);
 
-        // Add debug to inspect the DOM before checking for the success message
-        screen.debug();
+        // Wait for success message
+        const successMessage = await screen.findByText((content, element) => {
+            return element.tagName.toLowerCase() === 'div' && content.includes('Tài Khoản của bạn đã được tạo thành công');
+        }, {}, { timeout: 3000 });
+        expect(successMessage).toBeInTheDocument();
 
-        // Wait for the success message to appear
-        await waitFor(() => {
-            const successMessage = screen.queryByText(/Tài Khoản của bạn đã được tạo thành công/i);
-            expect(successMessage).toBeInTheDocument();
-        }, { timeout: 3000 });
-
-        // Verify that the API was called with the correct data
-        expect(window.api.post).toHaveBeenCalledWith('register', {
+        // Verify the API call
+        expect(axios.post).toHaveBeenCalledWith('register', {
             firstname: 'John',
             lastname: 'Doe',
             dob: '01/01/1990',
