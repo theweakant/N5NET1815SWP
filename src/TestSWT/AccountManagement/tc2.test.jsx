@@ -2,10 +2,11 @@ import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import RegisterPageCard from '../../pages/RegisterPage/RegisterPage.jsx';
-
+import axios from '../../config/axios'; // Import axios
 
 jest.mock('../../config/axios.js', () => ({
     create: jest.fn(),
+    post: jest.fn(),
     interceptors: {
         request: jest.fn()
     }

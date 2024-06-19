@@ -4,6 +4,7 @@ module.exports = {
         "^.+\\.(js|jsx)$": "babel-jest",
         "^.+\\.(css|scss)$": "jest-transform-css"
     },
+
     transformIgnorePatterns: [
         "node_modules/(?!(antd|@ant-design|rc-.*|@babel)/)"
     ],

@@ -10,6 +10,7 @@ import "./RegisterPage.css";
 import React from 'react';
 // import registerbanner from "../../../public/assets/images/LoginBanner/registerbanner.jpg";
 // import logo from "../../../public/assets/images/Logo/logo.png";
+import { useState } from "react";
 import { routes } from "../../routes";
 import { Link, useNavigate } from "react-router-dom";
 import { Button, DatePicker, Form, Input, Select } from "antd";
@@ -19,6 +20,7 @@ import api from "../../config/axios";
 import { toast } from "react-toastify";
 
 function RegisterPageCard() {
+  const [message, setMessage] = useState('');
   const navigate = useNavigate();
   const dateFormat = "DD/MM/YYYY";
 
@@ -31,8 +33,10 @@ function RegisterPageCard() {
       toast.success("Tài Khoản của bạn đã được tạo thành công");
       navigate(routes.login);
     } catch (error) {
-      toast.error("Đã có lỗi trong việc tạo tài khoản của bạn");
-      console.log(error.response.data);
+      // toast.error("Đã có lỗi trong việc tạo tài khoản của bạn");
+      // console.log(error.response.data);
+      console.error(error);
+      setMessage('Đã có lỗi trong việc tạo tài khoản của bạn');
     }
   }
 
@@ -176,6 +180,7 @@ function RegisterPageCard() {
                   >
                     <Input required />
                   </Form.Item>
+
                   <Form.Item
                     required
                     label="Mật Khẩu"
@@ -183,24 +188,22 @@ function RegisterPageCard() {
                     rules={[
                       {
                         min: 6,
-                        message: "Mật khẩu của bạn phải chứa ít nhất 6 ký tự",
+                        message: 'Mật khẩu của bạn phải chứa ít nhất 6 ký tự',
                       },
                       {
                         pattern: /^([a-z]|[A-Z]|[0-9])*$/,
-
-                        message:
-                          "Mật khẩu của bạn phải không có ký tự đặc biệt",
+                        message: 'Mật khẩu của bạn phải không có ký tự đặc biệt',
                       },
                       {
                         required: true,
-                        message: "Hãy nhập Mật Khẩu của bạn!",
+                        message: 'Hãy nhập Mật Khẩu của bạn!',
                       },
                     ]}
                   >
-                    <Input type="password" />
+                    <Input.Password data-testid="password-input" />
                   </Form.Item>
                   <Form.Item
-                    dependencies={["password"]}
+                    dependencies={['password']}
                     required
                     label="Xác nhận mật khẩu"
                     name="confirm"
@@ -208,22 +211,22 @@ function RegisterPageCard() {
                     rules={[
                       {
                         required: true,
-                        message: "Hãy Xác Nhận lại mật khẩu của bạn",
+                        message: 'Hãy Xác Nhận lại mật khẩu của bạn',
                       },
                       ({ getFieldValue }) => ({
                         validator(_, value) {
-                          if (!value || getFieldValue("password") === value) {
+                          if (!value || getFieldValue('password') === value) {
                             return Promise.resolve();
                           }
-                          return Promise.reject(
-                            new Error("Mật Khẩu xác nhận bạn nhập sai")
-                          );
+                          return Promise.reject(new Error('Mật Khẩu xác nhận bạn nhập sai'));
                         },
                       }),
                     ]}
                   >
-                    <Input type="password" required />
+                    <Input.Password data-testid="confirm-password-input" />
                   </Form.Item>
+                  {message && <div data-testid="error-message">{message}</div>}
+
 
                   <Button onClick={hanldeClickSubmit} className="form-button ">
                     Đăng Ký
