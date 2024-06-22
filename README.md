@@ -1,78 +1,96 @@
-DIAMOND SYSTEM SHOP
-Project Overview
-Title
+# Jewelry Sales Management System
+
+## Project Overview
+
+**Title**
 Jewelry Sales Management System
 
-Description
+**Description**
 The Jewelry Sales Management System aims to streamline operations in the jewelry industry by providing a comprehensive platform for managing sales, inventory, promotions, employee performance, customer loyalty programs, and reporting.
 
-Key Features (Epics)
-Order Management:
+## Key Features (Epics)
 
-Create, update, and manage sales orders.
-Generate and print invoices for sales transactions.
-Pricing Management:
+1. **Order Management:**
+    - Create, update, and manage sales orders.
+    - Generate and print invoices for sales transactions.
 
-Calculate selling prices based on product cost and markup ratio.
-Promotion Management:
+2. **Pricing Management:**
+    - Calculate selling prices based on product cost and markup ratio.
 
-Create and manage promotional campaigns.
-Apply discounts and special offers to customer purchases.
-Buy-back Management:
+3. **Promotion Management:**
+    - Create and manage promotional campaigns.
+    - Apply discounts and special offers to customer purchases.
 
-Handle buy-back transactions from customers.
-Apply predefined buy-back pricing policies.
-Employee Management:
+4. **Buy-back Management:**
+    - Handle buy-back transactions from customers.
+    - Apply predefined buy-back pricing policies.
 
-Register, update, and manage employee information.
-Assign tasks and track employee performance.
-Customer Loyalty Program:
+5. **Employee Management:**
+    - Register, update, and manage employee information.
+    - Assign tasks and track employee performance.
 
-Implement a points-based loyalty program for customers.
-Offer rewards and discounts based on accumulated points.
-Reporting and Analytics:
+6. **Customer Loyalty Program:**
+    - Implement a points-based loyalty program for customers.
+    - Offer rewards and discounts based on accumulated points.
 
-Generate reports on sales performance, inventory status, and employee productivity.
-Visualize data using charts for better insights.
-Inventory Management:
+7. **Reporting and Analytics:**
+    - Generate reports on sales performance, inventory status, and employee productivity.
+    - Visualize data using charts for better insights.
 
-Track and manage inventory levels.
-Authentication:
+8. **Inventory Management:**
+    - Track and manage inventory levels.
 
-Ensure secure user authentication and authorization.
-Manage user roles and permissions.
-Technologies Used
-Frontend
-HTML, CSS
-React.js with Vite
-JavaScript
-Chart.js
-Redux
-Backend
-Java
-Spring Boot
-Spring JPA
-Thymeleaf
-Database
-MYSQL
-Hosting
-DigitalOcean
-Payment
-VNPAY
-Team Assignment
-Role	Team Member
-![image](https://github.com/theweakant/N5NET1815SWP/assets/149610611/1d8fe233-9db1-46b7-860f-cbcf2daff822)
+9. **Authentication:**
+    - Ensure secure user authentication and authorization.
+    - Manage user roles and permissions.
 
+## Technologies Used
 
-![image](https://github.com/theweakant/N5NET1815SWP/assets/149610611/e75e35fe-b412-4205-ba02-6c094ee8b63b)
+**Frontend**
+- HTML, CSS
+- React.js with Vite
+- JavaScript
+- Chart.js
+- Redux
 
+**Backend**
+- Java
+- Spring Boot
+- Spring JPA
+- Thymeleaf
 
-Project Structure
-Frontend Directory Structure
-/src: Contains React components, Redux state management setup, and styles.
-/public: Stores static assets like images and fonts.
-Backend Directory Structure (Java/Spring Boot)
-/src/main: Java source files for controllers, services, repositories, etc.
-/resources: Configuration files, application properties, and static resources.
-Conclusion
+**Database**
+- MySQL
+
+**Hosting**
+- DigitalOcean
+
+**Payment**
+- VNPAY
+
+---
+
+## Team Assignment
+
+| Role             | Team Member                        |
+|------------------|------------------------------------|
+| **Project Manager** | John Doe                       |
+| **Frontend Developer** | Jane Smith                   |
+| **Backend Developer** | Jim Brown                    |
+| **Database Administrator** | Jack White              |
+| **QA Tester**    | Jill Black                         |
+
+---
+
+## Project Structure
+
+**Frontend Directory Structure**
+- `/src`: Contains React components, Redux state management setup, and styles.
+- `/public`: Stores static assets like images and fonts.
+
+**Backend Directory Structure (Java/Spring Boot)**
+- `/src/main`: Java source files for controllers, services, repositories, etc.
+- `/resources`: Configuration files, application properties, and static resources.
+
+## Conclusion
 The Jewelry Sales Management System integrates modern frontend technologies with a robust Java backend to deliver a scalable and efficient solution for managing various aspects of jewelry sales and operations. This setup ensures a user-friendly interface, real-time data updates, and comprehensive reporting capabilities to enhance business management and customer satisfaction.
