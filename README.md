@@ -27,6 +27,8 @@ PAYMENT
 VNPAY
 TEAM ASSIGNMENT
 Role Team Member
+![image](https://github.com/theweakant/N5NET1815SWP/assets/149610611/1d8fe233-9db1-46b7-860f-cbcf2daff822)
+
 
 PROJECT STRUCTURE
 Frontend Directory Structure
