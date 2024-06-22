@@ -61,11 +61,11 @@ Payment
 VNPAY
 Team Assignment
 Role	Team Member
-Product Owner	Hà Thái Hoàng
-Scrum Master	Hà Thái Hoàng
-Frontend Dev	Tô Triều Vỹ, Hà Thái Hoàng
-Backend Dev	Hà Thái Hoàng, Lâm Tấn Phú, Thái Đăng
-Tester	Hà Thái Hoàng, Duy Khánh, Phạm Văn Quốc Vương, Thảo
+![image](https://github.com/theweakant/N5NET1815SWP/assets/149610611/1d8fe233-9db1-46b7-860f-cbcf2daff822)
+
+
+![image](https://github.com/theweakant/N5NET1815SWP/assets/149610611/e75e35fe-b412-4205-ba02-6c094ee8b63b)
+
 Team Test Assignment
 Sprint	Use Cases
 Sprint 1	UC2, UC24, UC1, UC23, UC3, UC22
