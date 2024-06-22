@@ -66,15 +66,6 @@ Role	Team Member
 
 ![image](https://github.com/theweakant/N5NET1815SWP/assets/149610611/e75e35fe-b412-4205-ba02-6c094ee8b63b)
 
-Team Test Assignment
-Sprint	Use Cases
-Sprint 1	UC2, UC24, UC1, UC23, UC3, UC22
-Sprint 2	UC12
-Sprint 3	UC18, UC19, UC20, UC24, UC25, UC36,
-Sprint 4	UC12, UC13, UC14, UC15, UC21, UC22, UC23, UC38, UC39, UC41
-TEST WORK FLOW
-
-SPRINT 1: Hoàng: UC2, UC 24 Khánh: UC 1, UC 23 Vương: UC 3, UC 22
 
 Project Structure
 Frontend Directory Structure
