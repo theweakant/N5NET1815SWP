@@ -1,48 +1,52 @@
-# Jewelry Sales Management System
+# Diamond Shop System
 
 ## Project Overview
 
 **Title**
-Jewelry Sales Management System
+Diamond Shop System
 
 **Description**
-The Jewelry Sales Management System aims to streamline operations in the jewelry industry by providing a comprehensive platform for managing sales, inventory, promotions, employee performance, customer loyalty programs, and reporting.
+Diamond Shop System aims to streamline operations in the jewelry industry by providing a comprehensive platform for managing sales, inventory, promotions, employee performance, customer loyalty programs, and reporting.
 
 ## Key Features (Epics)
 
-1. **Order Management:**
-    - Create, update, and manage sales orders.
-    - Generate and print invoices for sales transactions.
+1. **Account Management:**
+    - Register new customer accounts and ensure all mandatory fields are filled.
+    - Validate email formats and password matching during registration.
+    - Enable customers, staff, and admins to log in with valid credentials and handle failed login attempts.
+    - Allow customers to edit profile information and update passwords, ensuring proper validation.
 
-2. **Pricing Management:**
-    - Calculate selling prices based on product cost and markup ratio.
+2. **Order Management:**
+    - Enable staff to view, filter, search, and manage orders, including updating statuses and adding internal notes.
+    - Allow delivery staff to manage deliveries, update statuses, record delivery details, and reschedule failed deliveries.
+    - Provide customers with order tracking, status updates, and delivery notes access.
+    - Facilitate managers in overseeing order fulfillment, generating reports, and receiving alerts for delayed orders.
+      
+3. **Product Management:**
+    - Allow admins to manage the product catalog, including adding, editing, and deactivating/reactivating products and categories.
+    - Enable customers to browse, filter, and sort products, and view detailed information and stock status.
+    - Provide functionality for customers to add items to their cart and ensure the cart updates correctly.
+    - Allow managers to analyze product performance and view sales trends to make inventory decisions.
 
-3. **Promotion Management:**
-    - Create and manage promotional campaigns.
-    - Apply discounts and special offers to customer purchases.
+4. **Reporting and Analytics:**
+    - Provide managers with sales reports in various formats (daily, weekly, monthly) and allow filtering by date range and category.
+    - Enable data export to CSV files and viewing reports on refunded orders.
 
-4. **Buy-back Management:**
-    - Handle buy-back transactions from customers.
-    - Apply predefined buy-back pricing policies.
+5. **User Management:**
+    - Allow admins to manage user accounts, including creating, editing, deactivating/reactivating, and resetting passwords.
+    - Ensure deactivated users cannot access the system.
+    - Enable users to manage account settings, including password changes and contact information updates, with proper validations and notifications.
 
-5. **Employee Management:**
-    - Register, update, and manage employee information.
-    - Assign tasks and track employee performance.
+6. **Security:**
+    - Store passwords in encrypted form.
+    - Log failed login attempts and lock accounts after multiple failed attempts.
+    - Ensure user sessions expire after inactivity and require re-authentication for sensitive operations.
 
-6. **Customer Loyalty Program:**
-    - Implement a points-based loyalty program for customers.
-    - Offer rewards and discounts based on accumulated points.
+7. **Shopping Experience:**
+    - Enable customers to complete purchases, including checkout, shipping method selection, and payment information entry.
+    - Ensure inventory updates after successful purchases and allow customers to view order history.
 
-7. **Reporting and Analytics:**
-    - Generate reports on sales performance, inventory status, and employee productivity.
-    - Visualize data using charts for better insights.
 
-8. **Inventory Management:**
-    - Track and manage inventory levels.
-
-9. **Authentication:**
-    - Ensure secure user authentication and authorization.
-    - Manage user roles and permissions.
 
 ## Technologies Used
 
@@ -74,13 +78,34 @@ The Jewelry Sales Management System aims to streamline operations in the jewelry
 
 | Role             | Team Member                        |
 |------------------|------------------------------------|
-| **Project Manager** | John Doe                       |
-| **Frontend Developer** | Jane Smith                   |
-| **Backend Developer** | Jim Brown                    |
-| **Database Administrator** | Jack White              |
-| **QA Tester**    | Jill Black                         |
+| **Project Manager** |  Quốc Phong                     |
+| **Frontend Developer** | Quốc Phong, Quốc Nam, Tuấn Anh, Quang Nhật                  |
+| **Backend Developer** | Khánh Tùng                    |
+| **Database Administrator** | Khánh Tùng              |
+| **Tester**    | Quốc Nam, Thế Sơn, Đại Dĩ, Minh Nhật, Gia Bảo                          |
 
 ---
+## Team Tester Assignment
+
+| Sprint         | Use Case                      |
+|----------------|------------------------------------|
+| **Sprint 1**   | UC-01, UC-02, UC-03, UC-04     |
+| **Sprint 2**   | UC-05, UC-06, UC-07, UC-08     |
+| **Sprint 3**   | UC-09, UC-10, UC-11, UC-12     |
+| **Sprint 4**   | UC-13, UC-14, UC-15, UC-16, UC-17, UC-18 |
+
+
+
+## Sprint Assignments
+
+| Name  | Sprint 1  | Sprint 2  | Sprint 3  | Sprint 4  |
+|-------|-----------|-----------|-----------|-----------|
+| Nam   | UC-1      |           |           |           |
+| Sơn   | UC-1, UC-2|           |           |           |
+| Dĩ    | UC-2, UC-3|           |           |           |
+| Nhật  | UC-3      |           |           |           |
+| Bảo   | UC-4      |           |           |           |
+
 
 ## Project Structure
 
@@ -93,4 +118,4 @@ The Jewelry Sales Management System aims to streamline operations in the jewelry
 - `/resources`: Configuration files, application properties, and static resources.
 
 ## Conclusion
-The Jewelry Sales Management System integrates modern frontend technologies with a robust Java backend to deliver a scalable and efficient solution for managing various aspects of jewelry sales and operations. This setup ensures a user-friendly interface, real-time data updates, and comprehensive reporting capabilities to enhance business management and customer satisfaction.
+Diamond Shop System integrates modern frontend technologies with a robust Java backend to deliver a scalable and efficient solution for managing various aspects of jewelry sales and operations. This setup ensures a user-friendly interface, real-time data updates, and comprehensive reporting capabilities to enhance business management and customer satisfaction.
