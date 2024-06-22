@@ -48,11 +48,16 @@ describe('RegisterPageCard component', () => {
         const submitButton = screen.getByRole('button', { name: /Đăng Ký/i });
         fireEvent.click(submitButton);
 
+        // Debug log to ensure the form submission is taking place
+        console.log('Form submitted');
+
         // Wait for success message
-        const successMessage = await screen.findByText((content, element) => {
-            return element.tagName.toLowerCase() === 'div' && content.includes('Tài Khoản của bạn đã được tạo thành công');
-        }, {}, { timeout: 3000 });
-        expect(successMessage).toBeInTheDocument();
+        await waitFor(() => {
+            const successMessage = screen.getByText((content, element) => {
+                return element.textContent === 'Tài Khoản của bạn đã được tạo thành công';
+            });
+            expect(successMessage).toBeInTheDocument();
+        });
 
         // Verify the API call
         expect(axios.post).toHaveBeenCalledWith('register', {
