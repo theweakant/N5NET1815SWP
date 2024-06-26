@@ -89,10 +89,10 @@ Diamond Shop System aims to streamline operations in the jewelry industry by pro
 
 | Sprint         | Use Case                      |
 |----------------|------------------------------------|
-| **Sprint 1**   | UC-01, UC-02, UC-03, UC-04     |
-| **Sprint 2**   | UC-05, UC-06, UC-07, UC-08     |
-| **Sprint 3**   | UC-09, UC-10, UC-11, UC-12     |
-| **Sprint 4**   | UC-13, UC-14, UC-15, UC-16, UC-17, UC-18 |
+| **Sprint 1**   | UC-01, UC-02, UC-03, UC-04, UC-05     |
+| **Sprint 2**   | UC-06, UC-07, UC-08, UC-09, UC-10     |
+| **Sprint 3**   | UC-11, UC-12, UC-13, UC-14, UC-15     |
+| **Sprint 4**   | UC-16, UC-17, UC-18, UC-19, UC-20, UC-21, UC-22 |
 
 
 
