@@ -101,10 +101,10 @@ Diamond Shop System aims to streamline operations in the jewelry industry by pro
 | Name  | Sprint 1  | Sprint 2  | Sprint 3  | Sprint 4  |
 |-------|-----------|-----------|-----------|-----------|
 | Nam   | UC-1      |           |           |           |
-| Sơn   | UC-1, UC-2|           |           |           |
-| Dĩ    | UC-2, UC-3|           |           |           |
-| Nhật  | UC-3      |           |           |           |
-| Bảo   | UC-4      |           |           |           |
+| Sơn   | UC-2|           |           |           |
+| Dĩ    | UC-3|           |           |           |
+| Nhật  | UC-4      |           |           |           |
+| Bảo   | UC-5      |           |           |           |
 
 
 ## Project Structure
