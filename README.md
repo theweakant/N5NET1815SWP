@@ -79,10 +79,10 @@ Diamond Shop System aims to streamline operations in the jewelry industry by pro
 | Role             | Team Member                        |
 |------------------|------------------------------------|
 | **Project Manager** |  Quốc Phong                     |
-| **Frontend Developer** | Quốc Phong, Quốc Nam, Tuấn Anh, Quang Nhật                  |
-| **Backend Developer** | Khánh Tùng                    |
-| **Database Administrator** | Khánh Tùng              |
-| **Tester**    | Quốc Nam, Thế Sơn, Đại Dĩ, Minh Nhật, Gia Bảo                          |
+| **Frontend Developer** | Quốc Phong, Quốc Nam, Tuấn Anh, Quang Nhật |
+| **Backend Developer** | Khánh Tùng        |
+| **Database Administrator** | Khánh Tùng    |
+| **Tester**    | Quốc Nam, Thế Sơn, Đại Dĩ, Minh Nhật, Gia Bảo      |
 
 ---
 ## Team Tester Assignment
@@ -100,11 +100,11 @@ Diamond Shop System aims to streamline operations in the jewelry industry by pro
 
 | Name  | Sprint 1  | Sprint 2  | Sprint 3  | Sprint 4  |
 |-------|-----------|-----------|-----------|-----------|
-| Nam   | UC-1      |           |           |           |
-| Sơn   | UC-2|           |           |           |
-| Bảo    | UC-3|           |           |           |
-| Nhật  | UC-4      |           |           |           |
-| Dĩ   | UC-5      |           |           |           |
+| Nam   | UC-1    | UC-6        | UC-11     | UC-16          |
+| Sơn   | UC-2    |  UC-7       | UC-12     |  UC-17         |
+| Bảo   | UC-3    |  UC-8       | UC-13     | UC-18          |
+| Nhật  | UC-4    | UC-9        | UC-14     | UC-19          |
+| Dĩ    | UC-5    | UC-10       |  UC-15    |  UC-20         |
 
 
 ## Project Structure
