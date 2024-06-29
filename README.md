@@ -102,9 +102,9 @@ Diamond Shop System aims to streamline operations in the jewelry industry by pro
 |-------|-----------|-----------|-----------|-----------|
 | Nam   | UC-1      |           |           |           |
 | Sơn   | UC-2|           |           |           |
-| Dĩ    | UC-5|           |           |           |
+| Dĩ    | UC-3|           |           |           |
 | Nhật  | UC-4      |           |           |           |
-| Bảo   | UC-3      |           |           |           |
+| Bảo   | UC-5      |           |           |           |
 
 
 ## Project Structure
