@@ -60,8 +60,7 @@ Diamond Shop System aims to streamline operations in the jewelry industry by pro
 **Backend**
 - Java
 - Spring Boot
-- Spring JPA
-- Thymeleaf
+
 
 **Database**
 - MySQL
